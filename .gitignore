@@ -1,0 +1,9 @@
+/api/node_modules
+/api/dist
+/api/coverage
+/tmp
+/ios/OOTD.xcodeproj/project.xcworkspace/xcuserdata
+.DS_Store
+.idea
+.vscode
+/ios/DerivedData

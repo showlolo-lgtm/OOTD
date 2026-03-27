@@ -1,0 +1,222 @@
+[
+  {
+    "id": "shirt-oxford-ivory",
+    "name": "象牙白牛津衬衫",
+    "category": "top",
+    "colors": ["ivory", "cream"],
+    "seasons": ["spring", "autumn"],
+    "formality": 4.5,
+    "warmth": 2.2,
+    "tags": ["office", "commute", "tailored"],
+    "imageUrl": "https://placehold.co/640x800/EEE6DA/2A2E35?text=Ivory+Oxford"
+  },
+  {
+    "id": "tee-ribbed-stone",
+    "name": "石灰色罗纹 T 恤",
+    "category": "top",
+    "colors": ["stone", "oat"],
+    "seasons": ["spring", "summer", "autumn"],
+    "formality": 2.8,
+    "warmth": 1.4,
+    "tags": ["casual", "clean", "minimal"],
+    "imageUrl": "https://placehold.co/640x800/E7E0D4/30343F?text=Stone+Tee"
+  },
+  {
+    "id": "blouse-sage-drape",
+    "name": "鼠尾草绿垂感衬衫",
+    "category": "top",
+    "colors": ["sage", "olive"],
+    "seasons": ["spring", "autumn"],
+    "formality": 3.9,
+    "warmth": 1.8,
+    "tags": ["date", "soft", "polished"],
+    "imageUrl": "https://placehold.co/640x800/C8D0BF/2A3026?text=Sage+Blouse"
+  },
+  {
+    "id": "knit-merino-mocha",
+    "name": "摩卡色美利奴针织衫",
+    "category": "top",
+    "colors": ["mocha", "camel"],
+    "seasons": ["autumn", "winter", "spring"],
+    "formality": 3.6,
+    "warmth": 3.7,
+    "tags": ["layered", "soft", "office"],
+    "imageUrl": "https://placehold.co/640x800/B49884/F7F0E8?text=Mocha+Knit"
+  },
+  {
+    "id": "trouser-charcoal-wide",
+    "name": "炭灰阔腿西裤",
+    "category": "bottom",
+    "colors": ["charcoal"],
+    "seasons": ["spring", "autumn", "winter"],
+    "formality": 4.6,
+    "warmth": 2.8,
+    "tags": ["office", "tailored", "boardroom"],
+    "imageUrl": "https://placehold.co/640x800/D8D8D8/1F2430?text=Charcoal+Trouser"
+  },
+  {
+    "id": "jean-indigo-straight",
+    "name": "靛蓝直筒牛仔裤",
+    "category": "bottom",
+    "colors": ["indigo"],
+    "seasons": ["spring", "autumn", "winter"],
+    "formality": 2.7,
+    "warmth": 2.5,
+    "tags": ["casual", "weekend", "clean"],
+    "imageUrl": "https://placehold.co/640x800/344966/F2EDE5?text=Indigo+Jean"
+  },
+  {
+    "id": "skirt-pleated-moss",
+    "name": "苔绿色百褶中长裙",
+    "category": "bottom",
+    "colors": ["moss", "olive"],
+    "seasons": ["spring", "autumn"],
+    "formality": 3.8,
+    "warmth": 2,
+    "tags": ["date", "gallery", "movement"],
+    "imageUrl": "https://placehold.co/640x800/788268/F8F3E8?text=Moss+Skirt"
+  },
+  {
+    "id": "short-tailored-sand",
+    "name": "沙色剪裁短裤",
+    "category": "bottom",
+    "colors": ["sand", "beige"],
+    "seasons": ["spring", "summer"],
+    "formality": 3.2,
+    "warmth": 1.1,
+    "tags": ["creative", "city", "sharp"],
+    "imageUrl": "https://placehold.co/640x800/D7C6AF/2F2C2A?text=Sand+Short"
+  },
+  {
+    "id": "blazer-navy-relaxed",
+    "name": "海军蓝宽松西装外套",
+    "category": "outerwear",
+    "colors": ["navy"],
+    "seasons": ["spring", "autumn"],
+    "formality": 4.7,
+    "warmth": 3,
+    "tags": ["office", "meeting", "layered"],
+    "imageUrl": "https://placehold.co/640x800/33435C/F2E9DD?text=Navy+Blazer"
+  },
+  {
+    "id": "trench-stone-fluid",
+    "name": "石灰色垂坠风衣",
+    "category": "outerwear",
+    "colors": ["stone", "taupe"],
+    "seasons": ["spring", "autumn"],
+    "formality": 4.3,
+    "warmth": 3.4,
+    "tags": ["rain-ready", "commute", "layered"],
+    "imageUrl": "https://placehold.co/640x800/C5B8A7/2E3137?text=Stone+Trench"
+  },
+  {
+    "id": "cardigan-olive-soft",
+    "name": "柔软橄榄绿开衫",
+    "category": "outerwear",
+    "colors": ["olive"],
+    "seasons": ["spring", "autumn", "winter"],
+    "formality": 3.1,
+    "warmth": 3.2,
+    "tags": ["soft", "layered", "cozy"],
+    "imageUrl": "https://placehold.co/640x800/7B8468/F8F3E8?text=Olive+Cardigan"
+  },
+  {
+    "id": "dress-slip-olive",
+    "name": "橄榄绿缎面吊带裙",
+    "category": "dress",
+    "colors": ["olive"],
+    "seasons": ["spring", "summer", "autumn"],
+    "formality": 3.7,
+    "warmth": 1.8,
+    "tags": ["date", "gallery", "sleek"],
+    "imageUrl": "https://placehold.co/640x800/768060/F8F3E8?text=Olive+Slip+Dress"
+  },
+  {
+    "id": "dress-shirt-ink",
+    "name": "墨色衬衫裙",
+    "category": "dress",
+    "colors": ["ink", "navy"],
+    "seasons": ["spring", "autumn"],
+    "formality": 4,
+    "warmth": 2.3,
+    "tags": ["office", "creative", "clean"],
+    "imageUrl": "https://placehold.co/640x800/2E3A4E/F7F1E5?text=Ink+Dress"
+  },
+  {
+    "id": "loafer-black-soft",
+    "name": "软面黑色乐福鞋",
+    "category": "shoes",
+    "colors": ["black"],
+    "seasons": ["spring", "autumn", "winter"],
+    "formality": 4.2,
+    "warmth": 2.4,
+    "tags": ["office", "commute", "rain-ready"],
+    "imageUrl": "https://placehold.co/640x800/282828/F4F0E8?text=Black+Loafer"
+  },
+  {
+    "id": "sneaker-white-minimal",
+    "name": "极简白色运动鞋",
+    "category": "shoes",
+    "colors": ["white"],
+    "seasons": ["spring", "summer", "autumn"],
+    "formality": 2.4,
+    "warmth": 1.5,
+    "tags": ["casual", "city", "clean"],
+    "imageUrl": "https://placehold.co/640x800/FAFAF5/2D3237?text=White+Sneaker"
+  },
+  {
+    "id": "boot-ankle-espresso",
+    "name": "浓缩咖短靴",
+    "category": "shoes",
+    "colors": ["espresso"],
+    "seasons": ["autumn", "winter", "spring"],
+    "formality": 3.8,
+    "warmth": 3.3,
+    "tags": ["rain-ready", "date", "layered"],
+    "imageUrl": "https://placehold.co/640x800/4B3C32/F7EEE5?text=Espresso+Boot"
+  },
+  {
+    "id": "heel-slingback-cream",
+    "name": "奶油色后空高跟鞋",
+    "category": "shoes",
+    "colors": ["cream"],
+    "seasons": ["spring", "summer", "autumn"],
+    "formality": 4.1,
+    "warmth": 1.2,
+    "tags": ["date", "dressy"],
+    "imageUrl": "https://placehold.co/640x800/F0E4D8/2F2A29?text=Cream+Slingback"
+  },
+  {
+    "id": "bag-structured-olive",
+    "name": "橄榄绿通勤托特包",
+    "category": "accessory",
+    "colors": ["olive"],
+    "seasons": ["spring", "autumn", "winter"],
+    "formality": 4.3,
+    "warmth": 2,
+    "tags": ["office", "commute", "practical"],
+    "imageUrl": "https://placehold.co/640x800/55624A/F9F3E7?text=Olive+Tote"
+  },
+  {
+    "id": "earring-gold-arc",
+    "name": "金色弧形耳饰",
+    "category": "accessory",
+    "colors": ["gold"],
+    "seasons": ["spring", "summer", "autumn", "winter"],
+    "formality": 3.9,
+    "warmth": 1,
+    "tags": ["date", "polished", "light"],
+    "imageUrl": "https://placehold.co/640x800/E5C56A/3A3123?text=Gold+Arc"
+  },
+  {
+    "id": "scarf-silk-forest",
+    "name": "森林绿真丝方巾",
+    "category": "accessory",
+    "colors": ["forest", "olive"],
+    "seasons": ["spring", "autumn"],
+    "formality": 3.6,
+    "warmth": 1.6,
+    "tags": ["fortune-color", "soft", "layered"],
+    "imageUrl": "https://placehold.co/640x800/3E5A47/F7F0E7?text=Forest+Scarf"
+  }
+]
