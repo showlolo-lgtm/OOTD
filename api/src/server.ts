@@ -1,5 +1,6 @@
 import { readFile } from "node:fs/promises";
-import { basename, extname, resolve } from "node:path";
+import { basename, dirname, extname, resolve } from "node:path";
+import { fileURLToPath } from "node:url";
 import Fastify, { type FastifyInstance } from "fastify";
 import { loadInspirations, loadWardrobe } from "./dataStore.js";
 import { CuratedInspirationProvider } from "./providers/curatedInspirationProvider.js";
@@ -27,6 +28,14 @@ interface BuildAppOptions {
   inspirationProvider?: InspirationProvider;
   outfitLLMClient?: OutfitLLMClient;
 }
+
+const currentDirectory = dirname(fileURLToPath(import.meta.url));
+const generatedImagesDirectories = [
+  resolve(process.cwd(), "..", "data", "generated", "images"),
+  resolve(process.cwd(), "data", "generated", "images"),
+  resolve(currentDirectory, "..", "..", "data", "generated", "images"),
+  resolve(currentDirectory, "..", "..", "..", "data", "generated", "images")
+];
 
 function isCalendarScenario(value: unknown): value is CalendarScenario {
   if (!value || typeof value !== "object") return false;
@@ -134,6 +143,7 @@ export async function buildApp(options: BuildAppOptions = {}): Promise<FastifyIn
   });
 
   app.get("/health", async () => ({ ok: true }));
+  app.get("/", async () => ({ ok: true, service: "ootd-api" }));
 
   app.get("/generated-assets/:fileName", async (request, reply) => {
     const params = request.params as { fileName?: string };
@@ -144,12 +154,20 @@ export async function buildApp(options: BuildAppOptions = {}): Promise<FastifyIn
     }
 
     try {
-      const fileBuffer = await readFile(
-        resolve(process.cwd(), "..", "data", "generated", "images", fileName)
-      );
-      return reply.type(contentTypeFor(fileName)).send(fileBuffer);
-    } catch {
+      for (const directory of generatedImagesDirectories) {
+        try {
+          const fileBuffer = await readFile(resolve(directory, fileName));
+          return reply.type(contentTypeFor(fileName)).send(fileBuffer);
+        } catch (error) {
+          if ((error as NodeJS.ErrnoException).code !== "ENOENT") {
+            throw error;
+          }
+        }
+      }
+
       return reply.code(404).send({ error: "Asset not found." });
+    } catch {
+      return reply.code(500).send({ error: "Asset lookup failed." });
     }
   });
 
@@ -185,7 +203,9 @@ async function start(): Promise<void> {
   await app.listen({ host: "0.0.0.0", port });
 }
 
-if (process.argv[1]?.endsWith("server.ts")) {
+const entryFile = process.argv[1] ? basename(process.argv[1]) : "";
+
+if (entryFile === "server.ts" || entryFile === "server.js") {
   start().catch((error) => {
     console.error(error);
     process.exitCode = 1;

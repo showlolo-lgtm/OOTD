@@ -114,6 +114,7 @@ PORT=8787
 ```
 
 6. 部署完成后，打开 Railway 分配给你的公网 URL
+- `/` 应该返回 `{"ok":true,"service":"ootd-api"}`
 - `/health` 应该返回 `{"ok":true}`
 - `/v1/wardrobe` 应该返回你生成后的衣柜 JSON
 

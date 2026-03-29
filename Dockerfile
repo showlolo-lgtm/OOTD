@@ -13,10 +13,13 @@ WORKDIR /app
 COPY api ./api
 COPY data ./data
 
+WORKDIR /app/api
+RUN pnpm build
+
 ENV NODE_ENV=production
 ENV PORT=8787
 
 EXPOSE 8787
 
 WORKDIR /app/api
-CMD ["pnpm", "start"]
+CMD ["pnpm", "start:prod"]
