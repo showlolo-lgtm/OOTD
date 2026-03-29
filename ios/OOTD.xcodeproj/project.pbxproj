@@ -136,6 +136,7 @@
 				A10000000000000000000071 /* Sources */,
 				A10000000000000000000041 /* Frameworks */,
 				A10000000000000000000072 /* Resources */,
+				A10000000000000000000077 /* Sync Generated Wardrobe Images */,
 			);
 			buildRules = (
 			);
@@ -248,6 +249,29 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		A10000000000000000000077 /* Sync Generated Wardrobe Images */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"$(SRCROOT)/../data/generated/wardrobe.generated.json",
+				"$(SRCROOT)/../data/generated/images",
+			);
+			name = "Sync Generated Wardrobe Images";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "/bin/sh \"${SRCROOT}/scripts/copy-generated-wardrobe-images.sh\"\n";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		A10000000000000000000071 /* Sources */ = {
