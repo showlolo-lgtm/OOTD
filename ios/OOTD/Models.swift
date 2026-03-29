@@ -34,6 +34,38 @@ enum ZodiacSign: String, CaseIterable, Codable, Identifiable {
     }
 }
 
+enum LookDay: String, CaseIterable, Identifiable, Hashable {
+    case today
+    case tomorrow
+
+    var id: String { rawValue }
+
+    var title: String {
+        switch self {
+        case .today:
+            "今天"
+        case .tomorrow:
+            "明天"
+        }
+    }
+
+    var baseDate: Date {
+        let calendar = Calendar.current
+        switch self {
+        case .today:
+            return Date()
+        case .tomorrow:
+            return calendar.date(byAdding: .day, value: 1, to: Date()) ?? Date()
+        }
+    }
+
+    var isoDate: String {
+        let formatter = ISO8601DateFormatter()
+        formatter.formatOptions = [.withFullDate]
+        return formatter.string(from: baseDate)
+    }
+}
+
 struct LocationInput: Codable, Equatable {
     let city: String
     let lat: Double
@@ -273,6 +305,37 @@ extension CalendarScenario {
             copy.location = "新天地"
         }
         return copy
+    }
+
+    func shifted(to day: LookDay) -> CalendarScenario {
+        let calendar = Calendar.current
+        let targetDate = day.baseDate
+
+        let startComponents = calendar.dateComponents([.hour, .minute], from: startTime)
+        let endComponents = calendar.dateComponents([.hour, .minute], from: endTime)
+
+        let nextStart = calendar.date(
+            bySettingHour: startComponents.hour ?? 9,
+            minute: startComponents.minute ?? 0,
+            second: 0,
+            of: targetDate
+        ) ?? targetDate
+
+        let nextEnd = calendar.date(
+            bySettingHour: endComponents.hour ?? 18,
+            minute: endComponents.minute ?? 0,
+            second: 0,
+            of: targetDate
+        ) ?? nextStart.addingTimeInterval(60 * 60)
+
+        return CalendarScenario(
+            id: id,
+            title: title,
+            startTime: nextStart,
+            endTime: max(nextEnd, nextStart.addingTimeInterval(30 * 60)),
+            location: location,
+            occasionTags: occasionTags
+        ).normalizedForDemo
     }
 }
 
@@ -566,7 +629,6 @@ enum PreviewFixtures {
     }
 
     static func tomorrowISODate() -> String {
-        let tomorrow = Calendar.current.date(byAdding: .day, value: 1, to: Date()) ?? Date()
-        return ISO8601DateFormatter().string(from: tomorrow).prefix(10).description
+        LookDay.tomorrow.isoDate
     }
 }

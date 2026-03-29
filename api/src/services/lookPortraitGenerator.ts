@@ -1,4 +1,4 @@
-import { randomUUID } from "node:crypto";
+import { createHash } from "node:crypto";
 import { mkdir, readFile, stat, writeFile } from "node:fs/promises";
 import { basename, dirname, extname, resolve } from "node:path";
 import { fileURLToPath } from "node:url";
@@ -27,6 +27,12 @@ interface ResolvedInputImage {
   fileName: string;
   mimeType: string;
   buffer: Buffer;
+}
+
+interface CachedLookPortraitManifest {
+  cacheKey: string;
+  prompt: string;
+  files: string[];
 }
 
 const currentDirectory = dirname(fileURLToPath(import.meta.url));
@@ -86,6 +92,7 @@ export class OpenAILookPortraitGenerator implements LookPortraitGenerator {
     }
 
     const outputDirectory = await ensureWritableLookPortraitDirectory();
+    const referenceSignature = digestBuffer(referenceImage.buffer);
 
     for (const look of request.looks) {
       const items = look.itemIds
@@ -111,6 +118,27 @@ export class OpenAILookPortraitGenerator implements LookPortraitGenerator {
         lookTitle: look.title,
         items
       });
+      const cacheKey = buildPortraitCacheKey({
+        city: request.city,
+        scenarioTitle: request.scenarioTitle,
+        weatherSummary: request.weatherSummary,
+        fortuneSummary: request.fortuneSummary,
+        lookTitle: look.title,
+        itemIds: look.itemIds,
+        referenceSignature,
+        imageModel: this.imageModel,
+        imageQuality: this.imageQuality,
+        imageSize: this.imageSize
+      });
+      const cachedImages = await readCachedPortraitImages(outputDirectory, cacheKey, look.lookId, count);
+
+      if (cachedImages.length >= count) {
+        portraits.push({
+          lookId: look.lookId,
+          images: cachedImages.slice(0, count)
+        });
+        continue;
+      }
 
       const formData = new FormData();
       formData.set("model", this.imageModel);
@@ -154,7 +182,7 @@ export class OpenAILookPortraitGenerator implements LookPortraitGenerator {
           continue;
         }
 
-        const fileName = `${look.lookId}-${randomUUID()}-${index + 1}.png`;
+        const fileName = `${cacheKey}-${index + 1}.png`;
         await writeFile(resolve(outputDirectory, fileName), Buffer.from(image.b64_json, "base64"));
         generatedImages.push({
           id: `${look.lookId}-${index + 1}`,
@@ -167,6 +195,12 @@ export class OpenAILookPortraitGenerator implements LookPortraitGenerator {
         warnings.push(`look ${look.lookId} 没有拿到可写入的真人图结果。`);
         continue;
       }
+
+      await writeCachedPortraitManifest(outputDirectory, cacheKey, {
+        cacheKey,
+        prompt,
+        files: generatedImages.map((image) => basename(image.imageUrl))
+      });
 
       portraits.push({
         lookId: look.lookId,
@@ -268,6 +302,85 @@ function mimeTypeForFileName(fileName: string): string {
 
 function toFile(image: ResolvedInputImage): File {
   return new File([new Uint8Array(image.buffer)], image.fileName, { type: image.mimeType });
+}
+
+function digestBuffer(buffer: Buffer): string {
+  return createHash("sha1").update(buffer).digest("hex");
+}
+
+function buildPortraitCacheKey(input: {
+  city: string;
+  scenarioTitle: string;
+  weatherSummary: string;
+  fortuneSummary: string;
+  lookTitle?: string;
+  itemIds: string[];
+  referenceSignature: string;
+  imageModel: string;
+  imageQuality: string;
+  imageSize: string;
+}): string {
+  return createHash("sha1")
+    .update(
+      JSON.stringify({
+        city: input.city,
+        scenarioTitle: input.scenarioTitle,
+        weatherSummary: input.weatherSummary,
+        fortuneSummary: input.fortuneSummary,
+        lookTitle: input.lookTitle ?? "",
+        itemIds: input.itemIds,
+        referenceSignature: input.referenceSignature,
+        imageModel: input.imageModel,
+        imageQuality: input.imageQuality,
+        imageSize: input.imageSize
+      })
+    )
+    .digest("hex")
+    .slice(0, 24);
+}
+
+async function readCachedPortraitImages(
+  outputDirectory: string,
+  cacheKey: string,
+  lookId: string,
+  count: number
+): Promise<LookPortraitImage[]> {
+  try {
+    const manifestPath = resolve(outputDirectory, `${cacheKey}.json`);
+    const manifest = JSON.parse(
+      (await readFile(manifestPath, "utf-8"))
+    ) as CachedLookPortraitManifest;
+
+    if (!Array.isArray(manifest.files) || manifest.files.length < count) {
+      return [];
+    }
+
+    const images: LookPortraitImage[] = [];
+    for (const [index, fileName] of manifest.files.slice(0, count).entries()) {
+      await stat(resolve(outputDirectory, fileName));
+      images.push({
+        id: `${lookId}-${index + 1}`,
+        imageUrl: `/generated-look-portraits/${fileName}`,
+        prompt: manifest.prompt
+      });
+    }
+
+    return images;
+  } catch (error) {
+    if ((error as NodeJS.ErrnoException).code === "ENOENT") {
+      return [];
+    }
+
+    return [];
+  }
+}
+
+async function writeCachedPortraitManifest(
+  outputDirectory: string,
+  cacheKey: string,
+  manifest: CachedLookPortraitManifest
+): Promise<void> {
+  await writeFile(resolve(outputDirectory, `${cacheKey}.json`), JSON.stringify(manifest, null, 2), "utf-8");
 }
 
 async function readPresetReferenceImage(): Promise<ResolvedInputImage | null> {

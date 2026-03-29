@@ -50,10 +50,7 @@ struct ContentView: View {
     }
 
     private var looksForSelectedDay: [OutfitRecommendation] {
-        guard !model.looks.isEmpty else { return [] }
-        guard selectedDay == .tomorrow, model.looks.count > 1 else { return model.looks }
-
-        return Array(model.looks.dropFirst()) + [model.looks[0]]
+        model.looks(for: selectedDay)
     }
 }
 
@@ -61,31 +58,6 @@ private enum RootSection {
     case home
     case wardrobe
     case profile
-}
-
-private enum LookDay: String, CaseIterable, Identifiable {
-    case today
-    case tomorrow
-
-    var id: String { rawValue }
-
-    var title: String {
-        switch self {
-        case .today:
-            "今天"
-        case .tomorrow:
-            "明天"
-        }
-    }
-
-    var subtitle: String {
-        switch self {
-        case .today:
-            "今天先这样穿"
-        case .tomorrow:
-            "明天提前想好"
-        }
-    }
 }
 
 private enum PublishStage {
@@ -159,7 +131,7 @@ private struct HomeFeedView: View {
                             isGeneratingPortraits: model.isGeneratingPortraits(for: look.id),
                             onReroll: { model.rerollLook(look.id) },
                             city: model.summaryCityText,
-                            scenarioTitle: model.recommendation?.context.scenario.title ?? "今日安排"
+                            scenarioTitle: model.scenarioTitle(for: look.id)
                         )
                     }
                 }
@@ -1019,7 +991,7 @@ private struct ProfileDashboard: View {
                         .font(.system(.title3, design: .rounded).weight(.bold))
                         .foregroundStyle(LookTheme.ink)
 
-                    if let weather = model.recommendation?.context.weather {
+                    if let weather = (model.context(for: .tomorrow) ?? model.context(for: .today))?.weather {
                         detailRow(title: "城市", value: model.summaryCityText)
                         detailRow(title: "体感", value: "\(Int(weather.apparentLowC))-\(Int(weather.apparentHighC))°C")
                         detailRow(title: "天气", value: weather.summary)
@@ -1036,7 +1008,7 @@ private struct ProfileDashboard: View {
                         .font(.system(.title3, design: .rounded).weight(.bold))
                         .foregroundStyle(LookTheme.ink)
 
-                    if let fortune = model.recommendation?.context.fortune {
+                    if let fortune = (model.context(for: .tomorrow) ?? model.context(for: .today))?.fortune {
                         detailRow(title: "星座", value: model.summarySignText)
                         detailRow(title: "幸运色", value: localizedColorName(fortune.luckyColor))
                         detailRow(title: "状态", value: localizedMood(fortune.mood))
@@ -1156,14 +1128,18 @@ private struct PublishFlowSheet: View {
     @State private var hasRequestedSystemCamera = false
 
     private var shareCopy: String {
-        guard let context = model.recommendation?.context else {
+        let selectedContext =
+            featuredLook.flatMap { model.context(for: $0.id) } ??
+            model.context(for: selectedDay)
+
+        guard let context = selectedContext else {
             return "今天先把这套穿搭拍下来，留作出门前的一次简洁记录。"
         }
 
         let weatherSummary = context.weather.summary.replacingOccurrences(of: "。", with: "")
-        return "\(model.summaryCityText)今天\(Int(context.weather.lowC))-\(Int(context.weather.highC))°C，\(weatherSummary)。" +
+        return "\(model.summaryCityText)\(selectedDay.title)\(Int(context.weather.lowC))-\(Int(context.weather.highC))°C，\(weatherSummary)。" +
             "日历安排是\(context.scenario.title)，地点在\(context.scenario.location)。" +
-            "\(model.summarySignText)今天的提示是：\(context.fortune.summary)"
+            "\(model.summarySignText)\(selectedDay.title)的提示是：\(context.fortune.summary)"
     }
 
     private var shouldUseSystemCamera: Bool {
