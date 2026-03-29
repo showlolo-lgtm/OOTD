@@ -61,7 +61,7 @@ final class LiveAPIClient: APIClient, @unchecked Sendable {
     }
 
     func fetchLookPortraits(request: LookPortraitRequestBody) async throws -> LookPortraitResponse {
-        try await post(path: "/v1/look-portraits", body: request)
+        try await post(path: "/v1/look-portraits", body: request, timeoutInterval: 180)
     }
 
     private func get<Response: Decodable>(path: String) async throws -> Response {
@@ -72,12 +72,16 @@ final class LiveAPIClient: APIClient, @unchecked Sendable {
 
     private func post<RequestBody: Encodable, Response: Decodable>(
         path: String,
-        body: RequestBody
+        body: RequestBody,
+        timeoutInterval: TimeInterval? = nil
     ) async throws -> Response {
         var request = URLRequest(url: baseURL.appending(path: path))
         request.httpMethod = "POST"
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
         request.httpBody = try encoder.encode(body)
+        if let timeoutInterval {
+            request.timeoutInterval = timeoutInterval
+        }
         return try await send(request)
     }
 

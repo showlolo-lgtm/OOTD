@@ -337,6 +337,7 @@ function buildPortraitPrompt(input: {
     "Preserve the face, body shape, skin tone, hair length, and general identity of the woman from the first image.",
     "Do not add extra garments, extra people, text, collage layouts, or watermarks.",
     "Keep the pose natural, head-to-toe visible, and make the fabric, color, and silhouette match the product references.",
+    "Render the full head, hairline, and face clearly. Never crop off the top of the head or any facial features.",
     lookTitle,
     `City: ${input.city}. Scenario: ${input.scenarioTitle}.`,
     `Weather mood: ${input.weatherSummary}. Fortune cue: ${input.fortuneSummary}.`,

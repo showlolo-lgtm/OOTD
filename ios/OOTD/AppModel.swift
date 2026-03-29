@@ -197,41 +197,49 @@ final class AppModel: ObservableObject {
         revision: Int
     ) async {
         guard !outfits.isEmpty else { return }
-        let lookIDs = Set(outfits.map(\.id))
-        do {
-            let response = try await api.fetchLookPortraits(
-                request: LookPortraitRequestBody(
-                    looks: outfits.map { outfit in
-                        LookPortraitLookRequest(
-                            lookId: outfit.id,
-                            itemIds: outfit.itemIds,
-                            title: outfit.summary
-                        )
-                    },
-                    city: selectedCity.name,
-                    scenarioTitle: recommendation.context.scenario.title,
-                    weatherSummary: recommendation.context.weather.summary,
-                    fortuneSummary: recommendation.context.fortune.summary,
-                    count: 3
-                )
-            )
+        var pendingLookIDs = Set(outfits.map(\.id))
 
+        for outfit in outfits {
             guard self.lookRevision == revision else {
-                generatingPortraitLookIDs.subtract(lookIDs)
+                generatingPortraitLookIDs.subtract(pendingLookIDs)
                 return
             }
-            var nextPortraits = lookPortraitsByLookID
-            for portrait in response.portraits {
-                nextPortraits[portrait.lookId] = portrait.images
+
+            do {
+                let response = try await api.fetchLookPortraits(
+                    request: LookPortraitRequestBody(
+                        looks: [
+                            LookPortraitLookRequest(
+                                lookId: outfit.id,
+                                itemIds: outfit.itemIds,
+                                title: outfit.summary
+                            )
+                        ],
+                        city: selectedCity.name,
+                        scenarioTitle: recommendation.context.scenario.title,
+                        weatherSummary: recommendation.context.weather.summary,
+                        fortuneSummary: recommendation.context.fortune.summary,
+                        count: 1
+                    )
+                )
+
+                guard self.lookRevision == revision else {
+                    generatingPortraitLookIDs.subtract(pendingLookIDs)
+                    return
+                }
+
+                if let portrait = response.portraits.first(where: { $0.lookId == outfit.id }) {
+                    lookPortraitsByLookID[outfit.id] = portrait.images
+                }
+            } catch {
+                guard self.lookRevision == revision else {
+                    generatingPortraitLookIDs.subtract(pendingLookIDs)
+                    return
+                }
             }
-            lookPortraitsByLookID = nextPortraits
-            generatingPortraitLookIDs.subtract(lookIDs)
-        } catch {
-            guard self.lookRevision == revision else {
-                generatingPortraitLookIDs.subtract(lookIDs)
-                return
-            }
-            generatingPortraitLookIDs.subtract(lookIDs)
+
+            pendingLookIDs.remove(outfit.id)
+            generatingPortraitLookIDs.remove(outfit.id)
         }
     }
 

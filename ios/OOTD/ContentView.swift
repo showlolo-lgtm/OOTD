@@ -413,25 +413,19 @@ private struct LookPortraitPanel: View {
     var body: some View {
         ZStack(alignment: .topTrailing) {
             Group {
-                if portraitURLs.isEmpty {
-                    OutfitPortraitView(items: fallbackItems)
-                } else {
-                    TabView {
-                        ForEach(Array(portraitURLs.enumerated()), id: \.offset) { index, portraitURL in
-                            AsyncImage(url: portraitURL) { phase in
-                                switch phase {
-                                case let .success(image):
-                                    image
-                                        .resizable()
-                                        .scaledToFill()
-                                default:
-                                    OutfitPortraitView(items: fallbackItems)
-                                }
-                            }
-                            .tag(index)
+                if let portraitURL = portraitURLs.first {
+                    AsyncImage(url: portraitURL) { phase in
+                        switch phase {
+                        case let .success(image):
+                            image
+                                .resizable()
+                                .scaledToFill()
+                        default:
+                            OutfitPortraitView(items: fallbackItems)
                         }
                     }
-                    .tabViewStyle(.page(indexDisplayMode: portraitURLs.count > 1 ? .automatic : .never))
+                } else {
+                    OutfitPortraitView(items: fallbackItems)
                 }
             }
 
@@ -510,15 +504,9 @@ private struct AIGeneratingOverlay: View {
                 }
 
                 VStack(spacing: 6) {
-                    Text("AI 正在生成真人穿搭图")
+                    Text("AI正在生成真人效果图")
                         .font(.system(.headline, design: .rounded).weight(.bold))
                         .foregroundStyle(.white)
-
-                    Text("会保留这位模特形象，并按当前单品重搭这一套。")
-                        .font(.system(.footnote, design: .rounded))
-                        .foregroundStyle(Color.white.opacity(0.82))
-                        .multilineTextAlignment(.center)
-                        .padding(.horizontal, 24)
                 }
 
                 HStack(spacing: 8) {
