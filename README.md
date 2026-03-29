@@ -26,13 +26,23 @@ Optional env:
 - `INSPIRATIONS_DATA_FILE`: 可选，默认 `inspirations.json`。
 - `OOTD_MODEL_REFERENCE_IMAGE_PATH`: 可选，真人参考图绝对路径。不填时会自动读取 `data/reference/model-reference.jpg`。
 
+## 首屏启动策略
+
+iOS app 现在默认走完全本地化的首屏：
+
+1. `今天` 和 `明天` 共 `6` 套固定穿搭已经写死在客户端
+2. 对应的衣物图和真人效果图都会在 build 时一起打进 app bundle
+3. app 首次启动不请求 `/v1/recommendations`，也不请求 `/v1/look-portraits`
+4. 只有点卡片右上角的 `重新搭配`，才会请求后端重新生成该套穿搭和真人效果图
+
+这样做的目的就是让 demo 首屏加载非常快，也避免每次 `Cmd+R` 重复消耗图片生成费用。
+
 ## 真人效果图
 
-首页的人物穿搭图现在走固定参考图链路：
+真人效果图链路分两段：
 
-1. 后端先拿到 3 套穿搭
-2. 再按卡片逐张调用 OpenAI 生成真人效果图
-3. 每套默认只生成 `1` 张，避免首屏超时
+- 首屏默认使用仓库里的固定真人图资源：`data/curated/look-portraits/*.png`
+- 只有 `重新搭配` 时，后端才会拿固定参考图去调用 OpenAI 生成新的真人效果图
 
 默认参考图位置：
 
@@ -46,7 +56,7 @@ Optional env:
 - `data/reference/reference.jpeg`
 - `data/reference/reference.png`
 
-本地启动一个完整链路的例子：
+本地启动一个可重搭版本的例子：
 
 ```bash
 cd /Users/yulei/Code/ootd/api
@@ -172,11 +182,12 @@ OOTD_MODEL_REFERENCE_IMAGE_PATH=/app/data/reference/model-reference.jpg
 
 1. 在 Xcode 打开 [`ios/OOTD.xcodeproj`](/Users/yulei/Code/ootd/ios/OOTD.xcodeproj)
 2. 运行 `OOTD` scheme
-3. 如需指向非默认 API 地址，给 app 设置环境变量 `OOTD_API_BASE_URL`
+3. 如需支持 `重新搭配`，给 app 设置环境变量 `OOTD_API_BASE_URL`
 
-默认客户端会请求 `http://127.0.0.1:8787`。UI tests 会通过 launch argument 自动切到本地 fixture，不依赖后端。
+默认情况下，首屏 6 套固定穿搭和真人图都来自 app bundle；即使不启动本地 API，app 也可以直接打开和浏览。只有你要测试 `重新搭配` 时，才需要准备可用的 API 地址。
 
 补充：
 
 - app build 时会自动把 `data/generated/images/*` 打包进资源。
+- app build 时也会自动把 `data/curated/look-portraits/*` 打包进资源。
 - 如果存在 `data/reference/model-reference.jpg`，也会一起打进 app bundle。

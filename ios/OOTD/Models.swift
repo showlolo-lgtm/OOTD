@@ -632,3 +632,368 @@ enum PreviewFixtures {
         LookDay.tomorrow.isoDate
     }
 }
+
+struct CuratedHomeLook {
+    let day: LookDay
+    let scenarioID: String
+    let outfit: OutfitRecommendation
+    let portraitFileName: String
+}
+
+enum CuratedHomeFixtures {
+    static let looks: [CuratedHomeLook] = [
+        CuratedHomeLook(
+            day: .today,
+            scenarioID: "client-rainy",
+            outfit: OutfitRecommendation(
+                id: "today-client-rainy",
+                itemIds: [
+                    "silk-shirt-ivory-25",
+                    "wide-trouser-black-44",
+                    "leather-loafer-black-49",
+                    "belted-blazer-charcoal-47",
+                    "structured-bag-camel-34"
+                ],
+                summary: "黑白灰客户线条",
+                whyWeatherFit: "真丝衬衫和黑色阔腿西裤把体感控制在轻盈范围，炭灰西装外套又能把室内空调温差稳住。",
+                whyScenarioFit: "客户场景更需要可信度和边界感，这套的结构线条清楚、色块稳定，开场就很有分寸。",
+                whyFortuneFit: "今天的好运更适合藏在线条和节奏里，驼色托特包把重点压在一个专业又耐看的位置。",
+                inspirationIds: ["client-tailored", "city-neutral"]
+            ),
+            portraitFileName: "today-client-rainy.png"
+        ),
+        CuratedHomeLook(
+            day: .today,
+            scenarioID: "commute-atelier",
+            outfit: OutfitRecommendation(
+                id: "today-commute-atelier",
+                itemIds: [
+                    "rib-knit-tee-oat-08",
+                    "straight-denim-ink-52",
+                    "minimal-sneaker-stone-54",
+                    "short-trench-stone-30",
+                    "shoulder-bag-taupe-15"
+                ],
+                summary: "轻松通勤层次",
+                whyWeatherFit: "针织上衣和短风衣把早晚的微凉处理得刚好，不厚重，也不会显得太单薄。",
+                whyScenarioFit: "通勤和咖啡碰头都需要松弛但干净，这组牛仔裤和运动鞋的比例会更有呼吸感。",
+                whyFortuneFit: "今天适合把节奏放轻一点，灰调和鼠尾草色鞋面让整体显得平静又有细节。",
+                inspirationIds: ["commute-soft", "studio-casual"]
+            ),
+            portraitFileName: "today-commute-atelier.png"
+        ),
+        CuratedHomeLook(
+            day: .today,
+            scenarioID: "date-gallery",
+            outfit: OutfitRecommendation(
+                id: "today-date-gallery",
+                itemIds: [
+                    "merino-knit-wine-38",
+                    "a-line-midi-skirt-cream-58",
+                    "slingback-heel-wine-35",
+                    "wool-coat-mocha-51",
+                    "pearl-earring-gold-50"
+                ],
+                summary: "柔和约会酒红调",
+                whyWeatherFit: "羊毛针织衫和摩卡色大衣能把傍晚的凉意接住，奶油色半裙又让整体保留轻盈感。",
+                whyScenarioFit: "约会和看展更适合这种柔一点的对比，酒红上衣和后空高跟鞋会让气质更有记忆点。",
+                whyFortuneFit: "今天适合把亮点放近脸部，珍珠耳饰和酒红色上衣能把状态衬得更温柔也更聚焦。",
+                inspirationIds: ["date-soft-contrast", "gallery-warm-light"]
+            ),
+            portraitFileName: "today-date-gallery.png"
+        ),
+        CuratedHomeLook(
+            day: .tomorrow,
+            scenarioID: "client-rainy",
+            outfit: OutfitRecommendation(
+                id: "tomorrow-client-rainy",
+                itemIds: [
+                    "silk-shirt-sage-31",
+                    "wide-trouser-taupe-14",
+                    "leather-loafer-wine-12",
+                    "belted-blazer-navy-36",
+                    "fine-chain-necklace-gold-57"
+                ],
+                summary: "知性客户鼠尾草调",
+                whyWeatherFit: "鼠尾草衬衫和灰褐西裤在偏温和的天气里看起来更清爽，海军蓝西装也足够应对正式室内场合。",
+                whyScenarioFit: "明天的客户场景更适合冷静一点的层次，这组色调比纯黑白更柔和，但仍然非常专业。",
+                whyFortuneFit: "双子座明天更适合用清爽色提气，鼠尾草衬衫和金色细链会让整个人显得更聪明、更有回应感。",
+                inspirationIds: ["client-sage", "refined-boardroom"]
+            ),
+            portraitFileName: "tomorrow-client-rainy.png"
+        ),
+        CuratedHomeLook(
+            day: .tomorrow,
+            scenarioID: "commute-atelier",
+            outfit: OutfitRecommendation(
+                id: "tomorrow-commute-atelier",
+                itemIds: [
+                    "merino-knit-charcoal-07",
+                    "straight-denim-charcoal-23",
+                    "ankle-boot-charcoal-11",
+                    "short-trench-olive-42",
+                    "slim-belt-camel-21"
+                ],
+                summary: "深色通勤都市感",
+                whyWeatherFit: "炭灰针织和短靴把早晚温差处理得很稳，橄榄绿短风衣让整体在户外也不会显得沉闷。",
+                whyScenarioFit: "通勤路线里这套更有都市感，深色牛仔和短靴会让走路、换场景都更利落。",
+                whyFortuneFit: "明天更适合把重点收在轮廓上，细皮带和深色层次会让状态更集中，不会散掉。",
+                inspirationIds: ["commute-urban", "dark-layered"]
+            ),
+            portraitFileName: "tomorrow-commute-atelier.png"
+        ),
+        CuratedHomeLook(
+            day: .tomorrow,
+            scenarioID: "date-gallery",
+            outfit: OutfitRecommendation(
+                id: "tomorrow-date-gallery",
+                itemIds: [
+                    "rib-knit-tee-stone-22",
+                    "a-line-midi-skirt-dusty-rose-18",
+                    "slingback-heel-dusty-rose-05",
+                    "wool-coat-camel-24",
+                    "baguette-bag-cream-37"
+                ],
+                summary: "浅粉约会轻优雅",
+                whyWeatherFit: "石灰色针织上衣和驼色大衣能把夜里的风挡住，雾粉色裙装也不会显得太轻飘。",
+                whyScenarioFit: "约会和看展更适合这种浅色轻优雅路线，A 字裙和后空高跟鞋会让步态很好看。",
+                whyFortuneFit: "明天的提示更适合把温柔感往前放，雾粉色半裙和奶油白腋下包能把气氛托得更顺。",
+                inspirationIds: ["date-soft-rose", "gallery-feminine"]
+            ),
+            portraitFileName: "tomorrow-date-gallery.png"
+        )
+    ]
+
+    static func scenarios() -> [CalendarScenario] {
+        PreviewFixtures.scenarios().map(\.normalizedForDemo)
+    }
+
+    static func wardrobeItems(fallback: [WardrobeItem]) -> [WardrobeItem] {
+        fallback
+    }
+
+    static func context(
+        for day: LookDay,
+        scenario: CalendarScenario,
+        sign: ZodiacSign
+    ) -> ContextSnapshot {
+        ContextSnapshot(
+            date: day.isoDate,
+            scenario: scenario,
+            weather: weather(for: day),
+            fortune: fortune(for: sign, day: day),
+            inspiration: inspirationFeed
+        )
+    }
+
+    private static func weather(for day: LookDay) -> WeatherSnapshot {
+        switch day {
+        case .today:
+            WeatherSnapshot(
+                date: day.isoDate,
+                highC: 20,
+                lowC: 13,
+                apparentHighC: 21,
+                apparentLowC: 12,
+                precipitationProbability: 24,
+                weatherCode: 3,
+                summary: "云层柔和，路面微微带潮。",
+                isRainLikely: false,
+                styleTags: ["cloudy", "mild", "clean-lines"]
+            )
+        case .tomorrow:
+            WeatherSnapshot(
+                date: day.isoDate,
+                highC: 22,
+                lowC: 15,
+                apparentHighC: 21,
+                apparentLowC: 14,
+                precipitationProbability: 18,
+                weatherCode: 2,
+                summary: "晚间有风，轻叠穿会更舒服。",
+                isRainLikely: false,
+                styleTags: ["mild", "layered", "polished"]
+            )
+        }
+    }
+
+    private static func fortune(for sign: ZodiacSign, day: LookDay) -> FortuneSnapshot {
+        switch day {
+        case .today:
+            return FortuneSnapshot(
+                sign: sign,
+                summary: "\(sign.displayName)今天适合先把轮廓稳住，再留一个柔和亮点。",
+                luckyColor: "camel",
+                mood: "steady",
+                focus: "clarity",
+                energy: "midday"
+            )
+        case .tomorrow:
+            return FortuneSnapshot(
+                sign: sign,
+                summary: "\(sign.displayName)明天适合把颜色提得轻一点，让整个人更有回应感。",
+                luckyColor: "sage",
+                mood: "bright",
+                focus: "confidence",
+                energy: "late afternoon"
+            )
+        }
+    }
+
+    private static let inspirationFeed: [InspirationItem] = [
+        InspirationItem(
+            id: "client-tailored",
+            title: "客户场合的干净线条",
+            sourceName: "本地精选灵感",
+            sourceUrl: "https://www.xiaohongshu.com/",
+            summary: "西装、衬衫和稳定色块会让第一眼更可信。",
+            weatherTags: ["mild", "cloudy"],
+            occasionTags: ["client", "office"],
+            palette: ["charcoal", "black", "sage"],
+            formality: 4.6,
+            warmth: 2.8,
+            vibe: "tailored",
+            keywords: ["clean", "sharp", "professional"]
+        ),
+        InspirationItem(
+            id: "commute-soft",
+            title: "通勤里的松弛层次",
+            sourceName: "本地精选灵感",
+            sourceUrl: "https://www.xiaohongshu.com/",
+            summary: "牛仔、针织和轻外套可以让日常更有呼吸感。",
+            weatherTags: ["mild", "layered"],
+            occasionTags: ["commute", "coffee"],
+            palette: ["stone", "olive", "ink"],
+            formality: 3.5,
+            warmth: 2.4,
+            vibe: "relaxed",
+            keywords: ["casual", "layered", "urban"]
+        ),
+        InspirationItem(
+            id: "date-soft-contrast",
+            title: "约会里的柔和对比",
+            sourceName: "本地精选灵感",
+            sourceUrl: "https://www.xiaohongshu.com/",
+            summary: "轻盈裙装、温柔色差和精致鞋型最容易出状态。",
+            weatherTags: ["mild", "evening"],
+            occasionTags: ["date", "gallery"],
+            palette: ["rose", "cream", "wine"],
+            formality: 4.0,
+            warmth: 2.2,
+            vibe: "romantic",
+            keywords: ["soft", "feminine", "polished"]
+        ),
+        InspirationItem(
+            id: "city-neutral",
+            title: "都市中性色提案",
+            sourceName: "本地精选灵感",
+            sourceUrl: "https://www.xiaohongshu.com/",
+            summary: "黑白灰和驼色配件能让整体更耐看。",
+            weatherTags: ["cloudy"],
+            occasionTags: ["client", "commute"],
+            palette: ["black", "charcoal", "camel"],
+            formality: 4.3,
+            warmth: 2.6,
+            vibe: "minimal",
+            keywords: ["neutral", "city", "sharp"]
+        ),
+        InspirationItem(
+            id: "date-soft-rose",
+            title: "浅粉和奶油白的约会感",
+            sourceName: "本地精选灵感",
+            sourceUrl: "https://www.xiaohongshu.com/",
+            summary: "浅粉半裙和奶油白包会让气质显得更轻更亮。",
+            weatherTags: ["mild"],
+            occasionTags: ["date", "dinner"],
+            palette: ["rose", "cream", "camel"],
+            formality: 3.9,
+            warmth: 2.1,
+            vibe: "gentle",
+            keywords: ["soft", "light", "romantic"]
+        ),
+        InspirationItem(
+            id: "commute-urban",
+            title: "深色层次的通勤都市感",
+            sourceName: "本地精选灵感",
+            sourceUrl: "https://www.xiaohongshu.com/",
+            summary: "深色针织、牛仔和短靴会让日常更利落。",
+            weatherTags: ["layered"],
+            occasionTags: ["commute", "studio"],
+            palette: ["charcoal", "olive", "camel"],
+            formality: 3.8,
+            warmth: 2.8,
+            vibe: "urban",
+            keywords: ["dark", "structured", "city"]
+        ),
+        InspirationItem(
+            id: "gallery-feminine",
+            title: "看展时的浅色轻优雅",
+            sourceName: "本地精选灵感",
+            sourceUrl: "https://www.xiaohongshu.com/",
+            summary: "浅色针织和 A 字裙最容易拍出松弛又精致的状态。",
+            weatherTags: ["evening"],
+            occasionTags: ["gallery", "date"],
+            palette: ["stone", "rose", "cream"],
+            formality: 3.9,
+            warmth: 2.0,
+            vibe: "feminine",
+            keywords: ["gentle", "artful", "refined"]
+        ),
+        InspirationItem(
+            id: "refined-boardroom",
+            title: "柔和冷色的商务感",
+            sourceName: "本地精选灵感",
+            sourceUrl: "https://www.xiaohongshu.com/",
+            summary: "鼠尾草和海军蓝能让专业感更显现代。",
+            weatherTags: ["mild"],
+            occasionTags: ["client", "meeting"],
+            palette: ["sage", "navy", "taupe"],
+            formality: 4.5,
+            warmth: 2.5,
+            vibe: "refined",
+            keywords: ["smart", "modern", "calm"]
+        ),
+        InspirationItem(
+            id: "studio-casual",
+            title: "工作室日常的轻松比例",
+            sourceName: "本地精选灵感",
+            sourceUrl: "https://www.xiaohongshu.com/",
+            summary: "轻风衣加牛仔裤，是最不费力的稳定公式。",
+            weatherTags: ["cloudy", "mild"],
+            occasionTags: ["commute", "coffee"],
+            palette: ["stone", "ink", "taupe"],
+            formality: 3.4,
+            warmth: 2.3,
+            vibe: "casual",
+            keywords: ["easy", "light", "daily"]
+        ),
+        InspirationItem(
+            id: "dark-layered",
+            title: "深色叠穿的收束感",
+            sourceName: "本地精选灵感",
+            sourceUrl: "https://www.xiaohongshu.com/",
+            summary: "同色深浅变化会让线条更整洁。",
+            weatherTags: ["layered"],
+            occasionTags: ["commute", "city"],
+            palette: ["charcoal", "olive"],
+            formality: 3.7,
+            warmth: 3.0,
+            vibe: "clean",
+            keywords: ["dark", "layered", "sleek"]
+        ),
+        InspirationItem(
+            id: "gallery-warm-light",
+            title: "暖光环境里的酒红重点",
+            sourceName: "本地精选灵感",
+            sourceUrl: "https://www.xiaohongshu.com/",
+            summary: "酒红色在暖光里会显得更温柔也更有质感。",
+            weatherTags: ["evening"],
+            occasionTags: ["date", "gallery"],
+            palette: ["wine", "cream", "mocha"],
+            formality: 4.1,
+            warmth: 2.4,
+            vibe: "warm",
+            keywords: ["wine", "soft", "evening"]
+        )
+    ]
+}

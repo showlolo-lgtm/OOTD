@@ -25,6 +25,7 @@ final class AppModel: ObservableObject {
     private var lookScenariosByLookID: [String: CalendarScenario] = [:]
     private var lookContextsByLookID: [String: ContextSnapshot] = [:]
     private var lookDaysByLookID: [String: LookDay] = [:]
+    private var bundledPortraitFileNamesByLookID: [String: String] = [:]
 
     private enum StorageKeys {
         static let city = "ootd.city"
@@ -47,6 +48,10 @@ final class AppModel: ObservableObject {
 
     static func makeDefault() -> AppModel {
         AppModel(api: AppClientFactory.make())
+    }
+
+    var looks: [OutfitRecommendation] {
+        looks(for: .today)
     }
 
     var warnings: [String] {
@@ -97,6 +102,10 @@ final class AppModel: ObservableObject {
         lookScenariosByLookID[lookId]
     }
 
+    func lookPortraitBundleFileName(for lookId: String) -> String? {
+        bundledPortraitFileNamesByLookID[lookId]
+    }
+
     func bootstrapIfNeeded() async {
         guard !hasBootstrapped else { return }
         await bootstrap()
@@ -108,21 +117,16 @@ final class AppModel: ObservableObject {
         errorMessage = nil
         defer { isBootstrapping = false }
 
-        do {
-            let wardrobe = try await api.fetchWardrobe()
-            let scenarios = try await api.fetchScenarios().map(\.normalizedForDemo)
-            self.wardrobe = wardrobe
-            self.scenarios = scenarios
+        let bundledWardrobe = loadBundledWardrobe()
+        wardrobe = CuratedHomeFixtures.wardrobeItems(fallback: bundledWardrobe ?? PreviewFixtures.wardrobe)
+        scenarios = CuratedHomeFixtures.scenarios()
 
-            if let defaultScenario = orderedScenarioTemplates().first {
-                selectedScenarioID = defaultScenario.id
-                draftScenario = defaultScenario
-            }
-
-            await refreshLooks()
-        } catch {
-            errorMessage = "无法连接服务。请启动后端，或使用内置演示数据。"
+        if let defaultScenario = orderedScenarioTemplates().first {
+            selectedScenarioID = defaultScenario.id
+            draftScenario = defaultScenario
         }
+
+        await refreshLooks()
     }
 
     func updateCity(_ city: CityPreset) {
@@ -170,67 +174,56 @@ final class AppModel: ObservableObject {
     }
 
     func refreshLooks() async {
-        let templates = orderedScenarioTemplates()
-        guard !templates.isEmpty else { return }
-
         isRefreshingLooks = true
         errorMessage = nil
         defer { isRefreshingLooks = false }
 
-        do {
-            var nextLooksByDay: [LookDay: [OutfitRecommendation]] = [:]
-            var nextContextsByDay: [LookDay: ContextSnapshot] = [:]
-            var nextWarningsByDay: [LookDay: [String]] = [:]
-            var nextLookScenarios: [String: CalendarScenario] = [:]
-            var nextLookContexts: [String: ContextSnapshot] = [:]
-            var nextLookDays: [String: LookDay] = [:]
+        let templates = orderedScenarioTemplates()
+        guard !templates.isEmpty else { return }
 
-            for day in LookDay.allCases {
-                let bundles = try await fetchScenarioBundles(for: day, templates: templates)
-                let chosen = chooseLooks(for: bundles)
+        var nextLooksByDay: [LookDay: [OutfitRecommendation]] = [:]
+        var nextContextsByDay: [LookDay: ContextSnapshot] = [:]
+        var nextWarningsByDay: [LookDay: [String]] = [:]
+        var nextLookScenarios: [String: CalendarScenario] = [:]
+        var nextLookContexts: [String: ContextSnapshot] = [:]
+        var nextLookDays: [String: LookDay] = [:]
+        var nextBundledPortraits: [String: String] = [:]
 
-                let looks = chosen.map { selection in
-                    let stableLookId = lookID(for: day, scenarioID: selection.scenario.id)
-                    let outfit = selection.outfit.withID(stableLookId)
-                    nextLookScenarios[stableLookId] = selection.scenario
-                    nextLookContexts[stableLookId] = selection.context
-                    nextLookDays[stableLookId] = day
-                    return outfit
-                }
+        for curated in CuratedHomeFixtures.looks {
+            guard let template = templates.first(where: { $0.id == curated.scenarioID }) else { continue }
+            let scenario = template.shifted(to: curated.day)
+            let context = CuratedHomeFixtures.context(for: curated.day, scenario: scenario, sign: zodiacSign)
+            let look = curated.outfit.withID(curated.outfit.id)
 
-                nextLooksByDay[day] = looks
-                if let dayContext = chosen.first?.context ?? bundles.first?.response.context.normalizedForDemo {
-                    nextContextsByDay[day] = dayContext
-                }
-                nextWarningsByDay[day] = bundles.flatMap(\.response.warnings)
+            nextLooksByDay[curated.day, default: []].append(look)
+            nextLookScenarios[look.id] = scenario
+            nextLookContexts[look.id] = context
+            nextLookDays[look.id] = curated.day
+            nextBundledPortraits[look.id] = curated.portraitFileName
+            nextWarningsByDay[curated.day, default: []] = []
+        }
+
+        for day in LookDay.allCases {
+            nextLooksByDay[day] = (nextLooksByDay[day] ?? []).sorted {
+                (Self.scenarioPriority[nextLookScenarios[$0.id]?.id ?? ""] ?? .max) <
+                    (Self.scenarioPriority[nextLookScenarios[$1.id]?.id ?? ""] ?? .max)
             }
 
-            looksByDay = nextLooksByDay
-            contextsByDay = nextContextsByDay
-            warningsByDay = nextWarningsByDay
-            lookScenariosByLookID = nextLookScenarios
-            lookContextsByLookID = nextLookContexts
-            lookDaysByLookID = nextLookDays
-            syncRecommendationSnapshot()
-
-            lookRevision += 1
-            let revision = lookRevision
-            lookPortraitsByLookID = [:]
-            let allLookIDs = Set(nextLooksByDay.values.flatMap { $0.map(\.id) })
-            generatingPortraitLookIDs = allLookIDs
-            let allOutfits = nextLooksByDay.values.flatMap { $0 }
-            Task { await refreshLookPortraits(for: allOutfits, revision: revision) }
-        } catch {
-            looksByDay = [:]
-            contextsByDay = [:]
-            warningsByDay = [:]
-            lookScenariosByLookID = [:]
-            lookContextsByLookID = [:]
-            lookDaysByLookID = [:]
-            lookPortraitsByLookID = [:]
-            generatingPortraitLookIDs = []
-            errorMessage = "刷新穿搭失败，请检查接口地址或本地服务。"
+            if let firstLook = nextLooksByDay[day]?.first, let context = nextLookContexts[firstLook.id] {
+                nextContextsByDay[day] = context
+            }
         }
+
+        looksByDay = nextLooksByDay
+        contextsByDay = nextContextsByDay
+        warningsByDay = nextWarningsByDay
+        lookScenariosByLookID = nextLookScenarios
+        lookContextsByLookID = nextLookContexts
+        lookDaysByLookID = nextLookDays
+        bundledPortraitFileNamesByLookID = nextBundledPortraits
+        lookPortraitsByLookID = [:]
+        generatingPortraitLookIDs = []
+        syncRecommendationSnapshot()
     }
 
     func wardrobeItemName(for id: String) -> String {
@@ -484,6 +477,7 @@ final class AppModel: ObservableObject {
 
         generatingPortraitLookIDs.insert(lookId)
         lookPortraitsByLookID[lookId] = nil
+        bundledPortraitFileNamesByLookID[lookId] = nil
 
         do {
             let response = try await api.fetchRerolledLook(
@@ -582,4 +576,13 @@ private extension OutfitRecommendation {
             inspirationIds: inspirationIds
         )
     }
+}
+
+private func loadBundledWardrobe() -> [WardrobeItem]? {
+    let bundledURL = Bundle.main.bundleURL
+        .appending(path: "BundledWardrobe", directoryHint: .isDirectory)
+        .appending(path: "wardrobe.generated.json")
+
+    guard let data = try? Data(contentsOf: bundledURL) else { return nil }
+    return try? JSONDecoder().decode([WardrobeItem].self, from: data)
 }

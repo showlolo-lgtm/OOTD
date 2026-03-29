@@ -127,6 +127,7 @@ private struct HomeFeedView: View {
                             index: index,
                             look: look,
                             items: prioritizedItems(for: look),
+                            bundledPortraitFileName: model.lookPortraitBundleFileName(for: look.id),
                             portraitURLs: model.lookPortraitURLs(for: look.id),
                             isGeneratingPortraits: model.isGeneratingPortraits(for: look.id),
                             onReroll: { model.rerollLook(look.id) },
@@ -225,6 +226,7 @@ private struct OutfitFeedCard: View {
     let index: Int
     let look: OutfitRecommendation
     let items: [WardrobeItem]
+    let bundledPortraitFileName: String?
     let portraitURLs: [URL]
     let isGeneratingPortraits: Bool
     let onReroll: () -> Void
@@ -318,6 +320,7 @@ private struct OutfitFeedCard: View {
 
                 VStack(alignment: .leading, spacing: 12) {
                     LookPortraitPanel(
+                        bundledPortraitFileName: bundledPortraitFileName,
                         portraitURLs: portraitURLs,
                         fallbackItems: items,
                         isGenerating: isGeneratingPortraits,
@@ -376,6 +379,7 @@ private struct OutfitFeedCard: View {
 }
 
 private struct LookPortraitPanel: View {
+    let bundledPortraitFileName: String?
     let portraitURLs: [URL]
     let fallbackItems: [WardrobeItem]
     let isGenerating: Bool
@@ -429,6 +433,11 @@ private struct LookPortraitPanel: View {
             AIGeneratingOverlay()
                 .aspectRatio(1, contentMode: .fit)
                 .transition(.opacity)
+        } else if let bundledPortraitImage {
+            Image(uiImage: bundledPortraitImage)
+                .resizable()
+                .scaledToFit()
+                .frame(maxWidth: .infinity)
         } else if let portraitURL = portraitURLs.first {
             AsyncImage(url: portraitURL) { phase in
                 switch phase {
@@ -452,6 +461,14 @@ private struct LookPortraitPanel: View {
             OutfitPortraitView(items: fallbackItems)
                 .aspectRatio(1, contentMode: .fit)
         }
+    }
+
+    private var bundledPortraitImage: UIImage? {
+        guard let fileName = bundledPortraitFileName else { return nil }
+        let fileURL = Bundle.main.bundleURL
+            .appending(path: "CuratedLookPortraits", directoryHint: .isDirectory)
+            .appending(path: fileName)
+        return UIImage(contentsOfFile: fileURL.path)
     }
 }
 
