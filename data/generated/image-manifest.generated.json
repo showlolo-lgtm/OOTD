@@ -1,0 +1,602 @@
+[
+  {
+    "itemId": "silk-shirt-cream-01",
+    "fileName": "silk-shirt-cream-01.png",
+    "outputPath": "generated/images/silk-shirt-cream-01.png",
+    "imageUrl": "/generated-assets/silk-shirt-cream-01.png",
+    "styleDirection": "电商白底写实风",
+    "prompt": "电商白底写实商品图，一件女款奶油白真丝衬衫。单件女士衬衫，领口清晰，袖型利落，面料带细腻光泽。主色是奶油白，材质是真丝，版型为常规，轮廓是微垂坠。风格偏都市风，现代利落，适合高频城市通勤和日常切换。强调现代、利落、适合城市移动与日常切换。单品居中，4:5 竖版构图，纯白背景，柔和棚拍灯光，边缘清晰，材质纹理真实，阴影自然克制。",
+    "negativePrompt": "不要模特，不要人物，不要手，不要衣架，不要品牌 logo，不要文字，不要水印，不要多件商品，不要复杂背景。",
+    "renderMode": "openai"
+  },
+  {
+    "itemId": "knit-dress-mocha-02",
+    "fileName": "knit-dress-mocha-02.png",
+    "outputPath": "generated/images/knit-dress-mocha-02.png",
+    "imageUrl": "/generated-assets/knit-dress-mocha-02.png",
+    "styleDirection": "电商白底写实风",
+    "prompt": "电商白底写实商品图，一件女款摩卡色针织连衣裙。单件女士针织连衣裙，裙身修长，针织纹理细腻，整体简洁。主色是摩卡色，材质是细羊毛针织，版型为修身，轮廓是H 型。风格偏法式风，轻松优雅，带一点松弛和女性化线条。强调轻松优雅、微松弛和女性化线条。单品居中，4:5 竖版构图，纯白背景，柔和棚拍灯光，边缘清晰，材质纹理真实，阴影自然克制。",
+    "negativePrompt": "不要模特，不要人物，不要手，不要衣架，不要品牌 logo，不要文字，不要水印，不要多件商品，不要复杂背景。",
+    "renderMode": "openai"
+  },
+  {
+    "itemId": "fine-chain-necklace-gold-03",
+    "fileName": "fine-chain-necklace-gold-03.png",
+    "outputPath": "generated/images/fine-chain-necklace-gold-03.png",
+    "imageUrl": "/generated-assets/fine-chain-necklace-gold-03.png",
+    "styleDirection": "电商白底写实风",
+    "prompt": "电商白底写实商品图，一件女款金色细链项链。单件女士首饰，一条细链项链平铺展示，链条清晰，金属质感干净。主色是金色，材质是金属，版型为贴颈，轮廓是细链。风格偏都市风，现代利落，适合高频城市通勤和日常切换。强调现代、利落、适合城市移动与日常切换。单品居中，4:5 竖版构图，纯白背景，柔和棚拍灯光，边缘清晰，材质纹理真实，阴影自然克制。",
+    "negativePrompt": "不要模特，不要人物，不要手，不要衣架，不要品牌 logo，不要文字，不要水印，不要多件商品，不要复杂背景。",
+    "renderMode": "openai"
+  },
+  {
+    "itemId": "arc-earring-gold-04",
+    "fileName": "arc-earring-gold-04.png",
+    "outputPath": "generated/images/arc-earring-gold-04.png",
+    "imageUrl": "/generated-assets/arc-earring-gold-04.png",
+    "styleDirection": "电商白底写实风",
+    "prompt": "电商白底写实商品图，一件女款金色弧形耳饰。单件女士首饰，一对耳饰并排摆放，轮廓简洁，金属光泽柔和。主色是金色，材质是金属，版型为轻量，轮廓是弧形。风格偏商务风，线条干净克制，适合办公室与正式会面。强调通勤、会议、干练线条和可信赖感。单品居中，4:5 竖版构图，纯白背景，柔和棚拍灯光，边缘清晰，材质纹理真实，阴影自然克制。",
+    "negativePrompt": "不要模特，不要人物，不要手，不要衣架，不要品牌 logo，不要文字，不要水印，不要多件商品，不要复杂背景。",
+    "renderMode": "openai"
+  },
+  {
+    "itemId": "slingback-heel-dusty-rose-05",
+    "fileName": "slingback-heel-dusty-rose-05.png",
+    "outputPath": "generated/images/slingback-heel-dusty-rose-05.png",
+    "imageUrl": "/generated-assets/slingback-heel-dusty-rose-05.png",
+    "styleDirection": "电商白底写实风",
+    "prompt": "电商白底写实商品图，一件女款雾粉色后空高跟鞋。单件女士鞋履，一双后空高跟鞋并排摆放，鞋型修长，鞋面平整。主色是雾粉色，材质是细腻皮革，版型为常规，轮廓是尖头。风格偏商务风，线条干净克制，适合办公室与正式会面。强调通勤、会议、干练线条和可信赖感。单品居中，4:5 竖版构图，纯白背景，柔和棚拍灯光，边缘清晰，材质纹理真实，阴影自然克制。",
+    "negativePrompt": "不要模特，不要人物，不要手，不要衣架，不要品牌 logo，不要文字，不要水印，不要多件商品，不要复杂背景。",
+    "renderMode": "openai"
+  },
+  {
+    "itemId": "shirt-dress-stone-06",
+    "fileName": "shirt-dress-stone-06.png",
+    "outputPath": "generated/images/shirt-dress-stone-06.png",
+    "imageUrl": "/generated-assets/shirt-dress-stone-06.png",
+    "styleDirection": "电商白底写实风",
+    "prompt": "电商白底写实商品图，一件女款石灰色衬衫裙。单件女士衬衫裙，门襟清晰，袖型简洁，裙摆自然垂落。主色是石灰色，材质是棉质混纺，版型为常规，轮廓是直筒。风格偏学院风，清爽规整，带一点书卷气和减龄感。强调清爽、规整、带一点书卷气和校园感。单品居中，4:5 竖版构图，纯白背景，柔和棚拍灯光，边缘清晰，材质纹理真实，阴影自然克制。",
+    "negativePrompt": "不要模特，不要人物，不要手，不要衣架，不要品牌 logo，不要文字，不要水印，不要多件商品，不要复杂背景。",
+    "renderMode": "openai"
+  },
+  {
+    "itemId": "merino-knit-charcoal-07",
+    "fileName": "merino-knit-charcoal-07.png",
+    "outputPath": "generated/images/merino-knit-charcoal-07.png",
+    "imageUrl": "/generated-assets/merino-knit-charcoal-07.png",
+    "styleDirection": "电商白底写实风",
+    "prompt": "电商白底写实商品图，一件女款炭灰羊毛针织衫。单件女士针织衫，羊毛质感明显，领口和袖口干净平整。主色是炭灰，材质是美利奴羊毛，版型为微宽松，轮廓是柔和垂落。风格偏极简风，减少装饰，强调干净轮廓和高级基础感。强调去装饰、干净轮廓和耐看的基础感。单品居中，4:5 竖版构图，纯白背景，柔和棚拍灯光，边缘清晰，材质纹理真实，阴影自然克制。",
+    "negativePrompt": "不要模特，不要人物，不要手，不要衣架，不要品牌 logo，不要文字，不要水印，不要多件商品，不要复杂背景。",
+    "renderMode": "openai"
+  },
+  {
+    "itemId": "rib-knit-tee-oat-08",
+    "fileName": "rib-knit-tee-oat-08.png",
+    "outputPath": "generated/images/rib-knit-tee-oat-08.png",
+    "imageUrl": "/generated-assets/rib-knit-tee-oat-08.png",
+    "styleDirection": "电商白底写实风",
+    "prompt": "电商白底写实商品图，一件女款燕麦色罗纹针织上衣。单件女士罗纹上衣，肩线干净，版型修长，针织纹理可见。主色是燕麦色，材质是细针织，版型为修身，轮廓是贴身。风格偏商务风，线条干净克制，适合办公室与正式会面。强调通勤、会议、干练线条和可信赖感。单品居中，4:5 竖版构图，纯白背景，柔和棚拍灯光，边缘清晰，材质纹理真实，阴影自然克制。",
+    "negativePrompt": "不要模特，不要人物，不要手，不要衣架，不要品牌 logo，不要文字，不要水印，不要多件商品，不要复杂背景。",
+    "renderMode": "openai"
+  },
+  {
+    "itemId": "silk-shirt-cream-09",
+    "fileName": "silk-shirt-cream-09.png",
+    "outputPath": "generated/images/silk-shirt-cream-09.png",
+    "imageUrl": "/generated-assets/silk-shirt-cream-09.png",
+    "styleDirection": "电商白底写实风",
+    "prompt": "电商白底写实商品图，一件女款奶油白真丝衬衫。单件女士衬衫，领口清晰，袖型利落，面料带细腻光泽。主色是奶油白，材质是真丝，版型为常规，轮廓是微垂坠。风格偏都市风，现代利落，适合高频城市通勤和日常切换。强调现代、利落、适合城市移动与日常切换。单品居中，4:5 竖版构图，纯白背景，柔和棚拍灯光，边缘清晰，材质纹理真实，阴影自然克制。",
+    "negativePrompt": "不要模特，不要人物，不要手，不要衣架，不要品牌 logo，不要文字，不要水印，不要多件商品，不要复杂背景。",
+    "renderMode": "openai"
+  },
+  {
+    "itemId": "straight-denim-charcoal-10",
+    "fileName": "straight-denim-charcoal-10.png",
+    "outputPath": "generated/images/straight-denim-charcoal-10.png",
+    "imageUrl": "/generated-assets/straight-denim-charcoal-10.png",
+    "styleDirection": "电商白底写实风",
+    "prompt": "电商白底写实商品图，一件女款炭灰直筒牛仔裤。单条女士直筒牛仔裤，丹宁纹理清楚，腰线简洁，裤脚利落。主色是炭灰，材质是丹宁，版型为高腰，轮廓是直筒。风格偏极简风，减少装饰，强调干净轮廓和高级基础感。强调去装饰、干净轮廓和耐看的基础感。单品居中，4:5 竖版构图，纯白背景，柔和棚拍灯光，边缘清晰，材质纹理真实，阴影自然克制。",
+    "negativePrompt": "不要模特，不要人物，不要手，不要衣架，不要品牌 logo，不要文字，不要水印，不要多件商品，不要复杂背景。",
+    "renderMode": "openai"
+  },
+  {
+    "itemId": "ankle-boot-charcoal-11",
+    "fileName": "ankle-boot-charcoal-11.png",
+    "outputPath": "generated/images/ankle-boot-charcoal-11.png",
+    "imageUrl": "/generated-assets/ankle-boot-charcoal-11.png",
+    "styleDirection": "电商白底写实风",
+    "prompt": "电商白底写实商品图，一件女款炭灰短靴。单件女士鞋履，一双踝靴并排摆放，鞋筒挺括，鞋面干净。主色是炭灰，材质是哑光牛皮，版型为常规，轮廓是踝靴。风格偏都市风，现代利落，适合高频城市通勤和日常切换。强调现代、利落、适合城市移动与日常切换。单品居中，4:5 竖版构图，纯白背景，柔和棚拍灯光，边缘清晰，材质纹理真实，阴影自然克制。",
+    "negativePrompt": "不要模特，不要人物，不要手，不要衣架，不要品牌 logo，不要文字，不要水印，不要多件商品，不要复杂背景。",
+    "renderMode": "openai"
+  },
+  {
+    "itemId": "leather-loafer-wine-12",
+    "fileName": "leather-loafer-wine-12.png",
+    "outputPath": "generated/images/leather-loafer-wine-12.png",
+    "imageUrl": "/generated-assets/leather-loafer-wine-12.png",
+    "styleDirection": "电商白底写实风",
+    "prompt": "电商白底写实商品图，一件女款酒红色皮革乐福鞋。单件女士鞋履，一双乐福鞋并排摆放，鞋面完整可见，皮革反光柔和。主色是酒红色，材质是抛光牛皮，版型为常规，轮廓是低跟。风格偏学院风，清爽规整，带一点书卷气和减龄感。强调清爽、规整、带一点书卷气和校园感。单品居中，4:5 竖版构图，纯白背景，柔和棚拍灯光，边缘清晰，材质纹理真实，阴影自然克制。",
+    "negativePrompt": "不要模特，不要人物，不要手，不要衣架，不要品牌 logo，不要文字，不要水印，不要多件商品，不要复杂背景。",
+    "renderMode": "openai"
+  },
+  {
+    "itemId": "merino-knit-wine-13",
+    "fileName": "merino-knit-wine-13.png",
+    "outputPath": "generated/images/merino-knit-wine-13.png",
+    "imageUrl": "/generated-assets/merino-knit-wine-13.png",
+    "styleDirection": "电商白底写实风",
+    "prompt": "电商白底写实商品图，一件女款酒红色羊毛针织衫。单件女士针织衫，羊毛质感明显，领口和袖口干净平整。主色是酒红色，材质是美利奴羊毛，版型为微宽松，轮廓是柔和垂落。风格偏极简风，减少装饰，强调干净轮廓和高级基础感。强调去装饰、干净轮廓和耐看的基础感。单品居中，4:5 竖版构图，纯白背景，柔和棚拍灯光，边缘清晰，材质纹理真实，阴影自然克制。",
+    "negativePrompt": "不要模特，不要人物，不要手，不要衣架，不要品牌 logo，不要文字，不要水印，不要多件商品，不要复杂背景。",
+    "renderMode": "openai"
+  },
+  {
+    "itemId": "wide-trouser-taupe-14",
+    "fileName": "wide-trouser-taupe-14.png",
+    "outputPath": "generated/images/wide-trouser-taupe-14.png",
+    "imageUrl": "/generated-assets/wide-trouser-taupe-14.png",
+    "styleDirection": "电商白底写实风",
+    "prompt": "电商白底写实商品图，一件女款灰褐色阔腿西裤。单条女士高腰西裤，裤线利落，裤腿宽松顺直，垂感明显。主色是灰褐色，材质是斜纹西装料，版型为高腰，轮廓是阔腿。风格偏知性风，温和克制，强调成熟感与阅读气质。强调温和、克制、成熟感和阅读气质。单品居中，4:5 竖版构图，纯白背景，柔和棚拍灯光，边缘清晰，材质纹理真实，阴影自然克制。",
+    "negativePrompt": "不要模特，不要人物，不要手，不要衣架，不要品牌 logo，不要文字，不要水印，不要多件商品，不要复杂背景。",
+    "renderMode": "openai"
+  },
+  {
+    "itemId": "shoulder-bag-taupe-15",
+    "fileName": "shoulder-bag-taupe-15.png",
+    "outputPath": "generated/images/shoulder-bag-taupe-15.png",
+    "imageUrl": "/generated-assets/shoulder-bag-taupe-15.png",
+    "styleDirection": "电商白底写实风",
+    "prompt": "电商白底写实商品图，一件女款灰褐色肩背包。单件女士包袋，肩背包正面展示，包身简洁，轮廓轻盈。主色是灰褐色，材质是细纹皮革，版型为中等容量，轮廓是弧形。风格偏知性风，温和克制，强调成熟感与阅读气质。强调温和、克制、成熟感和阅读气质。单品居中，4:5 竖版构图，纯白背景，柔和棚拍灯光，边缘清晰，材质纹理真实，阴影自然克制。",
+    "negativePrompt": "不要模特，不要人物，不要手，不要衣架，不要品牌 logo，不要文字，不要水印，不要多件商品，不要复杂背景。",
+    "renderMode": "openai"
+  },
+  {
+    "itemId": "minimal-sneaker-sage-16",
+    "fileName": "minimal-sneaker-sage-16.png",
+    "outputPath": "generated/images/minimal-sneaker-sage-16.png",
+    "imageUrl": "/generated-assets/minimal-sneaker-sage-16.png",
+    "styleDirection": "电商白底写实风",
+    "prompt": "电商白底写实商品图，一件女款鼠尾草绿极简运动鞋。单件女士鞋履，一双极简运动鞋并排摆放，轮廓干净，材质拼接克制。主色是鼠尾草绿，材质是皮革拼网布，版型为常规，轮廓是低帮。风格偏法式风，轻松优雅，带一点松弛和女性化线条。强调轻松优雅、微松弛和女性化线条。单品居中，4:5 竖版构图，纯白背景，柔和棚拍灯光，边缘清晰，材质纹理真实，阴影自然克制。",
+    "negativePrompt": "不要模特，不要人物，不要手，不要衣架，不要品牌 logo，不要文字，不要水印，不要多件商品，不要复杂背景。",
+    "renderMode": "openai"
+  },
+  {
+    "itemId": "wrap-dress-forest-17",
+    "fileName": "wrap-dress-forest-17.png",
+    "outputPath": "generated/images/wrap-dress-forest-17.png",
+    "imageUrl": "/generated-assets/wrap-dress-forest-17.png",
+    "styleDirection": "电商白底写实风",
+    "prompt": "电商白底写实商品图，一件女款森林绿裹身连衣裙。单件女士连衣裙，V 领或裹身结构自然，裙摆线条流畅。主色是森林绿，材质是垂感混纺，版型为收腰，轮廓是裹身。风格偏学院风，清爽规整，带一点书卷气和减龄感。强调清爽、规整、带一点书卷气和校园感。单品居中，4:5 竖版构图，纯白背景，柔和棚拍灯光，边缘清晰，材质纹理真实，阴影自然克制。",
+    "negativePrompt": "不要模特，不要人物，不要手，不要衣架，不要品牌 logo，不要文字，不要水印，不要多件商品，不要复杂背景。",
+    "renderMode": "openai"
+  },
+  {
+    "itemId": "a-line-midi-skirt-dusty-rose-18",
+    "fileName": "a-line-midi-skirt-dusty-rose-18.png",
+    "outputPath": "generated/images/a-line-midi-skirt-dusty-rose-18.png",
+    "imageUrl": "/generated-assets/a-line-midi-skirt-dusty-rose-18.png",
+    "styleDirection": "电商白底写实风",
+    "prompt": "电商白底写实商品图，一件女款雾粉色A 字中长裙。单条女士中长半裙，裙摆轻微展开，线条顺滑，不规则细节极少。主色是雾粉色，材质是哑光混纺，版型为高腰，轮廓是A 字。风格偏都市风，现代利落，适合高频城市通勤和日常切换。强调现代、利落、适合城市移动与日常切换。单品居中，4:5 竖版构图，纯白背景，柔和棚拍灯光，边缘清晰，材质纹理真实，阴影自然克制。",
+    "negativePrompt": "不要模特，不要人物，不要手，不要衣架，不要品牌 logo，不要文字，不要水印，不要多件商品，不要复杂背景。",
+    "renderMode": "openai"
+  },
+  {
+    "itemId": "belted-blazer-navy-19",
+    "fileName": "belted-blazer-navy-19.png",
+    "outputPath": "generated/images/belted-blazer-navy-19.png",
+    "imageUrl": "/generated-assets/belted-blazer-navy-19.png",
+    "styleDirection": "电商白底写实风",
+    "prompt": "电商白底写实商品图，一件女款海军蓝收腰西装外套。单件女士西装外套，肩线挺括，腰部略收，驳领清晰。主色是海军蓝，材质是羊毛混纺，版型为修身，轮廓是收腰。风格偏知性风，温和克制，强调成熟感与阅读气质。强调温和、克制、成熟感和阅读气质。单品居中，4:5 竖版构图，纯白背景，柔和棚拍灯光，边缘清晰，材质纹理真实，阴影自然克制。",
+    "negativePrompt": "不要模特，不要人物，不要手，不要衣架，不要品牌 logo，不要文字，不要水印，不要多件商品，不要复杂背景。",
+    "renderMode": "openai"
+  },
+  {
+    "itemId": "knit-dress-charcoal-20",
+    "fileName": "knit-dress-charcoal-20.png",
+    "outputPath": "generated/images/knit-dress-charcoal-20.png",
+    "imageUrl": "/generated-assets/knit-dress-charcoal-20.png",
+    "styleDirection": "电商白底写实风",
+    "prompt": "电商白底写实商品图，一件女款炭灰针织连衣裙。单件女士针织连衣裙，裙身修长，针织纹理细腻，整体简洁。主色是炭灰，材质是细羊毛针织，版型为修身，轮廓是H 型。风格偏学院风，清爽规整，带一点书卷气和减龄感。强调清爽、规整、带一点书卷气和校园感。单品居中，4:5 竖版构图，纯白背景，柔和棚拍灯光，边缘清晰，材质纹理真实，阴影自然克制。",
+    "negativePrompt": "不要模特，不要人物，不要手，不要衣架，不要品牌 logo，不要文字，不要水印，不要多件商品，不要复杂背景。",
+    "renderMode": "openai"
+  },
+  {
+    "itemId": "slim-belt-camel-21",
+    "fileName": "slim-belt-camel-21.png",
+    "outputPath": "generated/images/slim-belt-camel-21.png",
+    "imageUrl": "/generated-assets/slim-belt-camel-21.png",
+    "styleDirection": "电商白底写实风",
+    "prompt": "电商白底写实商品图，一件女款驼色细皮带。单件女士配饰，一条细皮带平铺展示，皮面平整，扣头清晰。主色是驼色，材质是皮革，版型为细版，轮廓是线性。风格偏都市风，现代利落，适合高频城市通勤和日常切换。强调现代、利落、适合城市移动与日常切换。单品居中，4:5 竖版构图，纯白背景，柔和棚拍灯光，边缘清晰，材质纹理真实，阴影自然克制。",
+    "negativePrompt": "不要模特，不要人物，不要手，不要衣架，不要品牌 logo，不要文字，不要水印，不要多件商品，不要复杂背景。",
+    "renderMode": "openai"
+  },
+  {
+    "itemId": "rib-knit-tee-stone-22",
+    "fileName": "rib-knit-tee-stone-22.png",
+    "outputPath": "generated/images/rib-knit-tee-stone-22.png",
+    "imageUrl": "/generated-assets/rib-knit-tee-stone-22.png",
+    "styleDirection": "电商白底写实风",
+    "prompt": "电商白底写实商品图，一件女款石灰色罗纹针织上衣。单件女士罗纹上衣，肩线干净，版型修长，针织纹理可见。主色是石灰色，材质是细针织，版型为修身，轮廓是贴身。风格偏法式风，轻松优雅，带一点松弛和女性化线条。强调轻松优雅、微松弛和女性化线条。单品居中，4:5 竖版构图，纯白背景，柔和棚拍灯光，边缘清晰，材质纹理真实，阴影自然克制。",
+    "negativePrompt": "不要模特，不要人物，不要手，不要衣架，不要品牌 logo，不要文字，不要水印，不要多件商品，不要复杂背景。",
+    "renderMode": "openai"
+  },
+  {
+    "itemId": "straight-denim-charcoal-23",
+    "fileName": "straight-denim-charcoal-23.png",
+    "outputPath": "generated/images/straight-denim-charcoal-23.png",
+    "imageUrl": "/generated-assets/straight-denim-charcoal-23.png",
+    "styleDirection": "电商白底写实风",
+    "prompt": "电商白底写实商品图，一件女款炭灰直筒牛仔裤。单条女士直筒牛仔裤，丹宁纹理清楚，腰线简洁，裤脚利落。主色是炭灰，材质是丹宁，版型为高腰，轮廓是直筒。风格偏都市风，现代利落，适合高频城市通勤和日常切换。强调现代、利落、适合城市移动与日常切换。单品居中，4:5 竖版构图，纯白背景，柔和棚拍灯光，边缘清晰，材质纹理真实，阴影自然克制。",
+    "negativePrompt": "不要模特，不要人物，不要手，不要衣架，不要品牌 logo，不要文字，不要水印，不要多件商品，不要复杂背景。",
+    "renderMode": "openai"
+  },
+  {
+    "itemId": "wool-coat-camel-24",
+    "fileName": "wool-coat-camel-24.png",
+    "outputPath": "generated/images/wool-coat-camel-24.png",
+    "imageUrl": "/generated-assets/wool-coat-camel-24.png",
+    "styleDirection": "电商白底写实风",
+    "prompt": "电商白底写实商品图，一件女款驼色羊毛大衣。单件女士长款大衣，面料厚实，轮廓挺阔，衣长接近小腿。主色是驼色，材质是双面羊毛，版型为微宽松，轮廓是长直身。风格偏学院风，清爽规整，带一点书卷气和减龄感。强调清爽、规整、带一点书卷气和校园感。单品居中，4:5 竖版构图，纯白背景，柔和棚拍灯光，边缘清晰，材质纹理真实，阴影自然克制。",
+    "negativePrompt": "不要模特，不要人物，不要手，不要衣架，不要品牌 logo，不要文字，不要水印，不要多件商品，不要复杂背景。",
+    "renderMode": "openai"
+  },
+  {
+    "itemId": "silk-shirt-ivory-25",
+    "fileName": "silk-shirt-ivory-25.png",
+    "outputPath": "generated/images/silk-shirt-ivory-25.png",
+    "imageUrl": "/generated-assets/silk-shirt-ivory-25.png",
+    "styleDirection": "电商白底写实风",
+    "prompt": "电商白底写实商品图，一件女款象牙白真丝衬衫。单件女士衬衫，领口清晰，袖型利落，面料带细腻光泽。主色是象牙白，材质是真丝，版型为常规，轮廓是微垂坠。风格偏商务风，线条干净克制，适合办公室与正式会面。强调通勤、会议、干练线条和可信赖感。单品居中，4:5 竖版构图，纯白背景，柔和棚拍灯光，边缘清晰，材质纹理真实，阴影自然克制。",
+    "negativePrompt": "不要模特，不要人物，不要手，不要衣架，不要品牌 logo，不要文字，不要水印，不要多件商品，不要复杂背景。",
+    "renderMode": "openai"
+  },
+  {
+    "itemId": "wide-trouser-navy-26",
+    "fileName": "wide-trouser-navy-26.png",
+    "outputPath": "generated/images/wide-trouser-navy-26.png",
+    "imageUrl": "/generated-assets/wide-trouser-navy-26.png",
+    "styleDirection": "电商白底写实风",
+    "prompt": "电商白底写实商品图，一件女款海军蓝阔腿西裤。单条女士高腰西裤，裤线利落，裤腿宽松顺直，垂感明显。主色是海军蓝，材质是斜纹西装料，版型为高腰，轮廓是阔腿。风格偏极简风，减少装饰，强调干净轮廓和高级基础感。强调去装饰、干净轮廓和耐看的基础感。单品居中，4:5 竖版构图，纯白背景，柔和棚拍灯光，边缘清晰，材质纹理真实，阴影自然克制。",
+    "negativePrompt": "不要模特，不要人物，不要手，不要衣架，不要品牌 logo，不要文字，不要水印，不要多件商品，不要复杂背景。",
+    "renderMode": "openai"
+  },
+  {
+    "itemId": "merino-knit-mocha-27",
+    "fileName": "merino-knit-mocha-27.png",
+    "outputPath": "generated/images/merino-knit-mocha-27.png",
+    "imageUrl": "/generated-assets/merino-knit-mocha-27.png",
+    "styleDirection": "电商白底写实风",
+    "prompt": "电商白底写实商品图，一件女款摩卡色羊毛针织衫。单件女士针织衫，羊毛质感明显，领口和袖口干净平整。主色是摩卡色，材质是美利奴羊毛，版型为微宽松，轮廓是柔和垂落。风格偏都市风，现代利落，适合高频城市通勤和日常切换。强调现代、利落、适合城市移动与日常切换。单品居中，4:5 竖版构图，纯白背景，柔和棚拍灯光，边缘清晰，材质纹理真实，阴影自然克制。",
+    "negativePrompt": "不要模特，不要人物，不要手，不要衣架，不要品牌 logo，不要文字，不要水印，不要多件商品，不要复杂背景。",
+    "renderMode": "openai"
+  },
+  {
+    "itemId": "rib-knit-tee-stone-28",
+    "fileName": "rib-knit-tee-stone-28.png",
+    "outputPath": "generated/images/rib-knit-tee-stone-28.png",
+    "imageUrl": "/generated-assets/rib-knit-tee-stone-28.png",
+    "styleDirection": "电商白底写实风",
+    "prompt": "电商白底写实商品图，一件女款石灰色罗纹针织上衣。单件女士罗纹上衣，肩线干净，版型修长，针织纹理可见。主色是石灰色，材质是细针织，版型为修身，轮廓是贴身。风格偏学院风，清爽规整，带一点书卷气和减龄感。强调清爽、规整、带一点书卷气和校园感。单品居中，4:5 竖版构图，纯白背景，柔和棚拍灯光，边缘清晰，材质纹理真实，阴影自然克制。",
+    "negativePrompt": "不要模特，不要人物，不要手，不要衣架，不要品牌 logo，不要文字，不要水印，不要多件商品，不要复杂背景。",
+    "renderMode": "openai"
+  },
+  {
+    "itemId": "a-line-midi-skirt-olive-29",
+    "fileName": "a-line-midi-skirt-olive-29.png",
+    "outputPath": "generated/images/a-line-midi-skirt-olive-29.png",
+    "imageUrl": "/generated-assets/a-line-midi-skirt-olive-29.png",
+    "styleDirection": "电商白底写实风",
+    "prompt": "电商白底写实商品图，一件女款橄榄绿A 字中长裙。单条女士中长半裙，裙摆轻微展开，线条顺滑，不规则细节极少。主色是橄榄绿，材质是哑光混纺，版型为高腰，轮廓是A 字。风格偏知性风，温和克制，强调成熟感与阅读气质。强调温和、克制、成熟感和阅读气质。单品居中，4:5 竖版构图，纯白背景，柔和棚拍灯光，边缘清晰，材质纹理真实，阴影自然克制。",
+    "negativePrompt": "不要模特，不要人物，不要手，不要衣架，不要品牌 logo，不要文字，不要水印，不要多件商品，不要复杂背景。",
+    "renderMode": "openai"
+  },
+  {
+    "itemId": "short-trench-stone-30",
+    "fileName": "short-trench-stone-30.png",
+    "outputPath": "generated/images/short-trench-stone-30.png",
+    "imageUrl": "/generated-assets/short-trench-stone-30.png",
+    "styleDirection": "电商白底写实风",
+    "prompt": "电商白底写实商品图，一件女款石灰色短款风衣。单件女士短风衣，门襟利落，肩部轻挺，面料挺括但有柔和质感。主色是石灰色，材质是防泼水棉混纺，版型为常规，轮廓是直身。风格偏都市风，现代利落，适合高频城市通勤和日常切换。强调现代、利落、适合城市移动与日常切换。单品居中，4:5 竖版构图，纯白背景，柔和棚拍灯光，边缘清晰，材质纹理真实，阴影自然克制。",
+    "negativePrompt": "不要模特，不要人物，不要手，不要衣架，不要品牌 logo，不要文字，不要水印，不要多件商品，不要复杂背景。",
+    "renderMode": "openai"
+  },
+  {
+    "itemId": "silk-shirt-sage-31",
+    "fileName": "silk-shirt-sage-31.png",
+    "outputPath": "generated/images/silk-shirt-sage-31.png",
+    "imageUrl": "/generated-assets/silk-shirt-sage-31.png",
+    "styleDirection": "电商白底写实风",
+    "prompt": "电商白底写实商品图，一件女款鼠尾草绿真丝衬衫。单件女士衬衫，领口清晰，袖型利落，面料带细腻光泽。主色是鼠尾草绿，材质是真丝，版型为常规，轮廓是微垂坠。风格偏法式风，轻松优雅，带一点松弛和女性化线条。强调轻松优雅、微松弛和女性化线条。单品居中，4:5 竖版构图，纯白背景，柔和棚拍灯光，边缘清晰，材质纹理真实，阴影自然克制。",
+    "negativePrompt": "不要模特，不要人物，不要手，不要衣架，不要品牌 logo，不要文字，不要水印，不要多件商品，不要复杂背景。",
+    "renderMode": "openai"
+  },
+  {
+    "itemId": "pendant-necklace-gold-32",
+    "fileName": "pendant-necklace-gold-32.png",
+    "outputPath": "generated/images/pendant-necklace-gold-32.png",
+    "imageUrl": "/generated-assets/pendant-necklace-gold-32.png",
+    "styleDirection": "电商白底写实风",
+    "prompt": "电商白底写实商品图，一件女款金色吊坠项链。单件女士首饰，一条吊坠项链平铺展示，吊坠清晰，链身平整。主色是金色，材质是金属，版型为中长，轮廓是吊坠。风格偏商务风，线条干净克制，适合办公室与正式会面。强调通勤、会议、干练线条和可信赖感。单品居中，4:5 竖版构图，纯白背景，柔和棚拍灯光，边缘清晰，材质纹理真实，阴影自然克制。",
+    "negativePrompt": "不要模特，不要人物，不要手，不要衣架，不要品牌 logo，不要文字，不要水印，不要多件商品，不要复杂背景。",
+    "renderMode": "openai"
+  },
+  {
+    "itemId": "shirt-dress-ink-33",
+    "fileName": "shirt-dress-ink-33.png",
+    "outputPath": "generated/images/shirt-dress-ink-33.png",
+    "imageUrl": "/generated-assets/shirt-dress-ink-33.png",
+    "styleDirection": "电商白底写实风",
+    "prompt": "电商白底写实商品图，一件女款墨蓝衬衫裙。单件女士衬衫裙，门襟清晰，袖型简洁，裙摆自然垂落。主色是墨蓝，材质是棉质混纺，版型为常规，轮廓是直筒。风格偏极简风，减少装饰，强调干净轮廓和高级基础感。强调去装饰、干净轮廓和耐看的基础感。单品居中，4:5 竖版构图，纯白背景，柔和棚拍灯光，边缘清晰，材质纹理真实，阴影自然克制。",
+    "negativePrompt": "不要模特，不要人物，不要手，不要衣架，不要品牌 logo，不要文字，不要水印，不要多件商品，不要复杂背景。",
+    "renderMode": "openai"
+  },
+  {
+    "itemId": "structured-bag-camel-34",
+    "fileName": "structured-bag-camel-34.png",
+    "outputPath": "generated/images/structured-bag-camel-34.png",
+    "imageUrl": "/generated-assets/structured-bag-camel-34.png",
+    "styleDirection": "电商白底写实风",
+    "prompt": "电商白底写实商品图，一件女款驼色结构感托特包。单件女士包袋，托特包正面展示，包型挺阔，细节克制。主色是驼色，材质是纹理皮革，版型为大容量，轮廓是结构感。风格偏学院风，清爽规整，带一点书卷气和减龄感。强调清爽、规整、带一点书卷气和校园感。单品居中，4:5 竖版构图，纯白背景，柔和棚拍灯光，边缘清晰，材质纹理真实，阴影自然克制。",
+    "negativePrompt": "不要模特，不要人物，不要手，不要衣架，不要品牌 logo，不要文字，不要水印，不要多件商品，不要复杂背景。",
+    "renderMode": "openai"
+  },
+  {
+    "itemId": "slingback-heel-wine-35",
+    "fileName": "slingback-heel-wine-35.png",
+    "outputPath": "generated/images/slingback-heel-wine-35.png",
+    "imageUrl": "/generated-assets/slingback-heel-wine-35.png",
+    "styleDirection": "电商白底写实风",
+    "prompt": "电商白底写实商品图，一件女款酒红色后空高跟鞋。单件女士鞋履，一双后空高跟鞋并排摆放，鞋型修长，鞋面平整。主色是酒红色，材质是细腻皮革，版型为常规，轮廓是尖头。风格偏极简风，减少装饰，强调干净轮廓和高级基础感。强调去装饰、干净轮廓和耐看的基础感。单品居中，4:5 竖版构图，纯白背景，柔和棚拍灯光，边缘清晰，材质纹理真实，阴影自然克制。",
+    "negativePrompt": "不要模特，不要人物，不要手，不要衣架，不要品牌 logo，不要文字，不要水印，不要多件商品，不要复杂背景。",
+    "renderMode": "openai"
+  },
+  {
+    "itemId": "belted-blazer-navy-36",
+    "fileName": "belted-blazer-navy-36.png",
+    "outputPath": "generated/images/belted-blazer-navy-36.png",
+    "imageUrl": "/generated-assets/belted-blazer-navy-36.png",
+    "styleDirection": "电商白底写实风",
+    "prompt": "电商白底写实商品图，一件女款海军蓝收腰西装外套。单件女士西装外套，肩线挺括，腰部略收，驳领清晰。主色是海军蓝，材质是羊毛混纺，版型为修身，轮廓是收腰。风格偏商务风，线条干净克制，适合办公室与正式会面。强调通勤、会议、干练线条和可信赖感。单品居中，4:5 竖版构图，纯白背景，柔和棚拍灯光，边缘清晰，材质纹理真实，阴影自然克制。",
+    "negativePrompt": "不要模特，不要人物，不要手，不要衣架，不要品牌 logo，不要文字，不要水印，不要多件商品，不要复杂背景。",
+    "renderMode": "openai"
+  },
+  {
+    "itemId": "baguette-bag-cream-37",
+    "fileName": "baguette-bag-cream-37.png",
+    "outputPath": "generated/images/baguette-bag-cream-37.png",
+    "imageUrl": "/generated-assets/baguette-bag-cream-37.png",
+    "styleDirection": "电商白底写实风",
+    "prompt": "电商白底写实商品图，一件女款奶油白腋下包。单件女士包袋，腋下包正面展示，包型细长，五金低调。主色是奶油白，材质是光面皮革，版型为小容量，轮廓是细长。风格偏知性风，温和克制，强调成熟感与阅读气质。强调温和、克制、成熟感和阅读气质。单品居中，4:5 竖版构图，纯白背景，柔和棚拍灯光，边缘清晰，材质纹理真实，阴影自然克制。",
+    "negativePrompt": "不要模特，不要人物，不要手，不要衣架，不要品牌 logo，不要文字，不要水印，不要多件商品，不要复杂背景。",
+    "renderMode": "openai"
+  },
+  {
+    "itemId": "merino-knit-wine-38",
+    "fileName": "merino-knit-wine-38.png",
+    "outputPath": "generated/images/merino-knit-wine-38.png",
+    "imageUrl": "/generated-assets/merino-knit-wine-38.png",
+    "styleDirection": "电商白底写实风",
+    "prompt": "电商白底写实商品图，一件女款酒红色羊毛针织衫。单件女士针织衫，羊毛质感明显，领口和袖口干净平整。主色是酒红色，材质是美利奴羊毛，版型为微宽松，轮廓是柔和垂落。风格偏法式风，轻松优雅，带一点松弛和女性化线条。强调轻松优雅、微松弛和女性化线条。单品居中，4:5 竖版构图，纯白背景，柔和棚拍灯光，边缘清晰，材质纹理真实，阴影自然克制。",
+    "negativePrompt": "不要模特，不要人物，不要手，不要衣架，不要品牌 logo，不要文字，不要水印，不要多件商品，不要复杂背景。",
+    "renderMode": "openai"
+  },
+  {
+    "itemId": "rib-knit-tee-stone-39",
+    "fileName": "rib-knit-tee-stone-39.png",
+    "outputPath": "generated/images/rib-knit-tee-stone-39.png",
+    "imageUrl": "/generated-assets/rib-knit-tee-stone-39.png",
+    "styleDirection": "电商白底写实风",
+    "prompt": "电商白底写实商品图，一件女款石灰色罗纹针织上衣。单件女士罗纹上衣，肩线干净，版型修长，针织纹理可见。主色是石灰色，材质是细针织，版型为修身，轮廓是贴身。风格偏极简风，减少装饰，强调干净轮廓和高级基础感。强调去装饰、干净轮廓和耐看的基础感。单品居中，4:5 竖版构图，纯白背景，柔和棚拍灯光，边缘清晰，材质纹理真实，阴影自然克制。",
+    "negativePrompt": "不要模特，不要人物，不要手，不要衣架，不要品牌 logo，不要文字，不要水印，不要多件商品，不要复杂背景。",
+    "renderMode": "openai"
+  },
+  {
+    "itemId": "straight-denim-charcoal-40",
+    "fileName": "straight-denim-charcoal-40.png",
+    "outputPath": "generated/images/straight-denim-charcoal-40.png",
+    "imageUrl": "/generated-assets/straight-denim-charcoal-40.png",
+    "styleDirection": "电商白底写实风",
+    "prompt": "电商白底写实商品图，一件女款炭灰直筒牛仔裤。单条女士直筒牛仔裤，丹宁纹理清楚，腰线简洁，裤脚利落。主色是炭灰，材质是丹宁，版型为高腰，轮廓是直筒。风格偏商务风，线条干净克制，适合办公室与正式会面。强调通勤、会议、干练线条和可信赖感。单品居中，4:5 竖版构图，纯白背景，柔和棚拍灯光，边缘清晰，材质纹理真实，阴影自然克制。",
+    "negativePrompt": "不要模特，不要人物，不要手，不要衣架，不要品牌 logo，不要文字，不要水印，不要多件商品，不要复杂背景。",
+    "renderMode": "openai"
+  },
+  {
+    "itemId": "wool-coat-camel-41",
+    "fileName": "wool-coat-camel-41.png",
+    "outputPath": "generated/images/wool-coat-camel-41.png",
+    "imageUrl": "/generated-assets/wool-coat-camel-41.png",
+    "styleDirection": "电商白底写实风",
+    "prompt": "电商白底写实商品图，一件女款驼色羊毛大衣。单件女士长款大衣，面料厚实，轮廓挺阔，衣长接近小腿。主色是驼色，材质是双面羊毛，版型为微宽松，轮廓是长直身。风格偏学院风，清爽规整，带一点书卷气和减龄感。强调清爽、规整、带一点书卷气和校园感。单品居中，4:5 竖版构图，纯白背景，柔和棚拍灯光，边缘清晰，材质纹理真实，阴影自然克制。",
+    "negativePrompt": "不要模特，不要人物，不要手，不要衣架，不要品牌 logo，不要文字，不要水印，不要多件商品，不要复杂背景。",
+    "renderMode": "openai"
+  },
+  {
+    "itemId": "short-trench-olive-42",
+    "fileName": "short-trench-olive-42.png",
+    "outputPath": "generated/images/short-trench-olive-42.png",
+    "imageUrl": "/generated-assets/short-trench-olive-42.png",
+    "styleDirection": "电商白底写实风",
+    "prompt": "电商白底写实商品图，一件女款橄榄绿短款风衣。单件女士短风衣，门襟利落，肩部轻挺，面料挺括但有柔和质感。主色是橄榄绿，材质是防泼水棉混纺，版型为常规，轮廓是直身。风格偏极简风，减少装饰，强调干净轮廓和高级基础感。强调去装饰、干净轮廓和耐看的基础感。单品居中，4:5 竖版构图，纯白背景，柔和棚拍灯光，边缘清晰，材质纹理真实，阴影自然克制。",
+    "negativePrompt": "不要模特，不要人物，不要手，不要衣架，不要品牌 logo，不要文字，不要水印，不要多件商品，不要复杂背景。",
+    "renderMode": "openai"
+  },
+  {
+    "itemId": "ankle-boot-olive-43",
+    "fileName": "ankle-boot-olive-43.png",
+    "outputPath": "generated/images/ankle-boot-olive-43.png",
+    "imageUrl": "/generated-assets/ankle-boot-olive-43.png",
+    "styleDirection": "电商白底写实风",
+    "prompt": "电商白底写实商品图，一件女款橄榄绿短靴。单件女士鞋履，一双踝靴并排摆放，鞋筒挺括，鞋面干净。主色是橄榄绿，材质是哑光牛皮，版型为常规，轮廓是踝靴。风格偏商务风，线条干净克制，适合办公室与正式会面。强调通勤、会议、干练线条和可信赖感。单品居中，4:5 竖版构图，纯白背景，柔和棚拍灯光，边缘清晰，材质纹理真实，阴影自然克制。",
+    "negativePrompt": "不要模特，不要人物，不要手，不要衣架，不要品牌 logo，不要文字，不要水印，不要多件商品，不要复杂背景。",
+    "renderMode": "openai"
+  },
+  {
+    "itemId": "wide-trouser-black-44",
+    "fileName": "wide-trouser-black-44.png",
+    "outputPath": "generated/images/wide-trouser-black-44.png",
+    "imageUrl": "/generated-assets/wide-trouser-black-44.png",
+    "styleDirection": "电商白底写实风",
+    "prompt": "电商白底写实商品图，一件女款黑色阔腿西裤。单条女士高腰西裤，裤线利落，裤腿宽松顺直，垂感明显。主色是黑色，材质是斜纹西装料，版型为高腰，轮廓是阔腿。风格偏学院风，清爽规整，带一点书卷气和减龄感。强调清爽、规整、带一点书卷气和校园感。单品居中，4:5 竖版构图，纯白背景，柔和棚拍灯光，边缘清晰，材质纹理真实，阴影自然克制。",
+    "negativePrompt": "不要模特，不要人物，不要手，不要衣架，不要品牌 logo，不要文字，不要水印，不要多件商品，不要复杂背景。",
+    "renderMode": "openai"
+  },
+  {
+    "itemId": "silk-scarf-wine-45",
+    "fileName": "silk-scarf-wine-45.png",
+    "outputPath": "generated/images/silk-scarf-wine-45.png",
+    "imageUrl": "/generated-assets/silk-scarf-wine-45.png",
+    "styleDirection": "电商白底写实风",
+    "prompt": "电商白底写实商品图，一件女款酒红色真丝方巾。单件女士配饰，一条真丝方巾平铺展示，折角整洁，面料柔亮。主色是酒红色，材质是真丝，版型为小方巾，轮廓是方形。风格偏法式风，轻松优雅，带一点松弛和女性化线条。强调轻松优雅、微松弛和女性化线条。单品居中，4:5 竖版构图，纯白背景，柔和棚拍灯光，边缘清晰，材质纹理真实，阴影自然克制。",
+    "negativePrompt": "不要模特，不要人物，不要手，不要衣架，不要品牌 logo，不要文字，不要水印，不要多件商品，不要复杂背景。",
+    "renderMode": "openai"
+  },
+  {
+    "itemId": "silk-shirt-cream-46",
+    "fileName": "silk-shirt-cream-46.png",
+    "outputPath": "generated/images/silk-shirt-cream-46.png",
+    "imageUrl": "/generated-assets/silk-shirt-cream-46.png",
+    "styleDirection": "电商白底写实风",
+    "prompt": "电商白底写实商品图，一件女款奶油白真丝衬衫。单件女士衬衫，领口清晰，袖型利落，面料带细腻光泽。主色是奶油白，材质是真丝，版型为常规，轮廓是微垂坠。风格偏知性风，温和克制，强调成熟感与阅读气质。强调温和、克制、成熟感和阅读气质。单品居中，4:5 竖版构图，纯白背景，柔和棚拍灯光，边缘清晰，材质纹理真实，阴影自然克制。",
+    "negativePrompt": "不要模特，不要人物，不要手，不要衣架，不要品牌 logo，不要文字，不要水印，不要多件商品，不要复杂背景。",
+    "renderMode": "openai"
+  },
+  {
+    "itemId": "belted-blazer-charcoal-47",
+    "fileName": "belted-blazer-charcoal-47.png",
+    "outputPath": "generated/images/belted-blazer-charcoal-47.png",
+    "imageUrl": "/generated-assets/belted-blazer-charcoal-47.png",
+    "styleDirection": "电商白底写实风",
+    "prompt": "电商白底写实商品图，一件女款炭灰收腰西装外套。单件女士西装外套，肩线挺括，腰部略收，驳领清晰。主色是炭灰，材质是羊毛混纺，版型为修身，轮廓是收腰。风格偏学院风，清爽规整，带一点书卷气和减龄感。强调清爽、规整、带一点书卷气和校园感。单品居中，4:5 竖版构图，纯白背景，柔和棚拍灯光，边缘清晰，材质纹理真实，阴影自然克制。",
+    "negativePrompt": "不要模特，不要人物，不要手，不要衣架，不要品牌 logo，不要文字，不要水印，不要多件商品，不要复杂背景。",
+    "renderMode": "openai"
+  },
+  {
+    "itemId": "a-line-midi-skirt-olive-48",
+    "fileName": "a-line-midi-skirt-olive-48.png",
+    "outputPath": "generated/images/a-line-midi-skirt-olive-48.png",
+    "imageUrl": "/generated-assets/a-line-midi-skirt-olive-48.png",
+    "styleDirection": "电商白底写实风",
+    "prompt": "电商白底写实商品图，一件女款橄榄绿A 字中长裙。单条女士中长半裙，裙摆轻微展开，线条顺滑，不规则细节极少。主色是橄榄绿，材质是哑光混纺，版型为高腰，轮廓是A 字。风格偏极简风，减少装饰，强调干净轮廓和高级基础感。强调去装饰、干净轮廓和耐看的基础感。单品居中，4:5 竖版构图，纯白背景，柔和棚拍灯光，边缘清晰，材质纹理真实，阴影自然克制。",
+    "negativePrompt": "不要模特，不要人物，不要手，不要衣架，不要品牌 logo，不要文字，不要水印，不要多件商品，不要复杂背景。",
+    "renderMode": "openai"
+  },
+  {
+    "itemId": "leather-loafer-black-49",
+    "fileName": "leather-loafer-black-49.png",
+    "outputPath": "generated/images/leather-loafer-black-49.png",
+    "imageUrl": "/generated-assets/leather-loafer-black-49.png",
+    "styleDirection": "电商白底写实风",
+    "prompt": "电商白底写实商品图，一件女款黑色皮革乐福鞋。单件女士鞋履，一双乐福鞋并排摆放，鞋面完整可见，皮革反光柔和。主色是黑色，材质是抛光牛皮，版型为常规，轮廓是低跟。风格偏法式风，轻松优雅，带一点松弛和女性化线条。强调轻松优雅、微松弛和女性化线条。单品居中，4:5 竖版构图，纯白背景，柔和棚拍灯光，边缘清晰，材质纹理真实，阴影自然克制。",
+    "negativePrompt": "不要模特，不要人物，不要手，不要衣架，不要品牌 logo，不要文字，不要水印，不要多件商品，不要复杂背景。",
+    "renderMode": "openai"
+  },
+  {
+    "itemId": "pearl-earring-gold-50",
+    "fileName": "pearl-earring-gold-50.png",
+    "outputPath": "generated/images/pearl-earring-gold-50.png",
+    "imageUrl": "/generated-assets/pearl-earring-gold-50.png",
+    "styleDirection": "电商白底写实风",
+    "prompt": "电商白底写实商品图，一件女款金色珍珠耳饰。单件女士首饰，一对珍珠耳饰并排摆放，结构克制，细节精致。主色是金色，材质是珍珠与金属，版型为轻量，轮廓是垂坠。风格偏都市风，现代利落，适合高频城市通勤和日常切换。强调现代、利落、适合城市移动与日常切换。单品居中，4:5 竖版构图，纯白背景，柔和棚拍灯光，边缘清晰，材质纹理真实，阴影自然克制。",
+    "negativePrompt": "不要模特，不要人物，不要手，不要衣架，不要品牌 logo，不要文字，不要水印，不要多件商品，不要复杂背景。",
+    "renderMode": "openai"
+  },
+  {
+    "itemId": "wool-coat-mocha-51",
+    "fileName": "wool-coat-mocha-51.png",
+    "outputPath": "generated/images/wool-coat-mocha-51.png",
+    "imageUrl": "/generated-assets/wool-coat-mocha-51.png",
+    "styleDirection": "电商白底写实风",
+    "prompt": "电商白底写实商品图，一件女款摩卡色羊毛大衣。单件女士长款大衣，面料厚实，轮廓挺阔，衣长接近小腿。主色是摩卡色，材质是双面羊毛，版型为微宽松，轮廓是长直身。风格偏极简风，减少装饰，强调干净轮廓和高级基础感。强调去装饰、干净轮廓和耐看的基础感。单品居中，4:5 竖版构图，纯白背景，柔和棚拍灯光，边缘清晰，材质纹理真实，阴影自然克制。",
+    "negativePrompt": "不要模特，不要人物，不要手，不要衣架，不要品牌 logo，不要文字，不要水印，不要多件商品，不要复杂背景。",
+    "renderMode": "openai"
+  },
+  {
+    "itemId": "straight-denim-ink-52",
+    "fileName": "straight-denim-ink-52.png",
+    "outputPath": "generated/images/straight-denim-ink-52.png",
+    "imageUrl": "/generated-assets/straight-denim-ink-52.png",
+    "styleDirection": "电商白底写实风",
+    "prompt": "电商白底写实商品图，一件女款墨蓝直筒牛仔裤。单条女士直筒牛仔裤，丹宁纹理清楚，腰线简洁，裤脚利落。主色是墨蓝，材质是丹宁，版型为高腰，轮廓是直筒。风格偏法式风，轻松优雅，带一点松弛和女性化线条。强调轻松优雅、微松弛和女性化线条。单品居中，4:5 竖版构图，纯白背景，柔和棚拍灯光，边缘清晰，材质纹理真实，阴影自然克制。",
+    "negativePrompt": "不要模特，不要人物，不要手，不要衣架，不要品牌 logo，不要文字，不要水印，不要多件商品，不要复杂背景。",
+    "renderMode": "openai"
+  },
+  {
+    "itemId": "wide-trouser-taupe-53",
+    "fileName": "wide-trouser-taupe-53.png",
+    "outputPath": "generated/images/wide-trouser-taupe-53.png",
+    "imageUrl": "/generated-assets/wide-trouser-taupe-53.png",
+    "styleDirection": "电商白底写实风",
+    "prompt": "电商白底写实商品图，一件女款灰褐色阔腿西裤。单条女士高腰西裤，裤线利落，裤腿宽松顺直，垂感明显。主色是灰褐色，材质是斜纹西装料，版型为高腰，轮廓是阔腿。风格偏知性风，温和克制，强调成熟感与阅读气质。强调温和、克制、成熟感和阅读气质。单品居中，4:5 竖版构图，纯白背景，柔和棚拍灯光，边缘清晰，材质纹理真实，阴影自然克制。",
+    "negativePrompt": "不要模特，不要人物，不要手，不要衣架，不要品牌 logo，不要文字，不要水印，不要多件商品，不要复杂背景。",
+    "renderMode": "openai"
+  },
+  {
+    "itemId": "minimal-sneaker-stone-54",
+    "fileName": "minimal-sneaker-stone-54.png",
+    "outputPath": "generated/images/minimal-sneaker-stone-54.png",
+    "imageUrl": "/generated-assets/minimal-sneaker-stone-54.png",
+    "styleDirection": "电商白底写实风",
+    "prompt": "电商白底写实商品图，一件女款石灰色极简运动鞋。单件女士鞋履，一双极简运动鞋并排摆放，轮廓干净，材质拼接克制。主色是石灰色，材质是皮革拼网布，版型为常规，轮廓是低帮。风格偏商务风，线条干净克制，适合办公室与正式会面。强调通勤、会议、干练线条和可信赖感。单品居中，4:5 竖版构图，纯白背景，柔和棚拍灯光，边缘清晰，材质纹理真实，阴影自然克制。",
+    "negativePrompt": "不要模特，不要人物，不要手，不要衣架，不要品牌 logo，不要文字，不要水印，不要多件商品，不要复杂背景。",
+    "renderMode": "openai"
+  },
+  {
+    "itemId": "slingback-heel-wine-55",
+    "fileName": "slingback-heel-wine-55.png",
+    "outputPath": "generated/images/slingback-heel-wine-55.png",
+    "imageUrl": "/generated-assets/slingback-heel-wine-55.png",
+    "styleDirection": "电商白底写实风",
+    "prompt": "电商白底写实商品图，一件女款酒红色后空高跟鞋。单件女士鞋履，一双后空高跟鞋并排摆放，鞋型修长，鞋面平整。主色是酒红色，材质是细腻皮革，版型为常规，轮廓是尖头。风格偏商务风，线条干净克制，适合办公室与正式会面。强调通勤、会议、干练线条和可信赖感。单品居中，4:5 竖版构图，纯白背景，柔和棚拍灯光，边缘清晰，材质纹理真实，阴影自然克制。",
+    "negativePrompt": "不要模特，不要人物，不要手，不要衣架，不要品牌 logo，不要文字，不要水印，不要多件商品，不要复杂背景。",
+    "renderMode": "openai"
+  },
+  {
+    "itemId": "merino-knit-olive-56",
+    "fileName": "merino-knit-olive-56.png",
+    "outputPath": "generated/images/merino-knit-olive-56.png",
+    "imageUrl": "/generated-assets/merino-knit-olive-56.png",
+    "styleDirection": "电商白底写实风",
+    "prompt": "电商白底写实商品图，一件女款橄榄绿羊毛针织衫。单件女士针织衫，羊毛质感明显，领口和袖口干净平整。主色是橄榄绿，材质是美利奴羊毛，版型为微宽松，轮廓是柔和垂落。风格偏都市风，现代利落，适合高频城市通勤和日常切换。强调现代、利落、适合城市移动与日常切换。单品居中，4:5 竖版构图，纯白背景，柔和棚拍灯光，边缘清晰，材质纹理真实，阴影自然克制。",
+    "negativePrompt": "不要模特，不要人物，不要手，不要衣架，不要品牌 logo，不要文字，不要水印，不要多件商品，不要复杂背景。",
+    "renderMode": "openai"
+  },
+  {
+    "itemId": "fine-chain-necklace-gold-57",
+    "fileName": "fine-chain-necklace-gold-57.png",
+    "outputPath": "generated/images/fine-chain-necklace-gold-57.png",
+    "imageUrl": "/generated-assets/fine-chain-necklace-gold-57.png",
+    "styleDirection": "电商白底写实风",
+    "prompt": "电商白底写实商品图，一件女款金色细链项链。单件女士首饰，一条细链项链平铺展示，链条清晰，金属质感干净。主色是金色，材质是金属，版型为贴颈，轮廓是细链。风格偏商务风，线条干净克制，适合办公室与正式会面。强调通勤、会议、干练线条和可信赖感。单品居中，4:5 竖版构图，纯白背景，柔和棚拍灯光，边缘清晰，材质纹理真实，阴影自然克制。",
+    "negativePrompt": "不要模特，不要人物，不要手，不要衣架，不要品牌 logo，不要文字，不要水印，不要多件商品，不要复杂背景。",
+    "renderMode": "openai"
+  },
+  {
+    "itemId": "a-line-midi-skirt-cream-58",
+    "fileName": "a-line-midi-skirt-cream-58.png",
+    "outputPath": "generated/images/a-line-midi-skirt-cream-58.png",
+    "imageUrl": "/generated-assets/a-line-midi-skirt-cream-58.png",
+    "styleDirection": "电商白底写实风",
+    "prompt": "电商白底写实商品图，一件女款奶油白A 字中长裙。单条女士中长半裙，裙摆轻微展开，线条顺滑，不规则细节极少。主色是奶油白，材质是哑光混纺，版型为高腰，轮廓是A 字。风格偏知性风，温和克制，强调成熟感与阅读气质。强调温和、克制、成熟感和阅读气质。单品居中，4:5 竖版构图，纯白背景，柔和棚拍灯光，边缘清晰，材质纹理真实，阴影自然克制。",
+    "negativePrompt": "不要模特，不要人物，不要手，不要衣架，不要品牌 logo，不要文字，不要水印，不要多件商品，不要复杂背景。",
+    "renderMode": "openai"
+  },
+  {
+    "itemId": "wrap-dress-dusty-rose-59",
+    "fileName": "wrap-dress-dusty-rose-59.png",
+    "outputPath": "generated/images/wrap-dress-dusty-rose-59.png",
+    "imageUrl": "/generated-assets/wrap-dress-dusty-rose-59.png",
+    "styleDirection": "电商白底写实风",
+    "prompt": "电商白底写实商品图，一件女款雾粉色裹身连衣裙。单件女士连衣裙，V 领或裹身结构自然，裙摆线条流畅。主色是雾粉色，材质是垂感混纺，版型为收腰，轮廓是裹身。风格偏知性风，温和克制，强调成熟感与阅读气质。强调温和、克制、成熟感和阅读气质。单品居中，4:5 竖版构图，纯白背景，柔和棚拍灯光，边缘清晰，材质纹理真实，阴影自然克制。",
+    "negativePrompt": "不要模特，不要人物，不要手，不要衣架，不要品牌 logo，不要文字，不要水印，不要多件商品，不要复杂背景。",
+    "renderMode": "openai"
+  },
+  {
+    "itemId": "ankle-boot-mocha-60",
+    "fileName": "ankle-boot-mocha-60.png",
+    "outputPath": "generated/images/ankle-boot-mocha-60.png",
+    "imageUrl": "/generated-assets/ankle-boot-mocha-60.png",
+    "styleDirection": "电商白底写实风",
+    "prompt": "电商白底写实商品图，一件女款摩卡色短靴。单件女士鞋履，一双踝靴并排摆放，鞋筒挺括，鞋面干净。主色是摩卡色，材质是哑光牛皮，版型为常规，轮廓是踝靴。风格偏知性风，温和克制，强调成熟感与阅读气质。强调温和、克制、成熟感和阅读气质。单品居中，4:5 竖版构图，纯白背景，柔和棚拍灯光，边缘清晰，材质纹理真实，阴影自然克制。",
+    "negativePrompt": "不要模特，不要人物，不要手，不要衣架，不要品牌 logo，不要文字，不要水印，不要多件商品，不要复杂背景。",
+    "renderMode": "openai"
+  }
+]

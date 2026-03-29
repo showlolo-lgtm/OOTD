@@ -1,3 +1,5 @@
+import { readFile } from "node:fs/promises";
+import { basename, extname, resolve } from "node:path";
 import Fastify, { type FastifyInstance } from "fastify";
 import { loadInspirations, loadWardrobe } from "./dataStore.js";
 import { CuratedInspirationProvider } from "./providers/curatedInspirationProvider.js";
@@ -78,6 +80,40 @@ function parseRecommendationRequest(body: unknown): RecommendationRequest {
   };
 }
 
+function toAbsoluteWardrobeItems(
+  wardrobe: WardrobeItem[],
+  protocol: string,
+  host: string
+): WardrobeItem[] {
+  return wardrobe.map((item) => {
+    if (/^https?:\/\//.test(item.imageUrl) || item.imageUrl.startsWith("file://")) {
+      return item;
+    }
+
+    const normalized = item.imageUrl.startsWith("/") ? item.imageUrl : `/${item.imageUrl}`;
+    return {
+      ...item,
+      imageUrl: `${protocol}://${host}${normalized}`
+    };
+  });
+}
+
+function contentTypeFor(fileName: string): string {
+  switch (extname(fileName).toLowerCase()) {
+    case ".svg":
+      return "image/svg+xml";
+    case ".png":
+      return "image/png";
+    case ".jpg":
+    case ".jpeg":
+      return "image/jpeg";
+    case ".webp":
+      return "image/webp";
+    default:
+      return "application/octet-stream";
+  }
+}
+
 export async function buildApp(options: BuildAppOptions = {}): Promise<FastifyInstance> {
   const app = Fastify({ logger: false });
   const wardrobe = options.wardrobe ?? (await loadWardrobe());
@@ -99,8 +135,30 @@ export async function buildApp(options: BuildAppOptions = {}): Promise<FastifyIn
 
   app.get("/health", async () => ({ ok: true }));
 
-  app.get("/v1/wardrobe", async () => ({
-    items: wardrobe
+  app.get("/generated-assets/:fileName", async (request, reply) => {
+    const params = request.params as { fileName?: string };
+    const fileName = params.fileName;
+
+    if (!fileName || basename(fileName) !== fileName) {
+      return reply.code(400).send({ error: "Invalid asset name." });
+    }
+
+    try {
+      const fileBuffer = await readFile(
+        resolve(process.cwd(), "..", "data", "generated", "images", fileName)
+      );
+      return reply.type(contentTypeFor(fileName)).send(fileBuffer);
+    } catch {
+      return reply.code(404).send({ error: "Asset not found." });
+    }
+  });
+
+  app.get("/v1/wardrobe", async (request) => ({
+    items: toAbsoluteWardrobeItems(
+      wardrobe,
+      request.protocol,
+      request.headers.host ?? "127.0.0.1:8787"
+    )
   }));
 
   app.get("/v1/calendar-scenarios", async () => ({

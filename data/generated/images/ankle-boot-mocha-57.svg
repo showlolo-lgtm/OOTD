@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="1024" height="1280" viewBox="0 0 1024 1280" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1024" height="1280" fill="#FFFFFF"/>
+  <rect x="96" y="96" width="832" height="832" rx="72" fill="#FCFAF6" stroke="#EEE8DF" stroke-width="4"/>
+  <ellipse cx="512" cy="884" rx="244" ry="42" fill="#EDE7DF"/>
+  <g transform="translate(232 180)">
+    <path d="M18 268C44 248 90 236 130 236H246C288 236 334 252 376 282L446 332C474 352 512 366 546 366H566V414H18V268Z" fill="#8C6954" stroke="#8C6954" stroke-width="18" stroke-linejoin="round"/>
+  </g>
+  <rect x="140" y="972" width="206" height="52" rx="26" fill="#8C6954"/>
+  <text x="172" y="1006" fill="#FBF5EE" font-size="24" font-family="PingFang SC, Helvetica, Arial, sans-serif">鞋履</text>
+  <text x="140" y="1090" fill="#1F2023" font-size="46" font-weight="700" font-family="PingFang SC, Helvetica, Arial, sans-serif">摩卡色短靴</text>
+  <text x="140" y="1144" fill="#5A5D63" font-size="28" font-family="PingFang SC, Helvetica, Arial, sans-serif">短靴 / 哑光牛皮</text>
+  <text x="140" y="1198" fill="#7C7E84" font-size="24" font-family="PingFang SC, Helvetica, Arial, sans-serif">轻奢棚拍风</text>
+</svg>

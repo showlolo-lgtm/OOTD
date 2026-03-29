@@ -128,6 +128,25 @@ struct WardrobeItem: Codable, Identifiable, Hashable {
     let warmth: Double
     let tags: [String]
     let imageUrl: String
+    let metadata: WardrobeMetadata?
+}
+
+struct WardrobeMetadata: Codable, Hashable {
+    let audience: String
+    let subcategory: String
+    let material: String
+    let pattern: String
+    let fit: String
+    let silhouette: String
+    let stylePersona: String?
+    let keywords: [String]
+    let styleDirection: String
+    let imagePrompt: String
+    let negativePrompt: String
+    let imagePath: String
+    let heelHeightCm: Double?
+    let shaftHeight: String?
+    let waterproof: Bool?
 }
 
 struct CalendarScenario: Codable, Identifiable, Hashable {
@@ -211,7 +230,8 @@ enum PreviewFixtures {
             formality: 4.5,
             warmth: 2.2,
             tags: ["office", "commute", "tailored"],
-            imageUrl: "https://placehold.co/640x800/EEE6DA/2A2E35?text=Ivory+Oxford"
+            imageUrl: "https://placehold.co/640x800/EEE6DA/2A2E35?text=Ivory+Oxford",
+            metadata: nil
         ),
         WardrobeItem(
             id: "blazer-navy-relaxed",
@@ -222,7 +242,8 @@ enum PreviewFixtures {
             formality: 4.7,
             warmth: 3.0,
             tags: ["office", "meeting", "layered"],
-            imageUrl: "https://placehold.co/640x800/33435C/F2E9DD?text=Navy+Blazer"
+            imageUrl: "https://placehold.co/640x800/33435C/F2E9DD?text=Navy+Blazer",
+            metadata: nil
         ),
         WardrobeItem(
             id: "trouser-charcoal-wide",
@@ -233,7 +254,8 @@ enum PreviewFixtures {
             formality: 4.6,
             warmth: 2.8,
             tags: ["office", "tailored", "boardroom"],
-            imageUrl: "https://placehold.co/640x800/D8D8D8/1F2430?text=Charcoal+Trouser"
+            imageUrl: "https://placehold.co/640x800/D8D8D8/1F2430?text=Charcoal+Trouser",
+            metadata: nil
         ),
         WardrobeItem(
             id: "dress-slip-olive",
@@ -244,7 +266,8 @@ enum PreviewFixtures {
             formality: 3.7,
             warmth: 1.8,
             tags: ["date", "gallery", "sleek"],
-            imageUrl: "https://placehold.co/640x800/768060/F8F3E8?text=Olive+Slip+Dress"
+            imageUrl: "https://placehold.co/640x800/768060/F8F3E8?text=Olive+Slip+Dress",
+            metadata: nil
         ),
         WardrobeItem(
             id: "loafer-black-soft",
@@ -255,7 +278,8 @@ enum PreviewFixtures {
             formality: 4.2,
             warmth: 2.4,
             tags: ["office", "commute", "rain-ready"],
-            imageUrl: "https://placehold.co/640x800/282828/F4F0E8?text=Black+Loafer"
+            imageUrl: "https://placehold.co/640x800/282828/F4F0E8?text=Black+Loafer",
+            metadata: nil
         ),
         WardrobeItem(
             id: "heel-slingback-cream",
@@ -266,7 +290,8 @@ enum PreviewFixtures {
             formality: 4.1,
             warmth: 1.2,
             tags: ["date", "dressy"],
-            imageUrl: "https://placehold.co/640x800/F0E4D8/2F2A29?text=Cream+Slingback"
+            imageUrl: "https://placehold.co/640x800/F0E4D8/2F2A29?text=Cream+Slingback",
+            metadata: nil
         ),
         WardrobeItem(
             id: "bag-structured-olive",
@@ -277,7 +302,8 @@ enum PreviewFixtures {
             formality: 4.3,
             warmth: 2.0,
             tags: ["office", "commute", "practical"],
-            imageUrl: "https://placehold.co/640x800/55624A/F9F3E7?text=Olive+Tote"
+            imageUrl: "https://placehold.co/640x800/55624A/F9F3E7?text=Olive+Tote",
+            metadata: nil
         )
     ]
 

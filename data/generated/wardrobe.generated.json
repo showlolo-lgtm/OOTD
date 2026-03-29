@@ -1,0 +1,3093 @@
+[
+  {
+    "id": "silk-shirt-cream-01",
+    "name": "奶油白真丝衬衫",
+    "category": "top",
+    "colors": [
+      "cream",
+      "dusty-rose"
+    ],
+    "seasons": [
+      "spring",
+      "summer",
+      "autumn"
+    ],
+    "formality": 4.3,
+    "warmth": 1.2,
+    "tags": [
+      "office",
+      "commute",
+      "polished",
+      "极简",
+      "通勤",
+      "轻熟",
+      "urban",
+      "modern",
+      "city",
+      "都市风",
+      "cream"
+    ],
+    "imageUrl": "/generated-assets/silk-shirt-cream-01.png",
+    "metadata": {
+      "audience": "women",
+      "subcategory": "衬衫",
+      "material": "真丝",
+      "pattern": "纯色",
+      "fit": "常规",
+      "silhouette": "微垂坠",
+      "stylePersona": "都市风",
+      "keywords": [
+        "极简",
+        "通勤",
+        "轻熟",
+        "urban",
+        "modern",
+        "city",
+        "都市风"
+      ],
+      "styleDirection": "电商白底写实风",
+      "imagePrompt": "电商白底写实商品图，一件女款奶油白真丝衬衫。单件女士衬衫，领口清晰，袖型利落，面料带细腻光泽。主色是奶油白，材质是真丝，版型为常规，轮廓是微垂坠。风格偏都市风，现代利落，适合高频城市通勤和日常切换。强调现代、利落、适合城市移动与日常切换。单品居中，4:5 竖版构图，纯白背景，柔和棚拍灯光，边缘清晰，材质纹理真实，阴影自然克制。",
+      "negativePrompt": "不要模特，不要人物，不要手，不要衣架，不要品牌 logo，不要文字，不要水印，不要多件商品，不要复杂背景。",
+      "imagePath": "generated/images/silk-shirt-cream-01.png"
+    }
+  },
+  {
+    "id": "knit-dress-mocha-02",
+    "name": "摩卡色针织连衣裙",
+    "category": "dress",
+    "colors": [
+      "mocha"
+    ],
+    "seasons": [
+      "autumn",
+      "winter",
+      "spring"
+    ],
+    "formality": 3.8,
+    "warmth": 3.3,
+    "tags": [
+      "soft",
+      "polished",
+      "layered",
+      "温柔",
+      "秋冬",
+      "都市",
+      "french",
+      "elegant",
+      "法式风",
+      "mocha"
+    ],
+    "imageUrl": "/generated-assets/knit-dress-mocha-02.png",
+    "metadata": {
+      "audience": "women",
+      "subcategory": "针织裙",
+      "material": "细羊毛针织",
+      "pattern": "纯色",
+      "fit": "修身",
+      "silhouette": "H 型",
+      "stylePersona": "法式风",
+      "keywords": [
+        "温柔",
+        "秋冬",
+        "都市",
+        "french",
+        "elegant",
+        "soft",
+        "法式风"
+      ],
+      "styleDirection": "电商白底写实风",
+      "imagePrompt": "电商白底写实商品图，一件女款摩卡色针织连衣裙。单件女士针织连衣裙，裙身修长，针织纹理细腻，整体简洁。主色是摩卡色，材质是细羊毛针织，版型为修身，轮廓是H 型。风格偏法式风，轻松优雅，带一点松弛和女性化线条。强调轻松优雅、微松弛和女性化线条。单品居中，4:5 竖版构图，纯白背景，柔和棚拍灯光，边缘清晰，材质纹理真实，阴影自然克制。",
+      "negativePrompt": "不要模特，不要人物，不要手，不要衣架，不要品牌 logo，不要文字，不要水印，不要多件商品，不要复杂背景。",
+      "imagePath": "generated/images/knit-dress-mocha-02.png"
+    }
+  },
+  {
+    "id": "fine-chain-necklace-gold-03",
+    "name": "金色细链项链",
+    "category": "accessory",
+    "colors": [
+      "gold",
+      "sage"
+    ],
+    "seasons": [
+      "spring",
+      "summer",
+      "autumn",
+      "winter"
+    ],
+    "formality": 3.9,
+    "warmth": 1.1,
+    "tags": [
+      "light",
+      "layered",
+      "refined",
+      "首饰",
+      "轻盈",
+      "叠戴",
+      "urban",
+      "modern",
+      "city",
+      "都市风",
+      "gold"
+    ],
+    "imageUrl": "/generated-assets/fine-chain-necklace-gold-03.png",
+    "metadata": {
+      "audience": "women",
+      "subcategory": "项链",
+      "material": "金属",
+      "pattern": "纯色",
+      "fit": "贴颈",
+      "silhouette": "细链",
+      "stylePersona": "都市风",
+      "keywords": [
+        "首饰",
+        "轻盈",
+        "叠戴",
+        "urban",
+        "modern",
+        "city",
+        "都市风"
+      ],
+      "styleDirection": "电商白底写实风",
+      "imagePrompt": "电商白底写实商品图，一件女款金色细链项链。单件女士首饰，一条细链项链平铺展示，链条清晰，金属质感干净。主色是金色，材质是金属，版型为贴颈，轮廓是细链。风格偏都市风，现代利落，适合高频城市通勤和日常切换。强调现代、利落、适合城市移动与日常切换。单品居中，4:5 竖版构图，纯白背景，柔和棚拍灯光，边缘清晰，材质纹理真实，阴影自然克制。",
+      "negativePrompt": "不要模特，不要人物，不要手，不要衣架，不要品牌 logo，不要文字，不要水印，不要多件商品，不要复杂背景。",
+      "imagePath": "generated/images/fine-chain-necklace-gold-03.png"
+    }
+  },
+  {
+    "id": "arc-earring-gold-04",
+    "name": "金色弧形耳饰",
+    "category": "accessory",
+    "colors": [
+      "gold"
+    ],
+    "seasons": [
+      "spring",
+      "summer",
+      "autumn",
+      "winter"
+    ],
+    "formality": 4.1,
+    "warmth": 1.4,
+    "tags": [
+      "polished",
+      "date",
+      "light",
+      "首饰",
+      "点睛",
+      "简洁",
+      "business",
+      "office",
+      "商务风",
+      "gold"
+    ],
+    "imageUrl": "/generated-assets/arc-earring-gold-04.png",
+    "metadata": {
+      "audience": "women",
+      "subcategory": "耳饰",
+      "material": "金属",
+      "pattern": "纯色",
+      "fit": "轻量",
+      "silhouette": "弧形",
+      "stylePersona": "商务风",
+      "keywords": [
+        "首饰",
+        "点睛",
+        "简洁",
+        "business",
+        "office",
+        "polished",
+        "商务风"
+      ],
+      "styleDirection": "电商白底写实风",
+      "imagePrompt": "电商白底写实商品图，一件女款金色弧形耳饰。单件女士首饰，一对耳饰并排摆放，轮廓简洁，金属光泽柔和。主色是金色，材质是金属，版型为轻量，轮廓是弧形。风格偏商务风，线条干净克制，适合办公室与正式会面。强调通勤、会议、干练线条和可信赖感。单品居中，4:5 竖版构图，纯白背景，柔和棚拍灯光，边缘清晰，材质纹理真实，阴影自然克制。",
+      "negativePrompt": "不要模特，不要人物，不要手，不要衣架，不要品牌 logo，不要文字，不要水印，不要多件商品，不要复杂背景。",
+      "imagePath": "generated/images/arc-earring-gold-04.png"
+    }
+  },
+  {
+    "id": "slingback-heel-dusty-rose-05",
+    "name": "雾粉色后空高跟鞋",
+    "category": "shoes",
+    "colors": [
+      "dusty-rose"
+    ],
+    "seasons": [
+      "spring",
+      "summer",
+      "autumn"
+    ],
+    "formality": 4.1,
+    "warmth": 1,
+    "tags": [
+      "date",
+      "dressy",
+      "polished",
+      "轻熟",
+      "优雅",
+      "精致",
+      "business",
+      "office",
+      "商务风",
+      "dusty-rose"
+    ],
+    "imageUrl": "/generated-assets/slingback-heel-dusty-rose-05.png",
+    "metadata": {
+      "audience": "women",
+      "subcategory": "高跟鞋",
+      "material": "细腻皮革",
+      "pattern": "纯色",
+      "fit": "常规",
+      "silhouette": "尖头",
+      "stylePersona": "商务风",
+      "keywords": [
+        "轻熟",
+        "优雅",
+        "精致",
+        "business",
+        "office",
+        "polished",
+        "商务风"
+      ],
+      "styleDirection": "电商白底写实风",
+      "imagePrompt": "电商白底写实商品图，一件女款雾粉色后空高跟鞋。单件女士鞋履，一双后空高跟鞋并排摆放，鞋型修长，鞋面平整。主色是雾粉色，材质是细腻皮革，版型为常规，轮廓是尖头。风格偏商务风，线条干净克制，适合办公室与正式会面。强调通勤、会议、干练线条和可信赖感。单品居中，4:5 竖版构图，纯白背景，柔和棚拍灯光，边缘清晰，材质纹理真实，阴影自然克制。",
+      "negativePrompt": "不要模特，不要人物，不要手，不要衣架，不要品牌 logo，不要文字，不要水印，不要多件商品，不要复杂背景。",
+      "imagePath": "generated/images/slingback-heel-dusty-rose-05.png",
+      "heelHeightCm": 6
+    }
+  },
+  {
+    "id": "shirt-dress-stone-06",
+    "name": "石灰色衬衫裙",
+    "category": "dress",
+    "colors": [
+      "stone"
+    ],
+    "seasons": [
+      "spring",
+      "summer",
+      "autumn"
+    ],
+    "formality": 4,
+    "warmth": 2.1,
+    "tags": [
+      "office",
+      "creative",
+      "clean",
+      "利落",
+      "简洁",
+      "日常",
+      "preppy",
+      "youthful",
+      "学院风",
+      "stone"
+    ],
+    "imageUrl": "/generated-assets/shirt-dress-stone-06.png",
+    "metadata": {
+      "audience": "women",
+      "subcategory": "衬衫裙",
+      "material": "棉质混纺",
+      "pattern": "纯色",
+      "fit": "常规",
+      "silhouette": "直筒",
+      "stylePersona": "学院风",
+      "keywords": [
+        "利落",
+        "简洁",
+        "日常",
+        "preppy",
+        "clean",
+        "youthful",
+        "学院风"
+      ],
+      "styleDirection": "电商白底写实风",
+      "imagePrompt": "电商白底写实商品图，一件女款石灰色衬衫裙。单件女士衬衫裙，门襟清晰，袖型简洁，裙摆自然垂落。主色是石灰色，材质是棉质混纺，版型为常规，轮廓是直筒。风格偏学院风，清爽规整，带一点书卷气和减龄感。强调清爽、规整、带一点书卷气和校园感。单品居中，4:5 竖版构图，纯白背景，柔和棚拍灯光，边缘清晰，材质纹理真实，阴影自然克制。",
+      "negativePrompt": "不要模特，不要人物，不要手，不要衣架，不要品牌 logo，不要文字，不要水印，不要多件商品，不要复杂背景。",
+      "imagePath": "generated/images/shirt-dress-stone-06.png"
+    }
+  },
+  {
+    "id": "merino-knit-charcoal-07",
+    "name": "炭灰羊毛针织衫",
+    "category": "top",
+    "colors": [
+      "charcoal",
+      "forest"
+    ],
+    "seasons": [
+      "autumn",
+      "winter",
+      "spring"
+    ],
+    "formality": 3.7,
+    "warmth": 3.8,
+    "tags": [
+      "office",
+      "layered",
+      "soft",
+      "柔软",
+      "叠穿",
+      "秋冬",
+      "minimal",
+      "clean",
+      "timeless",
+      "极简风",
+      "charcoal"
+    ],
+    "imageUrl": "/generated-assets/merino-knit-charcoal-07.png",
+    "metadata": {
+      "audience": "women",
+      "subcategory": "针织衫",
+      "material": "美利奴羊毛",
+      "pattern": "纯色",
+      "fit": "微宽松",
+      "silhouette": "柔和垂落",
+      "stylePersona": "极简风",
+      "keywords": [
+        "柔软",
+        "叠穿",
+        "秋冬",
+        "minimal",
+        "clean",
+        "timeless",
+        "极简风"
+      ],
+      "styleDirection": "电商白底写实风",
+      "imagePrompt": "电商白底写实商品图，一件女款炭灰羊毛针织衫。单件女士针织衫，羊毛质感明显，领口和袖口干净平整。主色是炭灰，材质是美利奴羊毛，版型为微宽松，轮廓是柔和垂落。风格偏极简风，减少装饰，强调干净轮廓和高级基础感。强调去装饰、干净轮廓和耐看的基础感。单品居中，4:5 竖版构图，纯白背景，柔和棚拍灯光，边缘清晰，材质纹理真实，阴影自然克制。",
+      "negativePrompt": "不要模特，不要人物，不要手，不要衣架，不要品牌 logo，不要文字，不要水印，不要多件商品，不要复杂背景。",
+      "imagePath": "generated/images/merino-knit-charcoal-07.png"
+    }
+  },
+  {
+    "id": "rib-knit-tee-oat-08",
+    "name": "燕麦色罗纹针织上衣",
+    "category": "top",
+    "colors": [
+      "oat",
+      "dusty-rose"
+    ],
+    "seasons": [
+      "spring",
+      "summer",
+      "autumn"
+    ],
+    "formality": 3.1,
+    "warmth": 1.8,
+    "tags": [
+      "casual",
+      "clean",
+      "minimal",
+      "基础款",
+      "都市",
+      "干净",
+      "business",
+      "office",
+      "polished",
+      "商务风",
+      "oat"
+    ],
+    "imageUrl": "/generated-assets/rib-knit-tee-oat-08.png",
+    "metadata": {
+      "audience": "women",
+      "subcategory": "针织上衣",
+      "material": "细针织",
+      "pattern": "罗纹",
+      "fit": "修身",
+      "silhouette": "贴身",
+      "stylePersona": "商务风",
+      "keywords": [
+        "基础款",
+        "都市",
+        "干净",
+        "business",
+        "office",
+        "polished",
+        "商务风"
+      ],
+      "styleDirection": "电商白底写实风",
+      "imagePrompt": "电商白底写实商品图，一件女款燕麦色罗纹针织上衣。单件女士罗纹上衣，肩线干净，版型修长，针织纹理可见。主色是燕麦色，材质是细针织，版型为修身，轮廓是贴身。风格偏商务风，线条干净克制，适合办公室与正式会面。强调通勤、会议、干练线条和可信赖感。单品居中，4:5 竖版构图，纯白背景，柔和棚拍灯光，边缘清晰，材质纹理真实，阴影自然克制。",
+      "negativePrompt": "不要模特，不要人物，不要手，不要衣架，不要品牌 logo，不要文字，不要水印，不要多件商品，不要复杂背景。",
+      "imagePath": "generated/images/rib-knit-tee-oat-08.png"
+    }
+  },
+  {
+    "id": "silk-shirt-cream-09",
+    "name": "奶油白真丝衬衫",
+    "category": "top",
+    "colors": [
+      "cream",
+      "mocha"
+    ],
+    "seasons": [
+      "spring",
+      "summer",
+      "autumn"
+    ],
+    "formality": 4.3,
+    "warmth": 1.7,
+    "tags": [
+      "office",
+      "commute",
+      "polished",
+      "极简",
+      "通勤",
+      "轻熟",
+      "urban",
+      "modern",
+      "city",
+      "都市风",
+      "cream"
+    ],
+    "imageUrl": "/generated-assets/silk-shirt-cream-09.png",
+    "metadata": {
+      "audience": "women",
+      "subcategory": "衬衫",
+      "material": "真丝",
+      "pattern": "纯色",
+      "fit": "常规",
+      "silhouette": "微垂坠",
+      "stylePersona": "都市风",
+      "keywords": [
+        "极简",
+        "通勤",
+        "轻熟",
+        "urban",
+        "modern",
+        "city",
+        "都市风"
+      ],
+      "styleDirection": "电商白底写实风",
+      "imagePrompt": "电商白底写实商品图，一件女款奶油白真丝衬衫。单件女士衬衫，领口清晰，袖型利落，面料带细腻光泽。主色是奶油白，材质是真丝，版型为常规，轮廓是微垂坠。风格偏都市风，现代利落，适合高频城市通勤和日常切换。强调现代、利落、适合城市移动与日常切换。单品居中，4:5 竖版构图，纯白背景，柔和棚拍灯光，边缘清晰，材质纹理真实，阴影自然克制。",
+      "negativePrompt": "不要模特，不要人物，不要手，不要衣架，不要品牌 logo，不要文字，不要水印，不要多件商品，不要复杂背景。",
+      "imagePath": "generated/images/silk-shirt-cream-09.png"
+    }
+  },
+  {
+    "id": "straight-denim-charcoal-10",
+    "name": "炭灰直筒牛仔裤",
+    "category": "bottom",
+    "colors": [
+      "charcoal",
+      "ivory"
+    ],
+    "seasons": [
+      "spring",
+      "autumn",
+      "winter"
+    ],
+    "formality": 3.1,
+    "warmth": 2,
+    "tags": [
+      "casual",
+      "weekend",
+      "city",
+      "街头",
+      "基础款",
+      "利落",
+      "minimal",
+      "clean",
+      "timeless",
+      "极简风",
+      "charcoal"
+    ],
+    "imageUrl": "/generated-assets/straight-denim-charcoal-10.png",
+    "metadata": {
+      "audience": "women",
+      "subcategory": "牛仔裤",
+      "material": "丹宁",
+      "pattern": "纯色",
+      "fit": "高腰",
+      "silhouette": "直筒",
+      "stylePersona": "极简风",
+      "keywords": [
+        "街头",
+        "基础款",
+        "利落",
+        "minimal",
+        "clean",
+        "timeless",
+        "极简风"
+      ],
+      "styleDirection": "电商白底写实风",
+      "imagePrompt": "电商白底写实商品图，一件女款炭灰直筒牛仔裤。单条女士直筒牛仔裤，丹宁纹理清楚，腰线简洁，裤脚利落。主色是炭灰，材质是丹宁，版型为高腰，轮廓是直筒。风格偏极简风，减少装饰，强调干净轮廓和高级基础感。强调去装饰、干净轮廓和耐看的基础感。单品居中，4:5 竖版构图，纯白背景，柔和棚拍灯光，边缘清晰，材质纹理真实，阴影自然克制。",
+      "negativePrompt": "不要模特，不要人物，不要手，不要衣架，不要品牌 logo，不要文字，不要水印，不要多件商品，不要复杂背景。",
+      "imagePath": "generated/images/straight-denim-charcoal-10.png"
+    }
+  },
+  {
+    "id": "ankle-boot-charcoal-11",
+    "name": "炭灰短靴",
+    "category": "shoes",
+    "colors": [
+      "charcoal",
+      "ink"
+    ],
+    "seasons": [
+      "autumn",
+      "winter",
+      "spring"
+    ],
+    "formality": 3.8,
+    "warmth": 3.2,
+    "tags": [
+      "rain-ready",
+      "city",
+      "layered",
+      "秋冬",
+      "酷感",
+      "耐穿",
+      "urban",
+      "modern",
+      "都市风",
+      "charcoal"
+    ],
+    "imageUrl": "/generated-assets/ankle-boot-charcoal-11.png",
+    "metadata": {
+      "audience": "women",
+      "subcategory": "短靴",
+      "material": "哑光牛皮",
+      "pattern": "纯色",
+      "fit": "常规",
+      "silhouette": "踝靴",
+      "stylePersona": "都市风",
+      "keywords": [
+        "秋冬",
+        "酷感",
+        "耐穿",
+        "urban",
+        "modern",
+        "city",
+        "都市风"
+      ],
+      "styleDirection": "电商白底写实风",
+      "imagePrompt": "电商白底写实商品图，一件女款炭灰短靴。单件女士鞋履，一双踝靴并排摆放，鞋筒挺括，鞋面干净。主色是炭灰，材质是哑光牛皮，版型为常规，轮廓是踝靴。风格偏都市风，现代利落，适合高频城市通勤和日常切换。强调现代、利落、适合城市移动与日常切换。单品居中，4:5 竖版构图，纯白背景，柔和棚拍灯光，边缘清晰，材质纹理真实，阴影自然克制。",
+      "negativePrompt": "不要模特，不要人物，不要手，不要衣架，不要品牌 logo，不要文字，不要水印，不要多件商品，不要复杂背景。",
+      "imagePath": "generated/images/ankle-boot-charcoal-11.png",
+      "heelHeightCm": 4,
+      "shaftHeight": "ankle",
+      "waterproof": true
+    }
+  },
+  {
+    "id": "leather-loafer-wine-12",
+    "name": "酒红色皮革乐福鞋",
+    "category": "shoes",
+    "colors": [
+      "wine"
+    ],
+    "seasons": [
+      "spring",
+      "autumn",
+      "winter"
+    ],
+    "formality": 4.3,
+    "warmth": 2.3,
+    "tags": [
+      "office",
+      "commute",
+      "rain-ready",
+      "通勤",
+      "利落",
+      "低调",
+      "preppy",
+      "clean",
+      "youthful",
+      "学院风",
+      "wine"
+    ],
+    "imageUrl": "/generated-assets/leather-loafer-wine-12.png",
+    "metadata": {
+      "audience": "women",
+      "subcategory": "乐福鞋",
+      "material": "抛光牛皮",
+      "pattern": "纯色",
+      "fit": "常规",
+      "silhouette": "低跟",
+      "stylePersona": "学院风",
+      "keywords": [
+        "通勤",
+        "利落",
+        "低调",
+        "preppy",
+        "clean",
+        "youthful",
+        "学院风"
+      ],
+      "styleDirection": "电商白底写实风",
+      "imagePrompt": "电商白底写实商品图，一件女款酒红色皮革乐福鞋。单件女士鞋履，一双乐福鞋并排摆放，鞋面完整可见，皮革反光柔和。主色是酒红色，材质是抛光牛皮，版型为常规，轮廓是低跟。风格偏学院风，清爽规整，带一点书卷气和减龄感。强调清爽、规整、带一点书卷气和校园感。单品居中，4:5 竖版构图，纯白背景，柔和棚拍灯光，边缘清晰，材质纹理真实，阴影自然克制。",
+      "negativePrompt": "不要模特，不要人物，不要手，不要衣架，不要品牌 logo，不要文字，不要水印，不要多件商品，不要复杂背景。",
+      "imagePath": "generated/images/leather-loafer-wine-12.png",
+      "heelHeightCm": 2,
+      "waterproof": true
+    }
+  },
+  {
+    "id": "merino-knit-wine-13",
+    "name": "酒红色羊毛针织衫",
+    "category": "top",
+    "colors": [
+      "wine"
+    ],
+    "seasons": [
+      "autumn",
+      "winter",
+      "spring"
+    ],
+    "formality": 3.8,
+    "warmth": 3.5,
+    "tags": [
+      "office",
+      "layered",
+      "soft",
+      "柔软",
+      "叠穿",
+      "秋冬",
+      "minimal",
+      "clean",
+      "timeless",
+      "极简风",
+      "wine"
+    ],
+    "imageUrl": "/generated-assets/merino-knit-wine-13.png",
+    "metadata": {
+      "audience": "women",
+      "subcategory": "针织衫",
+      "material": "美利奴羊毛",
+      "pattern": "纯色",
+      "fit": "微宽松",
+      "silhouette": "柔和垂落",
+      "stylePersona": "极简风",
+      "keywords": [
+        "柔软",
+        "叠穿",
+        "秋冬",
+        "minimal",
+        "clean",
+        "timeless",
+        "极简风"
+      ],
+      "styleDirection": "电商白底写实风",
+      "imagePrompt": "电商白底写实商品图，一件女款酒红色羊毛针织衫。单件女士针织衫，羊毛质感明显，领口和袖口干净平整。主色是酒红色，材质是美利奴羊毛，版型为微宽松，轮廓是柔和垂落。风格偏极简风，减少装饰，强调干净轮廓和高级基础感。强调去装饰、干净轮廓和耐看的基础感。单品居中，4:5 竖版构图，纯白背景，柔和棚拍灯光，边缘清晰，材质纹理真实，阴影自然克制。",
+      "negativePrompt": "不要模特，不要人物，不要手，不要衣架，不要品牌 logo，不要文字，不要水印，不要多件商品，不要复杂背景。",
+      "imagePath": "generated/images/merino-knit-wine-13.png"
+    }
+  },
+  {
+    "id": "wide-trouser-taupe-14",
+    "name": "灰褐色阔腿西裤",
+    "category": "bottom",
+    "colors": [
+      "taupe"
+    ],
+    "seasons": [
+      "spring",
+      "autumn",
+      "winter"
+    ],
+    "formality": 4.4,
+    "warmth": 2.8,
+    "tags": [
+      "office",
+      "tailored",
+      "boardroom",
+      "利落",
+      "通勤",
+      "大女人",
+      "intellectual",
+      "refined",
+      "calm",
+      "知性风",
+      "taupe"
+    ],
+    "imageUrl": "/generated-assets/wide-trouser-taupe-14.png",
+    "metadata": {
+      "audience": "women",
+      "subcategory": "西裤",
+      "material": "斜纹西装料",
+      "pattern": "纯色",
+      "fit": "高腰",
+      "silhouette": "阔腿",
+      "stylePersona": "知性风",
+      "keywords": [
+        "利落",
+        "通勤",
+        "大女人",
+        "intellectual",
+        "refined",
+        "calm",
+        "知性风"
+      ],
+      "styleDirection": "电商白底写实风",
+      "imagePrompt": "电商白底写实商品图，一件女款灰褐色阔腿西裤。单条女士高腰西裤，裤线利落，裤腿宽松顺直，垂感明显。主色是灰褐色，材质是斜纹西装料，版型为高腰，轮廓是阔腿。风格偏知性风，温和克制，强调成熟感与阅读气质。强调温和、克制、成熟感和阅读气质。单品居中，4:5 竖版构图，纯白背景，柔和棚拍灯光，边缘清晰，材质纹理真实，阴影自然克制。",
+      "negativePrompt": "不要模特，不要人物，不要手，不要衣架，不要品牌 logo，不要文字，不要水印，不要多件商品，不要复杂背景。",
+      "imagePath": "generated/images/wide-trouser-taupe-14.png"
+    }
+  },
+  {
+    "id": "shoulder-bag-taupe-15",
+    "name": "灰褐色肩背包",
+    "category": "accessory",
+    "colors": [
+      "taupe"
+    ],
+    "seasons": [
+      "spring",
+      "summer",
+      "autumn",
+      "winter"
+    ],
+    "formality": 3.6,
+    "warmth": 1,
+    "tags": [
+      "city",
+      "daily",
+      "refined",
+      "都市",
+      "利落",
+      "百搭",
+      "intellectual",
+      "calm",
+      "知性风",
+      "taupe"
+    ],
+    "imageUrl": "/generated-assets/shoulder-bag-taupe-15.png",
+    "metadata": {
+      "audience": "women",
+      "subcategory": "肩背包",
+      "material": "细纹皮革",
+      "pattern": "纯色",
+      "fit": "中等容量",
+      "silhouette": "弧形",
+      "stylePersona": "知性风",
+      "keywords": [
+        "都市",
+        "利落",
+        "百搭",
+        "intellectual",
+        "refined",
+        "calm",
+        "知性风"
+      ],
+      "styleDirection": "电商白底写实风",
+      "imagePrompt": "电商白底写实商品图，一件女款灰褐色肩背包。单件女士包袋，肩背包正面展示，包身简洁，轮廓轻盈。主色是灰褐色，材质是细纹皮革，版型为中等容量，轮廓是弧形。风格偏知性风，温和克制，强调成熟感与阅读气质。强调温和、克制、成熟感和阅读气质。单品居中，4:5 竖版构图，纯白背景，柔和棚拍灯光，边缘清晰，材质纹理真实，阴影自然克制。",
+      "negativePrompt": "不要模特，不要人物，不要手，不要衣架，不要品牌 logo，不要文字，不要水印，不要多件商品，不要复杂背景。",
+      "imagePath": "generated/images/shoulder-bag-taupe-15.png"
+    }
+  },
+  {
+    "id": "minimal-sneaker-sage-16",
+    "name": "鼠尾草绿极简运动鞋",
+    "category": "shoes",
+    "colors": [
+      "sage"
+    ],
+    "seasons": [
+      "spring",
+      "summer",
+      "autumn"
+    ],
+    "formality": 2.1,
+    "warmth": 1.4,
+    "tags": [
+      "casual",
+      "city",
+      "clean",
+      "极简",
+      "通勤休闲",
+      "轻松",
+      "french",
+      "elegant",
+      "soft",
+      "法式风",
+      "sage"
+    ],
+    "imageUrl": "/generated-assets/minimal-sneaker-sage-16.png",
+    "metadata": {
+      "audience": "women",
+      "subcategory": "运动鞋",
+      "material": "皮革拼网布",
+      "pattern": "纯色",
+      "fit": "常规",
+      "silhouette": "低帮",
+      "stylePersona": "法式风",
+      "keywords": [
+        "极简",
+        "通勤休闲",
+        "轻松",
+        "french",
+        "elegant",
+        "soft",
+        "法式风"
+      ],
+      "styleDirection": "电商白底写实风",
+      "imagePrompt": "电商白底写实商品图，一件女款鼠尾草绿极简运动鞋。单件女士鞋履，一双极简运动鞋并排摆放，轮廓干净，材质拼接克制。主色是鼠尾草绿，材质是皮革拼网布，版型为常规，轮廓是低帮。风格偏法式风，轻松优雅，带一点松弛和女性化线条。强调轻松优雅、微松弛和女性化线条。单品居中，4:5 竖版构图，纯白背景，柔和棚拍灯光，边缘清晰，材质纹理真实，阴影自然克制。",
+      "negativePrompt": "不要模特，不要人物，不要手，不要衣架，不要品牌 logo，不要文字，不要水印，不要多件商品，不要复杂背景。",
+      "imagePath": "generated/images/minimal-sneaker-sage-16.png",
+      "heelHeightCm": 2
+    }
+  },
+  {
+    "id": "wrap-dress-forest-17",
+    "name": "森林绿裹身连衣裙",
+    "category": "dress",
+    "colors": [
+      "forest"
+    ],
+    "seasons": [
+      "spring",
+      "summer",
+      "autumn"
+    ],
+    "formality": 3.7,
+    "warmth": 1.9,
+    "tags": [
+      "date",
+      "gallery",
+      "sleek",
+      "法式",
+      "线条感",
+      "约会",
+      "preppy",
+      "clean",
+      "youthful",
+      "学院风",
+      "forest"
+    ],
+    "imageUrl": "/generated-assets/wrap-dress-forest-17.png",
+    "metadata": {
+      "audience": "women",
+      "subcategory": "连衣裙",
+      "material": "垂感混纺",
+      "pattern": "纯色",
+      "fit": "收腰",
+      "silhouette": "裹身",
+      "stylePersona": "学院风",
+      "keywords": [
+        "法式",
+        "线条感",
+        "约会",
+        "preppy",
+        "clean",
+        "youthful",
+        "学院风"
+      ],
+      "styleDirection": "电商白底写实风",
+      "imagePrompt": "电商白底写实商品图，一件女款森林绿裹身连衣裙。单件女士连衣裙，V 领或裹身结构自然，裙摆线条流畅。主色是森林绿，材质是垂感混纺，版型为收腰，轮廓是裹身。风格偏学院风，清爽规整，带一点书卷气和减龄感。强调清爽、规整、带一点书卷气和校园感。单品居中，4:5 竖版构图，纯白背景，柔和棚拍灯光，边缘清晰，材质纹理真实，阴影自然克制。",
+      "negativePrompt": "不要模特，不要人物，不要手，不要衣架，不要品牌 logo，不要文字，不要水印，不要多件商品，不要复杂背景。",
+      "imagePath": "generated/images/wrap-dress-forest-17.png"
+    }
+  },
+  {
+    "id": "a-line-midi-skirt-dusty-rose-18",
+    "name": "雾粉色A 字中长裙",
+    "category": "bottom",
+    "colors": [
+      "dusty-rose"
+    ],
+    "seasons": [
+      "spring",
+      "summer",
+      "autumn"
+    ],
+    "formality": 3.9,
+    "warmth": 1.9,
+    "tags": [
+      "date",
+      "gallery",
+      "soft",
+      "法式",
+      "轻盈",
+      "约会",
+      "urban",
+      "modern",
+      "city",
+      "都市风",
+      "dusty-rose"
+    ],
+    "imageUrl": "/generated-assets/a-line-midi-skirt-dusty-rose-18.png",
+    "metadata": {
+      "audience": "women",
+      "subcategory": "半裙",
+      "material": "哑光混纺",
+      "pattern": "纯色",
+      "fit": "高腰",
+      "silhouette": "A 字",
+      "stylePersona": "都市风",
+      "keywords": [
+        "法式",
+        "轻盈",
+        "约会",
+        "urban",
+        "modern",
+        "city",
+        "都市风"
+      ],
+      "styleDirection": "电商白底写实风",
+      "imagePrompt": "电商白底写实商品图，一件女款雾粉色A 字中长裙。单条女士中长半裙，裙摆轻微展开，线条顺滑，不规则细节极少。主色是雾粉色，材质是哑光混纺，版型为高腰，轮廓是A 字。风格偏都市风，现代利落，适合高频城市通勤和日常切换。强调现代、利落、适合城市移动与日常切换。单品居中，4:5 竖版构图，纯白背景，柔和棚拍灯光，边缘清晰，材质纹理真实，阴影自然克制。",
+      "negativePrompt": "不要模特，不要人物，不要手，不要衣架，不要品牌 logo，不要文字，不要水印，不要多件商品，不要复杂背景。",
+      "imagePath": "generated/images/a-line-midi-skirt-dusty-rose-18.png"
+    }
+  },
+  {
+    "id": "belted-blazer-navy-19",
+    "name": "海军蓝收腰西装外套",
+    "category": "outerwear",
+    "colors": [
+      "navy"
+    ],
+    "seasons": [
+      "spring",
+      "autumn"
+    ],
+    "formality": 4.8,
+    "warmth": 2.6,
+    "tags": [
+      "office",
+      "meeting",
+      "layered",
+      "权威",
+      "精致",
+      "通勤",
+      "intellectual",
+      "refined",
+      "calm",
+      "知性风",
+      "navy"
+    ],
+    "imageUrl": "/generated-assets/belted-blazer-navy-19.png",
+    "metadata": {
+      "audience": "women",
+      "subcategory": "西装外套",
+      "material": "羊毛混纺",
+      "pattern": "纯色",
+      "fit": "修身",
+      "silhouette": "收腰",
+      "stylePersona": "知性风",
+      "keywords": [
+        "权威",
+        "精致",
+        "通勤",
+        "intellectual",
+        "refined",
+        "calm",
+        "知性风"
+      ],
+      "styleDirection": "电商白底写实风",
+      "imagePrompt": "电商白底写实商品图，一件女款海军蓝收腰西装外套。单件女士西装外套，肩线挺括，腰部略收，驳领清晰。主色是海军蓝，材质是羊毛混纺，版型为修身，轮廓是收腰。风格偏知性风，温和克制，强调成熟感与阅读气质。强调温和、克制、成熟感和阅读气质。单品居中，4:5 竖版构图，纯白背景，柔和棚拍灯光，边缘清晰，材质纹理真实，阴影自然克制。",
+      "negativePrompt": "不要模特，不要人物，不要手，不要衣架，不要品牌 logo，不要文字，不要水印，不要多件商品，不要复杂背景。",
+      "imagePath": "generated/images/belted-blazer-navy-19.png"
+    }
+  },
+  {
+    "id": "knit-dress-charcoal-20",
+    "name": "炭灰针织连衣裙",
+    "category": "dress",
+    "colors": [
+      "charcoal",
+      "moss"
+    ],
+    "seasons": [
+      "autumn",
+      "winter",
+      "spring"
+    ],
+    "formality": 3.5,
+    "warmth": 3.4,
+    "tags": [
+      "soft",
+      "polished",
+      "layered",
+      "温柔",
+      "秋冬",
+      "都市",
+      "preppy",
+      "clean",
+      "youthful",
+      "学院风",
+      "charcoal"
+    ],
+    "imageUrl": "/generated-assets/knit-dress-charcoal-20.png",
+    "metadata": {
+      "audience": "women",
+      "subcategory": "针织裙",
+      "material": "细羊毛针织",
+      "pattern": "纯色",
+      "fit": "修身",
+      "silhouette": "H 型",
+      "stylePersona": "学院风",
+      "keywords": [
+        "温柔",
+        "秋冬",
+        "都市",
+        "preppy",
+        "clean",
+        "youthful",
+        "学院风"
+      ],
+      "styleDirection": "电商白底写实风",
+      "imagePrompt": "电商白底写实商品图，一件女款炭灰针织连衣裙。单件女士针织连衣裙，裙身修长，针织纹理细腻，整体简洁。主色是炭灰，材质是细羊毛针织，版型为修身，轮廓是H 型。风格偏学院风，清爽规整，带一点书卷气和减龄感。强调清爽、规整、带一点书卷气和校园感。单品居中，4:5 竖版构图，纯白背景，柔和棚拍灯光，边缘清晰，材质纹理真实，阴影自然克制。",
+      "negativePrompt": "不要模特，不要人物，不要手，不要衣架，不要品牌 logo，不要文字，不要水印，不要多件商品，不要复杂背景。",
+      "imagePath": "generated/images/knit-dress-charcoal-20.png"
+    }
+  },
+  {
+    "id": "slim-belt-camel-21",
+    "name": "驼色细皮带",
+    "category": "accessory",
+    "colors": [
+      "camel"
+    ],
+    "seasons": [
+      "spring",
+      "summer",
+      "autumn",
+      "winter"
+    ],
+    "formality": 3.9,
+    "warmth": 1.3,
+    "tags": [
+      "waist",
+      "tailored",
+      "clean",
+      "收腰",
+      "通勤",
+      "利落",
+      "urban",
+      "modern",
+      "city",
+      "都市风",
+      "camel"
+    ],
+    "imageUrl": "/generated-assets/slim-belt-camel-21.png",
+    "metadata": {
+      "audience": "women",
+      "subcategory": "腰带",
+      "material": "皮革",
+      "pattern": "纯色",
+      "fit": "细版",
+      "silhouette": "线性",
+      "stylePersona": "都市风",
+      "keywords": [
+        "收腰",
+        "通勤",
+        "利落",
+        "urban",
+        "modern",
+        "city",
+        "都市风"
+      ],
+      "styleDirection": "电商白底写实风",
+      "imagePrompt": "电商白底写实商品图，一件女款驼色细皮带。单件女士配饰，一条细皮带平铺展示，皮面平整，扣头清晰。主色是驼色，材质是皮革，版型为细版，轮廓是线性。风格偏都市风，现代利落，适合高频城市通勤和日常切换。强调现代、利落、适合城市移动与日常切换。单品居中，4:5 竖版构图，纯白背景，柔和棚拍灯光，边缘清晰，材质纹理真实，阴影自然克制。",
+      "negativePrompt": "不要模特，不要人物，不要手，不要衣架，不要品牌 logo，不要文字，不要水印，不要多件商品，不要复杂背景。",
+      "imagePath": "generated/images/slim-belt-camel-21.png"
+    }
+  },
+  {
+    "id": "rib-knit-tee-stone-22",
+    "name": "石灰色罗纹针织上衣",
+    "category": "top",
+    "colors": [
+      "stone",
+      "wine"
+    ],
+    "seasons": [
+      "spring",
+      "summer",
+      "autumn"
+    ],
+    "formality": 3,
+    "warmth": 2.2,
+    "tags": [
+      "casual",
+      "clean",
+      "minimal",
+      "基础款",
+      "都市",
+      "干净",
+      "french",
+      "elegant",
+      "soft",
+      "法式风",
+      "stone"
+    ],
+    "imageUrl": "/generated-assets/rib-knit-tee-stone-22.png",
+    "metadata": {
+      "audience": "women",
+      "subcategory": "针织上衣",
+      "material": "细针织",
+      "pattern": "罗纹",
+      "fit": "修身",
+      "silhouette": "贴身",
+      "stylePersona": "法式风",
+      "keywords": [
+        "基础款",
+        "都市",
+        "干净",
+        "french",
+        "elegant",
+        "soft",
+        "法式风"
+      ],
+      "styleDirection": "电商白底写实风",
+      "imagePrompt": "电商白底写实商品图，一件女款石灰色罗纹针织上衣。单件女士罗纹上衣，肩线干净，版型修长，针织纹理可见。主色是石灰色，材质是细针织，版型为修身，轮廓是贴身。风格偏法式风，轻松优雅，带一点松弛和女性化线条。强调轻松优雅、微松弛和女性化线条。单品居中，4:5 竖版构图，纯白背景，柔和棚拍灯光，边缘清晰，材质纹理真实，阴影自然克制。",
+      "negativePrompt": "不要模特，不要人物，不要手，不要衣架，不要品牌 logo，不要文字，不要水印，不要多件商品，不要复杂背景。",
+      "imagePath": "generated/images/rib-knit-tee-stone-22.png"
+    }
+  },
+  {
+    "id": "straight-denim-charcoal-23",
+    "name": "炭灰直筒牛仔裤",
+    "category": "bottom",
+    "colors": [
+      "charcoal"
+    ],
+    "seasons": [
+      "spring",
+      "autumn",
+      "winter"
+    ],
+    "formality": 2.7,
+    "warmth": 2.6,
+    "tags": [
+      "casual",
+      "weekend",
+      "city",
+      "街头",
+      "基础款",
+      "利落",
+      "urban",
+      "modern",
+      "都市风",
+      "charcoal"
+    ],
+    "imageUrl": "/generated-assets/straight-denim-charcoal-23.png",
+    "metadata": {
+      "audience": "women",
+      "subcategory": "牛仔裤",
+      "material": "丹宁",
+      "pattern": "纯色",
+      "fit": "高腰",
+      "silhouette": "直筒",
+      "stylePersona": "都市风",
+      "keywords": [
+        "街头",
+        "基础款",
+        "利落",
+        "urban",
+        "modern",
+        "city",
+        "都市风"
+      ],
+      "styleDirection": "电商白底写实风",
+      "imagePrompt": "电商白底写实商品图，一件女款炭灰直筒牛仔裤。单条女士直筒牛仔裤，丹宁纹理清楚，腰线简洁，裤脚利落。主色是炭灰，材质是丹宁，版型为高腰，轮廓是直筒。风格偏都市风，现代利落，适合高频城市通勤和日常切换。强调现代、利落、适合城市移动与日常切换。单品居中，4:5 竖版构图，纯白背景，柔和棚拍灯光，边缘清晰，材质纹理真实，阴影自然克制。",
+      "negativePrompt": "不要模特，不要人物，不要手，不要衣架，不要品牌 logo，不要文字，不要水印，不要多件商品，不要复杂背景。",
+      "imagePath": "generated/images/straight-denim-charcoal-23.png"
+    }
+  },
+  {
+    "id": "wool-coat-camel-24",
+    "name": "驼色羊毛大衣",
+    "category": "outerwear",
+    "colors": [
+      "camel"
+    ],
+    "seasons": [
+      "autumn",
+      "winter"
+    ],
+    "formality": 4.5,
+    "warmth": 4.2,
+    "tags": [
+      "office",
+      "winter",
+      "elevated",
+      "静奢",
+      "高级",
+      "秋冬",
+      "preppy",
+      "clean",
+      "youthful",
+      "学院风",
+      "camel"
+    ],
+    "imageUrl": "/generated-assets/wool-coat-camel-24.png",
+    "metadata": {
+      "audience": "women",
+      "subcategory": "大衣",
+      "material": "双面羊毛",
+      "pattern": "纯色",
+      "fit": "微宽松",
+      "silhouette": "长直身",
+      "stylePersona": "学院风",
+      "keywords": [
+        "静奢",
+        "高级",
+        "秋冬",
+        "preppy",
+        "clean",
+        "youthful",
+        "学院风"
+      ],
+      "styleDirection": "电商白底写实风",
+      "imagePrompt": "电商白底写实商品图，一件女款驼色羊毛大衣。单件女士长款大衣，面料厚实，轮廓挺阔，衣长接近小腿。主色是驼色，材质是双面羊毛，版型为微宽松，轮廓是长直身。风格偏学院风，清爽规整，带一点书卷气和减龄感。强调清爽、规整、带一点书卷气和校园感。单品居中，4:5 竖版构图，纯白背景，柔和棚拍灯光，边缘清晰，材质纹理真实，阴影自然克制。",
+      "negativePrompt": "不要模特，不要人物，不要手，不要衣架，不要品牌 logo，不要文字，不要水印，不要多件商品，不要复杂背景。",
+      "imagePath": "generated/images/wool-coat-camel-24.png"
+    }
+  },
+  {
+    "id": "silk-shirt-ivory-25",
+    "name": "象牙白真丝衬衫",
+    "category": "top",
+    "colors": [
+      "ivory",
+      "sage"
+    ],
+    "seasons": [
+      "spring",
+      "summer",
+      "autumn"
+    ],
+    "formality": 4.7,
+    "warmth": 1.8,
+    "tags": [
+      "office",
+      "commute",
+      "polished",
+      "极简",
+      "通勤",
+      "轻熟",
+      "business",
+      "商务风",
+      "ivory"
+    ],
+    "imageUrl": "/generated-assets/silk-shirt-ivory-25.png",
+    "metadata": {
+      "audience": "women",
+      "subcategory": "衬衫",
+      "material": "真丝",
+      "pattern": "纯色",
+      "fit": "常规",
+      "silhouette": "微垂坠",
+      "stylePersona": "商务风",
+      "keywords": [
+        "极简",
+        "通勤",
+        "轻熟",
+        "business",
+        "office",
+        "polished",
+        "商务风"
+      ],
+      "styleDirection": "电商白底写实风",
+      "imagePrompt": "电商白底写实商品图，一件女款象牙白真丝衬衫。单件女士衬衫，领口清晰，袖型利落，面料带细腻光泽。主色是象牙白，材质是真丝，版型为常规，轮廓是微垂坠。风格偏商务风，线条干净克制，适合办公室与正式会面。强调通勤、会议、干练线条和可信赖感。单品居中，4:5 竖版构图，纯白背景，柔和棚拍灯光，边缘清晰，材质纹理真实，阴影自然克制。",
+      "negativePrompt": "不要模特，不要人物，不要手，不要衣架，不要品牌 logo，不要文字，不要水印，不要多件商品，不要复杂背景。",
+      "imagePath": "generated/images/silk-shirt-ivory-25.png"
+    }
+  },
+  {
+    "id": "wide-trouser-navy-26",
+    "name": "海军蓝阔腿西裤",
+    "category": "bottom",
+    "colors": [
+      "navy",
+      "gold"
+    ],
+    "seasons": [
+      "spring",
+      "autumn",
+      "winter"
+    ],
+    "formality": 4.4,
+    "warmth": 2.7,
+    "tags": [
+      "office",
+      "tailored",
+      "boardroom",
+      "利落",
+      "通勤",
+      "大女人",
+      "minimal",
+      "clean",
+      "timeless",
+      "极简风",
+      "navy"
+    ],
+    "imageUrl": "/generated-assets/wide-trouser-navy-26.png",
+    "metadata": {
+      "audience": "women",
+      "subcategory": "西裤",
+      "material": "斜纹西装料",
+      "pattern": "纯色",
+      "fit": "高腰",
+      "silhouette": "阔腿",
+      "stylePersona": "极简风",
+      "keywords": [
+        "利落",
+        "通勤",
+        "大女人",
+        "minimal",
+        "clean",
+        "timeless",
+        "极简风"
+      ],
+      "styleDirection": "电商白底写实风",
+      "imagePrompt": "电商白底写实商品图，一件女款海军蓝阔腿西裤。单条女士高腰西裤，裤线利落，裤腿宽松顺直，垂感明显。主色是海军蓝，材质是斜纹西装料，版型为高腰，轮廓是阔腿。风格偏极简风，减少装饰，强调干净轮廓和高级基础感。强调去装饰、干净轮廓和耐看的基础感。单品居中，4:5 竖版构图，纯白背景，柔和棚拍灯光，边缘清晰，材质纹理真实，阴影自然克制。",
+      "negativePrompt": "不要模特，不要人物，不要手，不要衣架，不要品牌 logo，不要文字，不要水印，不要多件商品，不要复杂背景。",
+      "imagePath": "generated/images/wide-trouser-navy-26.png"
+    }
+  },
+  {
+    "id": "merino-knit-mocha-27",
+    "name": "摩卡色羊毛针织衫",
+    "category": "top",
+    "colors": [
+      "mocha",
+      "ink"
+    ],
+    "seasons": [
+      "autumn",
+      "winter",
+      "spring"
+    ],
+    "formality": 4,
+    "warmth": 3.9,
+    "tags": [
+      "office",
+      "layered",
+      "soft",
+      "柔软",
+      "叠穿",
+      "秋冬",
+      "urban",
+      "modern",
+      "city",
+      "都市风",
+      "mocha"
+    ],
+    "imageUrl": "/generated-assets/merino-knit-mocha-27.png",
+    "metadata": {
+      "audience": "women",
+      "subcategory": "针织衫",
+      "material": "美利奴羊毛",
+      "pattern": "纯色",
+      "fit": "微宽松",
+      "silhouette": "柔和垂落",
+      "stylePersona": "都市风",
+      "keywords": [
+        "柔软",
+        "叠穿",
+        "秋冬",
+        "urban",
+        "modern",
+        "city",
+        "都市风"
+      ],
+      "styleDirection": "电商白底写实风",
+      "imagePrompt": "电商白底写实商品图，一件女款摩卡色羊毛针织衫。单件女士针织衫，羊毛质感明显，领口和袖口干净平整。主色是摩卡色，材质是美利奴羊毛，版型为微宽松，轮廓是柔和垂落。风格偏都市风，现代利落，适合高频城市通勤和日常切换。强调现代、利落、适合城市移动与日常切换。单品居中，4:5 竖版构图，纯白背景，柔和棚拍灯光，边缘清晰，材质纹理真实，阴影自然克制。",
+      "negativePrompt": "不要模特，不要人物，不要手，不要衣架，不要品牌 logo，不要文字，不要水印，不要多件商品，不要复杂背景。",
+      "imagePath": "generated/images/merino-knit-mocha-27.png"
+    }
+  },
+  {
+    "id": "rib-knit-tee-stone-28",
+    "name": "石灰色罗纹针织上衣",
+    "category": "top",
+    "colors": [
+      "stone",
+      "ivory"
+    ],
+    "seasons": [
+      "spring",
+      "summer",
+      "autumn"
+    ],
+    "formality": 3.3,
+    "warmth": 1.8,
+    "tags": [
+      "casual",
+      "clean",
+      "minimal",
+      "基础款",
+      "都市",
+      "干净",
+      "preppy",
+      "youthful",
+      "学院风",
+      "stone"
+    ],
+    "imageUrl": "/generated-assets/rib-knit-tee-stone-28.png",
+    "metadata": {
+      "audience": "women",
+      "subcategory": "针织上衣",
+      "material": "细针织",
+      "pattern": "罗纹",
+      "fit": "修身",
+      "silhouette": "贴身",
+      "stylePersona": "学院风",
+      "keywords": [
+        "基础款",
+        "都市",
+        "干净",
+        "preppy",
+        "clean",
+        "youthful",
+        "学院风"
+      ],
+      "styleDirection": "电商白底写实风",
+      "imagePrompt": "电商白底写实商品图，一件女款石灰色罗纹针织上衣。单件女士罗纹上衣，肩线干净，版型修长，针织纹理可见。主色是石灰色，材质是细针织，版型为修身，轮廓是贴身。风格偏学院风，清爽规整，带一点书卷气和减龄感。强调清爽、规整、带一点书卷气和校园感。单品居中，4:5 竖版构图，纯白背景，柔和棚拍灯光，边缘清晰，材质纹理真实，阴影自然克制。",
+      "negativePrompt": "不要模特，不要人物，不要手，不要衣架，不要品牌 logo，不要文字，不要水印，不要多件商品，不要复杂背景。",
+      "imagePath": "generated/images/rib-knit-tee-stone-28.png"
+    }
+  },
+  {
+    "id": "a-line-midi-skirt-olive-29",
+    "name": "橄榄绿A 字中长裙",
+    "category": "bottom",
+    "colors": [
+      "olive"
+    ],
+    "seasons": [
+      "spring",
+      "summer",
+      "autumn"
+    ],
+    "formality": 3.9,
+    "warmth": 1.4,
+    "tags": [
+      "date",
+      "gallery",
+      "soft",
+      "法式",
+      "轻盈",
+      "约会",
+      "intellectual",
+      "refined",
+      "calm",
+      "知性风",
+      "olive"
+    ],
+    "imageUrl": "/generated-assets/a-line-midi-skirt-olive-29.png",
+    "metadata": {
+      "audience": "women",
+      "subcategory": "半裙",
+      "material": "哑光混纺",
+      "pattern": "纯色",
+      "fit": "高腰",
+      "silhouette": "A 字",
+      "stylePersona": "知性风",
+      "keywords": [
+        "法式",
+        "轻盈",
+        "约会",
+        "intellectual",
+        "refined",
+        "calm",
+        "知性风"
+      ],
+      "styleDirection": "电商白底写实风",
+      "imagePrompt": "电商白底写实商品图，一件女款橄榄绿A 字中长裙。单条女士中长半裙，裙摆轻微展开，线条顺滑，不规则细节极少。主色是橄榄绿，材质是哑光混纺，版型为高腰，轮廓是A 字。风格偏知性风，温和克制，强调成熟感与阅读气质。强调温和、克制、成熟感和阅读气质。单品居中，4:5 竖版构图，纯白背景，柔和棚拍灯光，边缘清晰，材质纹理真实，阴影自然克制。",
+      "negativePrompt": "不要模特，不要人物，不要手，不要衣架，不要品牌 logo，不要文字，不要水印，不要多件商品，不要复杂背景。",
+      "imagePath": "generated/images/a-line-midi-skirt-olive-29.png"
+    }
+  },
+  {
+    "id": "short-trench-stone-30",
+    "name": "石灰色短款风衣",
+    "category": "outerwear",
+    "colors": [
+      "stone",
+      "ivory"
+    ],
+    "seasons": [
+      "spring",
+      "autumn"
+    ],
+    "formality": 4.1,
+    "warmth": 3.4,
+    "tags": [
+      "commute",
+      "rain-ready",
+      "layered",
+      "都市",
+      "轻户外",
+      "防雨",
+      "urban",
+      "modern",
+      "city",
+      "都市风",
+      "stone"
+    ],
+    "imageUrl": "/generated-assets/short-trench-stone-30.png",
+    "metadata": {
+      "audience": "women",
+      "subcategory": "风衣",
+      "material": "防泼水棉混纺",
+      "pattern": "纯色",
+      "fit": "常规",
+      "silhouette": "直身",
+      "stylePersona": "都市风",
+      "keywords": [
+        "都市",
+        "轻户外",
+        "防雨",
+        "urban",
+        "modern",
+        "city",
+        "都市风"
+      ],
+      "styleDirection": "电商白底写实风",
+      "imagePrompt": "电商白底写实商品图，一件女款石灰色短款风衣。单件女士短风衣，门襟利落，肩部轻挺，面料挺括但有柔和质感。主色是石灰色，材质是防泼水棉混纺，版型为常规，轮廓是直身。风格偏都市风，现代利落，适合高频城市通勤和日常切换。强调现代、利落、适合城市移动与日常切换。单品居中，4:5 竖版构图，纯白背景，柔和棚拍灯光，边缘清晰，材质纹理真实，阴影自然克制。",
+      "negativePrompt": "不要模特，不要人物，不要手，不要衣架，不要品牌 logo，不要文字，不要水印，不要多件商品，不要复杂背景。",
+      "imagePath": "generated/images/short-trench-stone-30.png",
+      "waterproof": true
+    }
+  },
+  {
+    "id": "silk-shirt-sage-31",
+    "name": "鼠尾草绿真丝衬衫",
+    "category": "top",
+    "colors": [
+      "sage",
+      "navy"
+    ],
+    "seasons": [
+      "spring",
+      "summer",
+      "autumn"
+    ],
+    "formality": 4.4,
+    "warmth": 1.8,
+    "tags": [
+      "office",
+      "commute",
+      "polished",
+      "极简",
+      "通勤",
+      "轻熟",
+      "french",
+      "elegant",
+      "soft",
+      "法式风",
+      "sage"
+    ],
+    "imageUrl": "/generated-assets/silk-shirt-sage-31.png",
+    "metadata": {
+      "audience": "women",
+      "subcategory": "衬衫",
+      "material": "真丝",
+      "pattern": "纯色",
+      "fit": "常规",
+      "silhouette": "微垂坠",
+      "stylePersona": "法式风",
+      "keywords": [
+        "极简",
+        "通勤",
+        "轻熟",
+        "french",
+        "elegant",
+        "soft",
+        "法式风"
+      ],
+      "styleDirection": "电商白底写实风",
+      "imagePrompt": "电商白底写实商品图，一件女款鼠尾草绿真丝衬衫。单件女士衬衫，领口清晰，袖型利落，面料带细腻光泽。主色是鼠尾草绿，材质是真丝，版型为常规，轮廓是微垂坠。风格偏法式风，轻松优雅，带一点松弛和女性化线条。强调轻松优雅、微松弛和女性化线条。单品居中，4:5 竖版构图，纯白背景，柔和棚拍灯光，边缘清晰，材质纹理真实，阴影自然克制。",
+      "negativePrompt": "不要模特，不要人物，不要手，不要衣架，不要品牌 logo，不要文字，不要水印，不要多件商品，不要复杂背景。",
+      "imagePath": "generated/images/silk-shirt-sage-31.png"
+    }
+  },
+  {
+    "id": "pendant-necklace-gold-32",
+    "name": "金色吊坠项链",
+    "category": "accessory",
+    "colors": [
+      "gold",
+      "black"
+    ],
+    "seasons": [
+      "spring",
+      "summer",
+      "autumn",
+      "winter"
+    ],
+    "formality": 4.1,
+    "warmth": 1,
+    "tags": [
+      "polished",
+      "soft",
+      "detail",
+      "吊坠",
+      "点缀",
+      "知性",
+      "business",
+      "office",
+      "商务风",
+      "gold"
+    ],
+    "imageUrl": "/generated-assets/pendant-necklace-gold-32.png",
+    "metadata": {
+      "audience": "women",
+      "subcategory": "项链",
+      "material": "金属",
+      "pattern": "纯色",
+      "fit": "中长",
+      "silhouette": "吊坠",
+      "stylePersona": "商务风",
+      "keywords": [
+        "吊坠",
+        "点缀",
+        "知性",
+        "business",
+        "office",
+        "polished",
+        "商务风"
+      ],
+      "styleDirection": "电商白底写实风",
+      "imagePrompt": "电商白底写实商品图，一件女款金色吊坠项链。单件女士首饰，一条吊坠项链平铺展示，吊坠清晰，链身平整。主色是金色，材质是金属，版型为中长，轮廓是吊坠。风格偏商务风，线条干净克制，适合办公室与正式会面。强调通勤、会议、干练线条和可信赖感。单品居中，4:5 竖版构图，纯白背景，柔和棚拍灯光，边缘清晰，材质纹理真实，阴影自然克制。",
+      "negativePrompt": "不要模特，不要人物，不要手，不要衣架，不要品牌 logo，不要文字，不要水印，不要多件商品，不要复杂背景。",
+      "imagePath": "generated/images/pendant-necklace-gold-32.png"
+    }
+  },
+  {
+    "id": "shirt-dress-ink-33",
+    "name": "墨蓝衬衫裙",
+    "category": "dress",
+    "colors": [
+      "ink",
+      "sage"
+    ],
+    "seasons": [
+      "spring",
+      "summer",
+      "autumn"
+    ],
+    "formality": 3.7,
+    "warmth": 2.3,
+    "tags": [
+      "office",
+      "creative",
+      "clean",
+      "利落",
+      "简洁",
+      "日常",
+      "minimal",
+      "timeless",
+      "极简风",
+      "ink"
+    ],
+    "imageUrl": "/generated-assets/shirt-dress-ink-33.png",
+    "metadata": {
+      "audience": "women",
+      "subcategory": "衬衫裙",
+      "material": "棉质混纺",
+      "pattern": "纯色",
+      "fit": "常规",
+      "silhouette": "直筒",
+      "stylePersona": "极简风",
+      "keywords": [
+        "利落",
+        "简洁",
+        "日常",
+        "minimal",
+        "clean",
+        "timeless",
+        "极简风"
+      ],
+      "styleDirection": "电商白底写实风",
+      "imagePrompt": "电商白底写实商品图，一件女款墨蓝衬衫裙。单件女士衬衫裙，门襟清晰，袖型简洁，裙摆自然垂落。主色是墨蓝，材质是棉质混纺，版型为常规，轮廓是直筒。风格偏极简风，减少装饰，强调干净轮廓和高级基础感。强调去装饰、干净轮廓和耐看的基础感。单品居中，4:5 竖版构图，纯白背景，柔和棚拍灯光，边缘清晰，材质纹理真实，阴影自然克制。",
+      "negativePrompt": "不要模特，不要人物，不要手，不要衣架，不要品牌 logo，不要文字，不要水印，不要多件商品，不要复杂背景。",
+      "imagePath": "generated/images/shirt-dress-ink-33.png"
+    }
+  },
+  {
+    "id": "structured-bag-camel-34",
+    "name": "驼色结构感托特包",
+    "category": "accessory",
+    "colors": [
+      "camel",
+      "mocha"
+    ],
+    "seasons": [
+      "spring",
+      "autumn",
+      "winter"
+    ],
+    "formality": 4.1,
+    "warmth": 1.4,
+    "tags": [
+      "office",
+      "commute",
+      "practical",
+      "通勤",
+      "容量",
+      "低调",
+      "preppy",
+      "clean",
+      "youthful",
+      "学院风",
+      "camel"
+    ],
+    "imageUrl": "/generated-assets/structured-bag-camel-34.png",
+    "metadata": {
+      "audience": "women",
+      "subcategory": "托特包",
+      "material": "纹理皮革",
+      "pattern": "纯色",
+      "fit": "大容量",
+      "silhouette": "结构感",
+      "stylePersona": "学院风",
+      "keywords": [
+        "通勤",
+        "容量",
+        "低调",
+        "preppy",
+        "clean",
+        "youthful",
+        "学院风"
+      ],
+      "styleDirection": "电商白底写实风",
+      "imagePrompt": "电商白底写实商品图，一件女款驼色结构感托特包。单件女士包袋，托特包正面展示，包型挺阔，细节克制。主色是驼色，材质是纹理皮革，版型为大容量，轮廓是结构感。风格偏学院风，清爽规整，带一点书卷气和减龄感。强调清爽、规整、带一点书卷气和校园感。单品居中，4:5 竖版构图，纯白背景，柔和棚拍灯光，边缘清晰，材质纹理真实，阴影自然克制。",
+      "negativePrompt": "不要模特，不要人物，不要手，不要衣架，不要品牌 logo，不要文字，不要水印，不要多件商品，不要复杂背景。",
+      "imagePath": "generated/images/structured-bag-camel-34.png"
+    }
+  },
+  {
+    "id": "slingback-heel-wine-35",
+    "name": "酒红色后空高跟鞋",
+    "category": "shoes",
+    "colors": [
+      "wine"
+    ],
+    "seasons": [
+      "spring",
+      "summer",
+      "autumn"
+    ],
+    "formality": 4.6,
+    "warmth": 1,
+    "tags": [
+      "date",
+      "dressy",
+      "polished",
+      "轻熟",
+      "优雅",
+      "精致",
+      "minimal",
+      "clean",
+      "timeless",
+      "极简风",
+      "wine"
+    ],
+    "imageUrl": "/generated-assets/slingback-heel-wine-35.png",
+    "metadata": {
+      "audience": "women",
+      "subcategory": "高跟鞋",
+      "material": "细腻皮革",
+      "pattern": "纯色",
+      "fit": "常规",
+      "silhouette": "尖头",
+      "stylePersona": "极简风",
+      "keywords": [
+        "轻熟",
+        "优雅",
+        "精致",
+        "minimal",
+        "clean",
+        "timeless",
+        "极简风"
+      ],
+      "styleDirection": "电商白底写实风",
+      "imagePrompt": "电商白底写实商品图，一件女款酒红色后空高跟鞋。单件女士鞋履，一双后空高跟鞋并排摆放，鞋型修长，鞋面平整。主色是酒红色，材质是细腻皮革，版型为常规，轮廓是尖头。风格偏极简风，减少装饰，强调干净轮廓和高级基础感。强调去装饰、干净轮廓和耐看的基础感。单品居中，4:5 竖版构图，纯白背景，柔和棚拍灯光，边缘清晰，材质纹理真实，阴影自然克制。",
+      "negativePrompt": "不要模特，不要人物，不要手，不要衣架，不要品牌 logo，不要文字，不要水印，不要多件商品，不要复杂背景。",
+      "imagePath": "generated/images/slingback-heel-wine-35.png",
+      "heelHeightCm": 6
+    }
+  },
+  {
+    "id": "belted-blazer-navy-36",
+    "name": "海军蓝收腰西装外套",
+    "category": "outerwear",
+    "colors": [
+      "navy",
+      "cream"
+    ],
+    "seasons": [
+      "spring",
+      "autumn"
+    ],
+    "formality": 4.6,
+    "warmth": 3.3,
+    "tags": [
+      "office",
+      "meeting",
+      "layered",
+      "权威",
+      "精致",
+      "通勤",
+      "business",
+      "polished",
+      "商务风",
+      "navy"
+    ],
+    "imageUrl": "/generated-assets/belted-blazer-navy-36.png",
+    "metadata": {
+      "audience": "women",
+      "subcategory": "西装外套",
+      "material": "羊毛混纺",
+      "pattern": "纯色",
+      "fit": "修身",
+      "silhouette": "收腰",
+      "stylePersona": "商务风",
+      "keywords": [
+        "权威",
+        "精致",
+        "通勤",
+        "business",
+        "office",
+        "polished",
+        "商务风"
+      ],
+      "styleDirection": "电商白底写实风",
+      "imagePrompt": "电商白底写实商品图，一件女款海军蓝收腰西装外套。单件女士西装外套，肩线挺括，腰部略收，驳领清晰。主色是海军蓝，材质是羊毛混纺，版型为修身，轮廓是收腰。风格偏商务风，线条干净克制，适合办公室与正式会面。强调通勤、会议、干练线条和可信赖感。单品居中，4:5 竖版构图，纯白背景，柔和棚拍灯光，边缘清晰，材质纹理真实，阴影自然克制。",
+      "negativePrompt": "不要模特，不要人物，不要手，不要衣架，不要品牌 logo，不要文字，不要水印，不要多件商品，不要复杂背景。",
+      "imagePath": "generated/images/belted-blazer-navy-36.png"
+    }
+  },
+  {
+    "id": "baguette-bag-cream-37",
+    "name": "奶油白腋下包",
+    "category": "accessory",
+    "colors": [
+      "cream"
+    ],
+    "seasons": [
+      "spring",
+      "summer",
+      "autumn",
+      "winter"
+    ],
+    "formality": 4,
+    "warmth": 1,
+    "tags": [
+      "date",
+      "city",
+      "sleek",
+      "精致",
+      "轻熟",
+      "小巧",
+      "intellectual",
+      "refined",
+      "calm",
+      "知性风",
+      "cream"
+    ],
+    "imageUrl": "/generated-assets/baguette-bag-cream-37.png",
+    "metadata": {
+      "audience": "women",
+      "subcategory": "腋下包",
+      "material": "光面皮革",
+      "pattern": "纯色",
+      "fit": "小容量",
+      "silhouette": "细长",
+      "stylePersona": "知性风",
+      "keywords": [
+        "精致",
+        "轻熟",
+        "小巧",
+        "intellectual",
+        "refined",
+        "calm",
+        "知性风"
+      ],
+      "styleDirection": "电商白底写实风",
+      "imagePrompt": "电商白底写实商品图，一件女款奶油白腋下包。单件女士包袋，腋下包正面展示，包型细长，五金低调。主色是奶油白，材质是光面皮革，版型为小容量，轮廓是细长。风格偏知性风，温和克制，强调成熟感与阅读气质。强调温和、克制、成熟感和阅读气质。单品居中，4:5 竖版构图，纯白背景，柔和棚拍灯光，边缘清晰，材质纹理真实，阴影自然克制。",
+      "negativePrompt": "不要模特，不要人物，不要手，不要衣架，不要品牌 logo，不要文字，不要水印，不要多件商品，不要复杂背景。",
+      "imagePath": "generated/images/baguette-bag-cream-37.png"
+    }
+  },
+  {
+    "id": "merino-knit-wine-38",
+    "name": "酒红色羊毛针织衫",
+    "category": "top",
+    "colors": [
+      "wine",
+      "gold"
+    ],
+    "seasons": [
+      "autumn",
+      "winter",
+      "spring"
+    ],
+    "formality": 3.8,
+    "warmth": 4,
+    "tags": [
+      "office",
+      "layered",
+      "soft",
+      "柔软",
+      "叠穿",
+      "秋冬",
+      "french",
+      "elegant",
+      "法式风",
+      "wine"
+    ],
+    "imageUrl": "/generated-assets/merino-knit-wine-38.png",
+    "metadata": {
+      "audience": "women",
+      "subcategory": "针织衫",
+      "material": "美利奴羊毛",
+      "pattern": "纯色",
+      "fit": "微宽松",
+      "silhouette": "柔和垂落",
+      "stylePersona": "法式风",
+      "keywords": [
+        "柔软",
+        "叠穿",
+        "秋冬",
+        "french",
+        "elegant",
+        "soft",
+        "法式风"
+      ],
+      "styleDirection": "电商白底写实风",
+      "imagePrompt": "电商白底写实商品图，一件女款酒红色羊毛针织衫。单件女士针织衫，羊毛质感明显，领口和袖口干净平整。主色是酒红色，材质是美利奴羊毛，版型为微宽松，轮廓是柔和垂落。风格偏法式风，轻松优雅，带一点松弛和女性化线条。强调轻松优雅、微松弛和女性化线条。单品居中，4:5 竖版构图，纯白背景，柔和棚拍灯光，边缘清晰，材质纹理真实，阴影自然克制。",
+      "negativePrompt": "不要模特，不要人物，不要手，不要衣架，不要品牌 logo，不要文字，不要水印，不要多件商品，不要复杂背景。",
+      "imagePath": "generated/images/merino-knit-wine-38.png"
+    }
+  },
+  {
+    "id": "rib-knit-tee-stone-39",
+    "name": "石灰色罗纹针织上衣",
+    "category": "top",
+    "colors": [
+      "stone",
+      "wine"
+    ],
+    "seasons": [
+      "spring",
+      "summer",
+      "autumn"
+    ],
+    "formality": 3.4,
+    "warmth": 1.8,
+    "tags": [
+      "casual",
+      "clean",
+      "minimal",
+      "基础款",
+      "都市",
+      "干净",
+      "timeless",
+      "极简风",
+      "stone"
+    ],
+    "imageUrl": "/generated-assets/rib-knit-tee-stone-39.png",
+    "metadata": {
+      "audience": "women",
+      "subcategory": "针织上衣",
+      "material": "细针织",
+      "pattern": "罗纹",
+      "fit": "修身",
+      "silhouette": "贴身",
+      "stylePersona": "极简风",
+      "keywords": [
+        "基础款",
+        "都市",
+        "干净",
+        "minimal",
+        "clean",
+        "timeless",
+        "极简风"
+      ],
+      "styleDirection": "电商白底写实风",
+      "imagePrompt": "电商白底写实商品图，一件女款石灰色罗纹针织上衣。单件女士罗纹上衣，肩线干净，版型修长，针织纹理可见。主色是石灰色，材质是细针织，版型为修身，轮廓是贴身。风格偏极简风，减少装饰，强调干净轮廓和高级基础感。强调去装饰、干净轮廓和耐看的基础感。单品居中，4:5 竖版构图，纯白背景，柔和棚拍灯光，边缘清晰，材质纹理真实，阴影自然克制。",
+      "negativePrompt": "不要模特，不要人物，不要手，不要衣架，不要品牌 logo，不要文字，不要水印，不要多件商品，不要复杂背景。",
+      "imagePath": "generated/images/rib-knit-tee-stone-39.png"
+    }
+  },
+  {
+    "id": "straight-denim-charcoal-40",
+    "name": "炭灰直筒牛仔裤",
+    "category": "bottom",
+    "colors": [
+      "charcoal",
+      "taupe"
+    ],
+    "seasons": [
+      "spring",
+      "autumn",
+      "winter"
+    ],
+    "formality": 2.5,
+    "warmth": 2.4,
+    "tags": [
+      "casual",
+      "weekend",
+      "city",
+      "街头",
+      "基础款",
+      "利落",
+      "business",
+      "office",
+      "polished",
+      "商务风",
+      "charcoal"
+    ],
+    "imageUrl": "/generated-assets/straight-denim-charcoal-40.png",
+    "metadata": {
+      "audience": "women",
+      "subcategory": "牛仔裤",
+      "material": "丹宁",
+      "pattern": "纯色",
+      "fit": "高腰",
+      "silhouette": "直筒",
+      "stylePersona": "商务风",
+      "keywords": [
+        "街头",
+        "基础款",
+        "利落",
+        "business",
+        "office",
+        "polished",
+        "商务风"
+      ],
+      "styleDirection": "电商白底写实风",
+      "imagePrompt": "电商白底写实商品图，一件女款炭灰直筒牛仔裤。单条女士直筒牛仔裤，丹宁纹理清楚，腰线简洁，裤脚利落。主色是炭灰，材质是丹宁，版型为高腰，轮廓是直筒。风格偏商务风，线条干净克制，适合办公室与正式会面。强调通勤、会议、干练线条和可信赖感。单品居中，4:5 竖版构图，纯白背景，柔和棚拍灯光，边缘清晰，材质纹理真实，阴影自然克制。",
+      "negativePrompt": "不要模特，不要人物，不要手，不要衣架，不要品牌 logo，不要文字，不要水印，不要多件商品，不要复杂背景。",
+      "imagePath": "generated/images/straight-denim-charcoal-40.png"
+    }
+  },
+  {
+    "id": "wool-coat-camel-41",
+    "name": "驼色羊毛大衣",
+    "category": "outerwear",
+    "colors": [
+      "camel",
+      "black"
+    ],
+    "seasons": [
+      "autumn",
+      "winter"
+    ],
+    "formality": 4.6,
+    "warmth": 4.4,
+    "tags": [
+      "office",
+      "winter",
+      "elevated",
+      "静奢",
+      "高级",
+      "秋冬",
+      "preppy",
+      "clean",
+      "youthful",
+      "学院风",
+      "camel"
+    ],
+    "imageUrl": "/generated-assets/wool-coat-camel-41.png",
+    "metadata": {
+      "audience": "women",
+      "subcategory": "大衣",
+      "material": "双面羊毛",
+      "pattern": "纯色",
+      "fit": "微宽松",
+      "silhouette": "长直身",
+      "stylePersona": "学院风",
+      "keywords": [
+        "静奢",
+        "高级",
+        "秋冬",
+        "preppy",
+        "clean",
+        "youthful",
+        "学院风"
+      ],
+      "styleDirection": "电商白底写实风",
+      "imagePrompt": "电商白底写实商品图，一件女款驼色羊毛大衣。单件女士长款大衣，面料厚实，轮廓挺阔，衣长接近小腿。主色是驼色，材质是双面羊毛，版型为微宽松，轮廓是长直身。风格偏学院风，清爽规整，带一点书卷气和减龄感。强调清爽、规整、带一点书卷气和校园感。单品居中，4:5 竖版构图，纯白背景，柔和棚拍灯光，边缘清晰，材质纹理真实，阴影自然克制。",
+      "negativePrompt": "不要模特，不要人物，不要手，不要衣架，不要品牌 logo，不要文字，不要水印，不要多件商品，不要复杂背景。",
+      "imagePath": "generated/images/wool-coat-camel-41.png"
+    }
+  },
+  {
+    "id": "short-trench-olive-42",
+    "name": "橄榄绿短款风衣",
+    "category": "outerwear",
+    "colors": [
+      "olive"
+    ],
+    "seasons": [
+      "spring",
+      "autumn"
+    ],
+    "formality": 4,
+    "warmth": 3.4,
+    "tags": [
+      "commute",
+      "rain-ready",
+      "layered",
+      "都市",
+      "轻户外",
+      "防雨",
+      "minimal",
+      "clean",
+      "timeless",
+      "极简风",
+      "olive"
+    ],
+    "imageUrl": "/generated-assets/short-trench-olive-42.png",
+    "metadata": {
+      "audience": "women",
+      "subcategory": "风衣",
+      "material": "防泼水棉混纺",
+      "pattern": "纯色",
+      "fit": "常规",
+      "silhouette": "直身",
+      "stylePersona": "极简风",
+      "keywords": [
+        "都市",
+        "轻户外",
+        "防雨",
+        "minimal",
+        "clean",
+        "timeless",
+        "极简风"
+      ],
+      "styleDirection": "电商白底写实风",
+      "imagePrompt": "电商白底写实商品图，一件女款橄榄绿短款风衣。单件女士短风衣，门襟利落，肩部轻挺，面料挺括但有柔和质感。主色是橄榄绿，材质是防泼水棉混纺，版型为常规，轮廓是直身。风格偏极简风，减少装饰，强调干净轮廓和高级基础感。强调去装饰、干净轮廓和耐看的基础感。单品居中，4:5 竖版构图，纯白背景，柔和棚拍灯光，边缘清晰，材质纹理真实，阴影自然克制。",
+      "negativePrompt": "不要模特，不要人物，不要手，不要衣架，不要品牌 logo，不要文字，不要水印，不要多件商品，不要复杂背景。",
+      "imagePath": "generated/images/short-trench-olive-42.png",
+      "waterproof": true
+    }
+  },
+  {
+    "id": "ankle-boot-olive-43",
+    "name": "橄榄绿短靴",
+    "category": "shoes",
+    "colors": [
+      "olive",
+      "charcoal"
+    ],
+    "seasons": [
+      "autumn",
+      "winter",
+      "spring"
+    ],
+    "formality": 4.1,
+    "warmth": 3.3,
+    "tags": [
+      "rain-ready",
+      "city",
+      "layered",
+      "秋冬",
+      "酷感",
+      "耐穿",
+      "business",
+      "office",
+      "polished",
+      "商务风",
+      "olive"
+    ],
+    "imageUrl": "/generated-assets/ankle-boot-olive-43.png",
+    "metadata": {
+      "audience": "women",
+      "subcategory": "短靴",
+      "material": "哑光牛皮",
+      "pattern": "纯色",
+      "fit": "常规",
+      "silhouette": "踝靴",
+      "stylePersona": "商务风",
+      "keywords": [
+        "秋冬",
+        "酷感",
+        "耐穿",
+        "business",
+        "office",
+        "polished",
+        "商务风"
+      ],
+      "styleDirection": "电商白底写实风",
+      "imagePrompt": "电商白底写实商品图，一件女款橄榄绿短靴。单件女士鞋履，一双踝靴并排摆放，鞋筒挺括，鞋面干净。主色是橄榄绿，材质是哑光牛皮，版型为常规，轮廓是踝靴。风格偏商务风，线条干净克制，适合办公室与正式会面。强调通勤、会议、干练线条和可信赖感。单品居中，4:5 竖版构图，纯白背景，柔和棚拍灯光，边缘清晰，材质纹理真实，阴影自然克制。",
+      "negativePrompt": "不要模特，不要人物，不要手，不要衣架，不要品牌 logo，不要文字，不要水印，不要多件商品，不要复杂背景。",
+      "imagePath": "generated/images/ankle-boot-olive-43.png",
+      "heelHeightCm": 4,
+      "shaftHeight": "ankle",
+      "waterproof": true
+    }
+  },
+  {
+    "id": "wide-trouser-black-44",
+    "name": "黑色阔腿西裤",
+    "category": "bottom",
+    "colors": [
+      "black",
+      "camel"
+    ],
+    "seasons": [
+      "spring",
+      "autumn",
+      "winter"
+    ],
+    "formality": 4.5,
+    "warmth": 3,
+    "tags": [
+      "office",
+      "tailored",
+      "boardroom",
+      "利落",
+      "通勤",
+      "大女人",
+      "preppy",
+      "clean",
+      "youthful",
+      "学院风",
+      "black"
+    ],
+    "imageUrl": "/generated-assets/wide-trouser-black-44.png",
+    "metadata": {
+      "audience": "women",
+      "subcategory": "西裤",
+      "material": "斜纹西装料",
+      "pattern": "纯色",
+      "fit": "高腰",
+      "silhouette": "阔腿",
+      "stylePersona": "学院风",
+      "keywords": [
+        "利落",
+        "通勤",
+        "大女人",
+        "preppy",
+        "clean",
+        "youthful",
+        "学院风"
+      ],
+      "styleDirection": "电商白底写实风",
+      "imagePrompt": "电商白底写实商品图，一件女款黑色阔腿西裤。单条女士高腰西裤，裤线利落，裤腿宽松顺直，垂感明显。主色是黑色，材质是斜纹西装料，版型为高腰，轮廓是阔腿。风格偏学院风，清爽规整，带一点书卷气和减龄感。强调清爽、规整、带一点书卷气和校园感。单品居中，4:5 竖版构图，纯白背景，柔和棚拍灯光，边缘清晰，材质纹理真实，阴影自然克制。",
+      "negativePrompt": "不要模特，不要人物，不要手，不要衣架，不要品牌 logo，不要文字，不要水印，不要多件商品，不要复杂背景。",
+      "imagePath": "generated/images/wide-trouser-black-44.png"
+    }
+  },
+  {
+    "id": "silk-scarf-wine-45",
+    "name": "酒红色真丝方巾",
+    "category": "accessory",
+    "colors": [
+      "wine"
+    ],
+    "seasons": [
+      "spring",
+      "summer",
+      "autumn"
+    ],
+    "formality": 3.9,
+    "warmth": 1,
+    "tags": [
+      "soft",
+      "fortune-color",
+      "feminine",
+      "丝巾",
+      "点亮",
+      "法式",
+      "french",
+      "elegant",
+      "法式风",
+      "wine"
+    ],
+    "imageUrl": "/generated-assets/silk-scarf-wine-45.png",
+    "metadata": {
+      "audience": "women",
+      "subcategory": "丝巾",
+      "material": "真丝",
+      "pattern": "纯色",
+      "fit": "小方巾",
+      "silhouette": "方形",
+      "stylePersona": "法式风",
+      "keywords": [
+        "丝巾",
+        "点亮",
+        "法式",
+        "french",
+        "elegant",
+        "soft",
+        "法式风"
+      ],
+      "styleDirection": "电商白底写实风",
+      "imagePrompt": "电商白底写实商品图，一件女款酒红色真丝方巾。单件女士配饰，一条真丝方巾平铺展示，折角整洁，面料柔亮。主色是酒红色，材质是真丝，版型为小方巾，轮廓是方形。风格偏法式风，轻松优雅，带一点松弛和女性化线条。强调轻松优雅、微松弛和女性化线条。单品居中，4:5 竖版构图，纯白背景，柔和棚拍灯光，边缘清晰，材质纹理真实，阴影自然克制。",
+      "negativePrompt": "不要模特，不要人物，不要手，不要衣架，不要品牌 logo，不要文字，不要水印，不要多件商品，不要复杂背景。",
+      "imagePath": "generated/images/silk-scarf-wine-45.png"
+    }
+  },
+  {
+    "id": "silk-shirt-cream-46",
+    "name": "奶油白真丝衬衫",
+    "category": "top",
+    "colors": [
+      "cream"
+    ],
+    "seasons": [
+      "spring",
+      "summer",
+      "autumn"
+    ],
+    "formality": 4.6,
+    "warmth": 1.8,
+    "tags": [
+      "office",
+      "commute",
+      "polished",
+      "极简",
+      "通勤",
+      "轻熟",
+      "intellectual",
+      "refined",
+      "calm",
+      "知性风",
+      "cream"
+    ],
+    "imageUrl": "/generated-assets/silk-shirt-cream-46.png",
+    "metadata": {
+      "audience": "women",
+      "subcategory": "衬衫",
+      "material": "真丝",
+      "pattern": "纯色",
+      "fit": "常规",
+      "silhouette": "微垂坠",
+      "stylePersona": "知性风",
+      "keywords": [
+        "极简",
+        "通勤",
+        "轻熟",
+        "intellectual",
+        "refined",
+        "calm",
+        "知性风"
+      ],
+      "styleDirection": "电商白底写实风",
+      "imagePrompt": "电商白底写实商品图，一件女款奶油白真丝衬衫。单件女士衬衫，领口清晰，袖型利落，面料带细腻光泽。主色是奶油白，材质是真丝，版型为常规，轮廓是微垂坠。风格偏知性风，温和克制，强调成熟感与阅读气质。强调温和、克制、成熟感和阅读气质。单品居中，4:5 竖版构图，纯白背景，柔和棚拍灯光，边缘清晰，材质纹理真实，阴影自然克制。",
+      "negativePrompt": "不要模特，不要人物，不要手，不要衣架，不要品牌 logo，不要文字，不要水印，不要多件商品，不要复杂背景。",
+      "imagePath": "generated/images/silk-shirt-cream-46.png"
+    }
+  },
+  {
+    "id": "belted-blazer-charcoal-47",
+    "name": "炭灰收腰西装外套",
+    "category": "outerwear",
+    "colors": [
+      "charcoal"
+    ],
+    "seasons": [
+      "spring",
+      "autumn"
+    ],
+    "formality": 4.7,
+    "warmth": 2.7,
+    "tags": [
+      "office",
+      "meeting",
+      "layered",
+      "权威",
+      "精致",
+      "通勤",
+      "preppy",
+      "clean",
+      "youthful",
+      "学院风",
+      "charcoal"
+    ],
+    "imageUrl": "/generated-assets/belted-blazer-charcoal-47.png",
+    "metadata": {
+      "audience": "women",
+      "subcategory": "西装外套",
+      "material": "羊毛混纺",
+      "pattern": "纯色",
+      "fit": "修身",
+      "silhouette": "收腰",
+      "stylePersona": "学院风",
+      "keywords": [
+        "权威",
+        "精致",
+        "通勤",
+        "preppy",
+        "clean",
+        "youthful",
+        "学院风"
+      ],
+      "styleDirection": "电商白底写实风",
+      "imagePrompt": "电商白底写实商品图，一件女款炭灰收腰西装外套。单件女士西装外套，肩线挺括，腰部略收，驳领清晰。主色是炭灰，材质是羊毛混纺，版型为修身，轮廓是收腰。风格偏学院风，清爽规整，带一点书卷气和减龄感。强调清爽、规整、带一点书卷气和校园感。单品居中，4:5 竖版构图，纯白背景，柔和棚拍灯光，边缘清晰，材质纹理真实，阴影自然克制。",
+      "negativePrompt": "不要模特，不要人物，不要手，不要衣架，不要品牌 logo，不要文字，不要水印，不要多件商品，不要复杂背景。",
+      "imagePath": "generated/images/belted-blazer-charcoal-47.png"
+    }
+  },
+  {
+    "id": "a-line-midi-skirt-olive-48",
+    "name": "橄榄绿A 字中长裙",
+    "category": "bottom",
+    "colors": [
+      "olive",
+      "dusty-rose"
+    ],
+    "seasons": [
+      "spring",
+      "summer",
+      "autumn"
+    ],
+    "formality": 3.8,
+    "warmth": 1.9,
+    "tags": [
+      "date",
+      "gallery",
+      "soft",
+      "法式",
+      "轻盈",
+      "约会",
+      "minimal",
+      "clean",
+      "timeless",
+      "极简风",
+      "olive"
+    ],
+    "imageUrl": "/generated-assets/a-line-midi-skirt-olive-48.png",
+    "metadata": {
+      "audience": "women",
+      "subcategory": "半裙",
+      "material": "哑光混纺",
+      "pattern": "纯色",
+      "fit": "高腰",
+      "silhouette": "A 字",
+      "stylePersona": "极简风",
+      "keywords": [
+        "法式",
+        "轻盈",
+        "约会",
+        "minimal",
+        "clean",
+        "timeless",
+        "极简风"
+      ],
+      "styleDirection": "电商白底写实风",
+      "imagePrompt": "电商白底写实商品图，一件女款橄榄绿A 字中长裙。单条女士中长半裙，裙摆轻微展开，线条顺滑，不规则细节极少。主色是橄榄绿，材质是哑光混纺，版型为高腰，轮廓是A 字。风格偏极简风，减少装饰，强调干净轮廓和高级基础感。强调去装饰、干净轮廓和耐看的基础感。单品居中，4:5 竖版构图，纯白背景，柔和棚拍灯光，边缘清晰，材质纹理真实，阴影自然克制。",
+      "negativePrompt": "不要模特，不要人物，不要手，不要衣架，不要品牌 logo，不要文字，不要水印，不要多件商品，不要复杂背景。",
+      "imagePath": "generated/images/a-line-midi-skirt-olive-48.png"
+    }
+  },
+  {
+    "id": "leather-loafer-black-49",
+    "name": "黑色皮革乐福鞋",
+    "category": "shoes",
+    "colors": [
+      "black"
+    ],
+    "seasons": [
+      "spring",
+      "autumn",
+      "winter"
+    ],
+    "formality": 4.4,
+    "warmth": 2.1,
+    "tags": [
+      "office",
+      "commute",
+      "rain-ready",
+      "通勤",
+      "利落",
+      "低调",
+      "french",
+      "elegant",
+      "soft",
+      "法式风",
+      "black"
+    ],
+    "imageUrl": "/generated-assets/leather-loafer-black-49.png",
+    "metadata": {
+      "audience": "women",
+      "subcategory": "乐福鞋",
+      "material": "抛光牛皮",
+      "pattern": "纯色",
+      "fit": "常规",
+      "silhouette": "低跟",
+      "stylePersona": "法式风",
+      "keywords": [
+        "通勤",
+        "利落",
+        "低调",
+        "french",
+        "elegant",
+        "soft",
+        "法式风"
+      ],
+      "styleDirection": "电商白底写实风",
+      "imagePrompt": "电商白底写实商品图，一件女款黑色皮革乐福鞋。单件女士鞋履，一双乐福鞋并排摆放，鞋面完整可见，皮革反光柔和。主色是黑色，材质是抛光牛皮，版型为常规，轮廓是低跟。风格偏法式风，轻松优雅，带一点松弛和女性化线条。强调轻松优雅、微松弛和女性化线条。单品居中，4:5 竖版构图，纯白背景，柔和棚拍灯光，边缘清晰，材质纹理真实，阴影自然克制。",
+      "negativePrompt": "不要模特，不要人物，不要手，不要衣架，不要品牌 logo，不要文字，不要水印，不要多件商品，不要复杂背景。",
+      "imagePath": "generated/images/leather-loafer-black-49.png",
+      "heelHeightCm": 2,
+      "waterproof": true
+    }
+  },
+  {
+    "id": "pearl-earring-gold-50",
+    "name": "金色珍珠耳饰",
+    "category": "accessory",
+    "colors": [
+      "gold"
+    ],
+    "seasons": [
+      "spring",
+      "summer",
+      "autumn",
+      "winter"
+    ],
+    "formality": 4.1,
+    "warmth": 1,
+    "tags": [
+      "feminine",
+      "polished",
+      "dressy",
+      "珍珠",
+      "柔和",
+      "优雅",
+      "urban",
+      "modern",
+      "city",
+      "都市风",
+      "gold"
+    ],
+    "imageUrl": "/generated-assets/pearl-earring-gold-50.png",
+    "metadata": {
+      "audience": "women",
+      "subcategory": "耳饰",
+      "material": "珍珠与金属",
+      "pattern": "纯色",
+      "fit": "轻量",
+      "silhouette": "垂坠",
+      "stylePersona": "都市风",
+      "keywords": [
+        "珍珠",
+        "柔和",
+        "优雅",
+        "urban",
+        "modern",
+        "city",
+        "都市风"
+      ],
+      "styleDirection": "电商白底写实风",
+      "imagePrompt": "电商白底写实商品图，一件女款金色珍珠耳饰。单件女士首饰，一对珍珠耳饰并排摆放，结构克制，细节精致。主色是金色，材质是珍珠与金属，版型为轻量，轮廓是垂坠。风格偏都市风，现代利落，适合高频城市通勤和日常切换。强调现代、利落、适合城市移动与日常切换。单品居中，4:5 竖版构图，纯白背景，柔和棚拍灯光，边缘清晰，材质纹理真实，阴影自然克制。",
+      "negativePrompt": "不要模特，不要人物，不要手，不要衣架，不要品牌 logo，不要文字，不要水印，不要多件商品，不要复杂背景。",
+      "imagePath": "generated/images/pearl-earring-gold-50.png"
+    }
+  },
+  {
+    "id": "wool-coat-mocha-51",
+    "name": "摩卡色羊毛大衣",
+    "category": "outerwear",
+    "colors": [
+      "mocha"
+    ],
+    "seasons": [
+      "autumn",
+      "winter"
+    ],
+    "formality": 4.2,
+    "warmth": 4.4,
+    "tags": [
+      "office",
+      "winter",
+      "elevated",
+      "静奢",
+      "高级",
+      "秋冬",
+      "minimal",
+      "clean",
+      "timeless",
+      "极简风",
+      "mocha"
+    ],
+    "imageUrl": "/generated-assets/wool-coat-mocha-51.png",
+    "metadata": {
+      "audience": "women",
+      "subcategory": "大衣",
+      "material": "双面羊毛",
+      "pattern": "纯色",
+      "fit": "微宽松",
+      "silhouette": "长直身",
+      "stylePersona": "极简风",
+      "keywords": [
+        "静奢",
+        "高级",
+        "秋冬",
+        "minimal",
+        "clean",
+        "timeless",
+        "极简风"
+      ],
+      "styleDirection": "电商白底写实风",
+      "imagePrompt": "电商白底写实商品图，一件女款摩卡色羊毛大衣。单件女士长款大衣，面料厚实，轮廓挺阔，衣长接近小腿。主色是摩卡色，材质是双面羊毛，版型为微宽松，轮廓是长直身。风格偏极简风，减少装饰，强调干净轮廓和高级基础感。强调去装饰、干净轮廓和耐看的基础感。单品居中，4:5 竖版构图，纯白背景，柔和棚拍灯光，边缘清晰，材质纹理真实，阴影自然克制。",
+      "negativePrompt": "不要模特，不要人物，不要手，不要衣架，不要品牌 logo，不要文字，不要水印，不要多件商品，不要复杂背景。",
+      "imagePath": "generated/images/wool-coat-mocha-51.png"
+    }
+  },
+  {
+    "id": "straight-denim-ink-52",
+    "name": "墨蓝直筒牛仔裤",
+    "category": "bottom",
+    "colors": [
+      "ink"
+    ],
+    "seasons": [
+      "spring",
+      "autumn",
+      "winter"
+    ],
+    "formality": 2.6,
+    "warmth": 2.5,
+    "tags": [
+      "casual",
+      "weekend",
+      "city",
+      "街头",
+      "基础款",
+      "利落",
+      "french",
+      "elegant",
+      "soft",
+      "法式风",
+      "ink"
+    ],
+    "imageUrl": "/generated-assets/straight-denim-ink-52.png",
+    "metadata": {
+      "audience": "women",
+      "subcategory": "牛仔裤",
+      "material": "丹宁",
+      "pattern": "纯色",
+      "fit": "高腰",
+      "silhouette": "直筒",
+      "stylePersona": "法式风",
+      "keywords": [
+        "街头",
+        "基础款",
+        "利落",
+        "french",
+        "elegant",
+        "soft",
+        "法式风"
+      ],
+      "styleDirection": "电商白底写实风",
+      "imagePrompt": "电商白底写实商品图，一件女款墨蓝直筒牛仔裤。单条女士直筒牛仔裤，丹宁纹理清楚，腰线简洁，裤脚利落。主色是墨蓝，材质是丹宁，版型为高腰，轮廓是直筒。风格偏法式风，轻松优雅，带一点松弛和女性化线条。强调轻松优雅、微松弛和女性化线条。单品居中，4:5 竖版构图，纯白背景，柔和棚拍灯光，边缘清晰，材质纹理真实，阴影自然克制。",
+      "negativePrompt": "不要模特，不要人物，不要手，不要衣架，不要品牌 logo，不要文字，不要水印，不要多件商品，不要复杂背景。",
+      "imagePath": "generated/images/straight-denim-ink-52.png"
+    }
+  },
+  {
+    "id": "wide-trouser-taupe-53",
+    "name": "灰褐色阔腿西裤",
+    "category": "bottom",
+    "colors": [
+      "taupe"
+    ],
+    "seasons": [
+      "spring",
+      "autumn",
+      "winter"
+    ],
+    "formality": 4.9,
+    "warmth": 2.9,
+    "tags": [
+      "office",
+      "tailored",
+      "boardroom",
+      "利落",
+      "通勤",
+      "大女人",
+      "intellectual",
+      "refined",
+      "calm",
+      "知性风",
+      "taupe"
+    ],
+    "imageUrl": "/generated-assets/wide-trouser-taupe-53.png",
+    "metadata": {
+      "audience": "women",
+      "subcategory": "西裤",
+      "material": "斜纹西装料",
+      "pattern": "纯色",
+      "fit": "高腰",
+      "silhouette": "阔腿",
+      "stylePersona": "知性风",
+      "keywords": [
+        "利落",
+        "通勤",
+        "大女人",
+        "intellectual",
+        "refined",
+        "calm",
+        "知性风"
+      ],
+      "styleDirection": "电商白底写实风",
+      "imagePrompt": "电商白底写实商品图，一件女款灰褐色阔腿西裤。单条女士高腰西裤，裤线利落，裤腿宽松顺直，垂感明显。主色是灰褐色，材质是斜纹西装料，版型为高腰，轮廓是阔腿。风格偏知性风，温和克制，强调成熟感与阅读气质。强调温和、克制、成熟感和阅读气质。单品居中，4:5 竖版构图，纯白背景，柔和棚拍灯光，边缘清晰，材质纹理真实，阴影自然克制。",
+      "negativePrompt": "不要模特，不要人物，不要手，不要衣架，不要品牌 logo，不要文字，不要水印，不要多件商品，不要复杂背景。",
+      "imagePath": "generated/images/wide-trouser-taupe-53.png"
+    }
+  },
+  {
+    "id": "minimal-sneaker-stone-54",
+    "name": "石灰色极简运动鞋",
+    "category": "shoes",
+    "colors": [
+      "stone",
+      "ink"
+    ],
+    "seasons": [
+      "spring",
+      "summer",
+      "autumn"
+    ],
+    "formality": 2.3,
+    "warmth": 1.8,
+    "tags": [
+      "casual",
+      "city",
+      "clean",
+      "极简",
+      "通勤休闲",
+      "轻松",
+      "business",
+      "office",
+      "polished",
+      "商务风",
+      "stone"
+    ],
+    "imageUrl": "/generated-assets/minimal-sneaker-stone-54.png",
+    "metadata": {
+      "audience": "women",
+      "subcategory": "运动鞋",
+      "material": "皮革拼网布",
+      "pattern": "纯色",
+      "fit": "常规",
+      "silhouette": "低帮",
+      "stylePersona": "商务风",
+      "keywords": [
+        "极简",
+        "通勤休闲",
+        "轻松",
+        "business",
+        "office",
+        "polished",
+        "商务风"
+      ],
+      "styleDirection": "电商白底写实风",
+      "imagePrompt": "电商白底写实商品图，一件女款石灰色极简运动鞋。单件女士鞋履，一双极简运动鞋并排摆放，轮廓干净，材质拼接克制。主色是石灰色，材质是皮革拼网布，版型为常规，轮廓是低帮。风格偏商务风，线条干净克制，适合办公室与正式会面。强调通勤、会议、干练线条和可信赖感。单品居中，4:5 竖版构图，纯白背景，柔和棚拍灯光，边缘清晰，材质纹理真实，阴影自然克制。",
+      "negativePrompt": "不要模特，不要人物，不要手，不要衣架，不要品牌 logo，不要文字，不要水印，不要多件商品，不要复杂背景。",
+      "imagePath": "generated/images/minimal-sneaker-stone-54.png",
+      "heelHeightCm": 2
+    }
+  },
+  {
+    "id": "slingback-heel-wine-55",
+    "name": "酒红色后空高跟鞋",
+    "category": "shoes",
+    "colors": [
+      "wine"
+    ],
+    "seasons": [
+      "spring",
+      "summer",
+      "autumn"
+    ],
+    "formality": 4.5,
+    "warmth": 1,
+    "tags": [
+      "date",
+      "dressy",
+      "polished",
+      "轻熟",
+      "优雅",
+      "精致",
+      "business",
+      "office",
+      "商务风",
+      "wine"
+    ],
+    "imageUrl": "/generated-assets/slingback-heel-wine-55.png",
+    "metadata": {
+      "audience": "women",
+      "subcategory": "高跟鞋",
+      "material": "细腻皮革",
+      "pattern": "纯色",
+      "fit": "常规",
+      "silhouette": "尖头",
+      "stylePersona": "商务风",
+      "keywords": [
+        "轻熟",
+        "优雅",
+        "精致",
+        "business",
+        "office",
+        "polished",
+        "商务风"
+      ],
+      "styleDirection": "电商白底写实风",
+      "imagePrompt": "电商白底写实商品图，一件女款酒红色后空高跟鞋。单件女士鞋履，一双后空高跟鞋并排摆放，鞋型修长，鞋面平整。主色是酒红色，材质是细腻皮革，版型为常规，轮廓是尖头。风格偏商务风，线条干净克制，适合办公室与正式会面。强调通勤、会议、干练线条和可信赖感。单品居中，4:5 竖版构图，纯白背景，柔和棚拍灯光，边缘清晰，材质纹理真实，阴影自然克制。",
+      "negativePrompt": "不要模特，不要人物，不要手，不要衣架，不要品牌 logo，不要文字，不要水印，不要多件商品，不要复杂背景。",
+      "imagePath": "generated/images/slingback-heel-wine-55.png",
+      "heelHeightCm": 6
+    }
+  },
+  {
+    "id": "merino-knit-olive-56",
+    "name": "橄榄绿羊毛针织衫",
+    "category": "top",
+    "colors": [
+      "olive"
+    ],
+    "seasons": [
+      "autumn",
+      "winter",
+      "spring"
+    ],
+    "formality": 3.9,
+    "warmth": 3.7,
+    "tags": [
+      "office",
+      "layered",
+      "soft",
+      "柔软",
+      "叠穿",
+      "秋冬",
+      "urban",
+      "modern",
+      "city",
+      "都市风",
+      "olive"
+    ],
+    "imageUrl": "/generated-assets/merino-knit-olive-56.png",
+    "metadata": {
+      "audience": "women",
+      "subcategory": "针织衫",
+      "material": "美利奴羊毛",
+      "pattern": "纯色",
+      "fit": "微宽松",
+      "silhouette": "柔和垂落",
+      "stylePersona": "都市风",
+      "keywords": [
+        "柔软",
+        "叠穿",
+        "秋冬",
+        "urban",
+        "modern",
+        "city",
+        "都市风"
+      ],
+      "styleDirection": "电商白底写实风",
+      "imagePrompt": "电商白底写实商品图，一件女款橄榄绿羊毛针织衫。单件女士针织衫，羊毛质感明显，领口和袖口干净平整。主色是橄榄绿，材质是美利奴羊毛，版型为微宽松，轮廓是柔和垂落。风格偏都市风，现代利落，适合高频城市通勤和日常切换。强调现代、利落、适合城市移动与日常切换。单品居中，4:5 竖版构图，纯白背景，柔和棚拍灯光，边缘清晰，材质纹理真实，阴影自然克制。",
+      "negativePrompt": "不要模特，不要人物，不要手，不要衣架，不要品牌 logo，不要文字，不要水印，不要多件商品，不要复杂背景。",
+      "imagePath": "generated/images/merino-knit-olive-56.png"
+    }
+  },
+  {
+    "id": "fine-chain-necklace-gold-57",
+    "name": "金色细链项链",
+    "category": "accessory",
+    "colors": [
+      "gold",
+      "stone"
+    ],
+    "seasons": [
+      "spring",
+      "summer",
+      "autumn",
+      "winter"
+    ],
+    "formality": 3.5,
+    "warmth": 1.2,
+    "tags": [
+      "light",
+      "layered",
+      "refined",
+      "首饰",
+      "轻盈",
+      "叠戴",
+      "business",
+      "office",
+      "polished",
+      "商务风",
+      "gold"
+    ],
+    "imageUrl": "/generated-assets/fine-chain-necklace-gold-57.png",
+    "metadata": {
+      "audience": "women",
+      "subcategory": "项链",
+      "material": "金属",
+      "pattern": "纯色",
+      "fit": "贴颈",
+      "silhouette": "细链",
+      "stylePersona": "商务风",
+      "keywords": [
+        "首饰",
+        "轻盈",
+        "叠戴",
+        "business",
+        "office",
+        "polished",
+        "商务风"
+      ],
+      "styleDirection": "电商白底写实风",
+      "imagePrompt": "电商白底写实商品图，一件女款金色细链项链。单件女士首饰，一条细链项链平铺展示，链条清晰，金属质感干净。主色是金色，材质是金属，版型为贴颈，轮廓是细链。风格偏商务风，线条干净克制，适合办公室与正式会面。强调通勤、会议、干练线条和可信赖感。单品居中，4:5 竖版构图，纯白背景，柔和棚拍灯光，边缘清晰，材质纹理真实，阴影自然克制。",
+      "negativePrompt": "不要模特，不要人物，不要手，不要衣架，不要品牌 logo，不要文字，不要水印，不要多件商品，不要复杂背景。",
+      "imagePath": "generated/images/fine-chain-necklace-gold-57.png"
+    }
+  },
+  {
+    "id": "a-line-midi-skirt-cream-58",
+    "name": "奶油白A 字中长裙",
+    "category": "bottom",
+    "colors": [
+      "cream"
+    ],
+    "seasons": [
+      "spring",
+      "summer",
+      "autumn"
+    ],
+    "formality": 3.7,
+    "warmth": 1.8,
+    "tags": [
+      "date",
+      "gallery",
+      "soft",
+      "法式",
+      "轻盈",
+      "约会",
+      "intellectual",
+      "refined",
+      "calm",
+      "知性风",
+      "cream"
+    ],
+    "imageUrl": "/generated-assets/a-line-midi-skirt-cream-58.png",
+    "metadata": {
+      "audience": "women",
+      "subcategory": "半裙",
+      "material": "哑光混纺",
+      "pattern": "纯色",
+      "fit": "高腰",
+      "silhouette": "A 字",
+      "stylePersona": "知性风",
+      "keywords": [
+        "法式",
+        "轻盈",
+        "约会",
+        "intellectual",
+        "refined",
+        "calm",
+        "知性风"
+      ],
+      "styleDirection": "电商白底写实风",
+      "imagePrompt": "电商白底写实商品图，一件女款奶油白A 字中长裙。单条女士中长半裙，裙摆轻微展开，线条顺滑，不规则细节极少。主色是奶油白，材质是哑光混纺，版型为高腰，轮廓是A 字。风格偏知性风，温和克制，强调成熟感与阅读气质。强调温和、克制、成熟感和阅读气质。单品居中，4:5 竖版构图，纯白背景，柔和棚拍灯光，边缘清晰，材质纹理真实，阴影自然克制。",
+      "negativePrompt": "不要模特，不要人物，不要手，不要衣架，不要品牌 logo，不要文字，不要水印，不要多件商品，不要复杂背景。",
+      "imagePath": "generated/images/a-line-midi-skirt-cream-58.png"
+    }
+  },
+  {
+    "id": "wrap-dress-dusty-rose-59",
+    "name": "雾粉色裹身连衣裙",
+    "category": "dress",
+    "colors": [
+      "dusty-rose",
+      "white"
+    ],
+    "seasons": [
+      "spring",
+      "summer",
+      "autumn"
+    ],
+    "formality": 4,
+    "warmth": 1.9,
+    "tags": [
+      "date",
+      "gallery",
+      "sleek",
+      "法式",
+      "线条感",
+      "约会",
+      "intellectual",
+      "refined",
+      "calm",
+      "知性风",
+      "dusty-rose"
+    ],
+    "imageUrl": "/generated-assets/wrap-dress-dusty-rose-59.png",
+    "metadata": {
+      "audience": "women",
+      "subcategory": "连衣裙",
+      "material": "垂感混纺",
+      "pattern": "纯色",
+      "fit": "收腰",
+      "silhouette": "裹身",
+      "stylePersona": "知性风",
+      "keywords": [
+        "法式",
+        "线条感",
+        "约会",
+        "intellectual",
+        "refined",
+        "calm",
+        "知性风"
+      ],
+      "styleDirection": "电商白底写实风",
+      "imagePrompt": "电商白底写实商品图，一件女款雾粉色裹身连衣裙。单件女士连衣裙，V 领或裹身结构自然，裙摆线条流畅。主色是雾粉色，材质是垂感混纺，版型为收腰，轮廓是裹身。风格偏知性风，温和克制，强调成熟感与阅读气质。强调温和、克制、成熟感和阅读气质。单品居中，4:5 竖版构图，纯白背景，柔和棚拍灯光，边缘清晰，材质纹理真实，阴影自然克制。",
+      "negativePrompt": "不要模特，不要人物，不要手，不要衣架，不要品牌 logo，不要文字，不要水印，不要多件商品，不要复杂背景。",
+      "imagePath": "generated/images/wrap-dress-dusty-rose-59.png"
+    }
+  },
+  {
+    "id": "ankle-boot-mocha-60",
+    "name": "摩卡色短靴",
+    "category": "shoes",
+    "colors": [
+      "mocha"
+    ],
+    "seasons": [
+      "autumn",
+      "winter",
+      "spring"
+    ],
+    "formality": 3.7,
+    "warmth": 3.1,
+    "tags": [
+      "rain-ready",
+      "city",
+      "layered",
+      "秋冬",
+      "酷感",
+      "耐穿",
+      "intellectual",
+      "refined",
+      "calm",
+      "知性风",
+      "mocha"
+    ],
+    "imageUrl": "/generated-assets/ankle-boot-mocha-60.png",
+    "metadata": {
+      "audience": "women",
+      "subcategory": "短靴",
+      "material": "哑光牛皮",
+      "pattern": "纯色",
+      "fit": "常规",
+      "silhouette": "踝靴",
+      "stylePersona": "知性风",
+      "keywords": [
+        "秋冬",
+        "酷感",
+        "耐穿",
+        "intellectual",
+        "refined",
+        "calm",
+        "知性风"
+      ],
+      "styleDirection": "电商白底写实风",
+      "imagePrompt": "电商白底写实商品图，一件女款摩卡色短靴。单件女士鞋履，一双踝靴并排摆放，鞋筒挺括，鞋面干净。主色是摩卡色，材质是哑光牛皮，版型为常规，轮廓是踝靴。风格偏知性风，温和克制，强调成熟感与阅读气质。强调温和、克制、成熟感和阅读气质。单品居中，4:5 竖版构图，纯白背景，柔和棚拍灯光，边缘清晰，材质纹理真实，阴影自然克制。",
+      "negativePrompt": "不要模特，不要人物，不要手，不要衣架，不要品牌 logo，不要文字，不要水印，不要多件商品，不要复杂背景。",
+      "imagePath": "generated/images/ankle-boot-mocha-60.png",
+      "heelHeightCm": 4,
+      "shaftHeight": "ankle",
+      "waterproof": true
+    }
+  }
+]

@@ -1,0 +1,10 @@
+.git
+.gitignore
+.DS_Store
+ios
+api/node_modules
+api/dist
+api/.turbo
+api/.next
+data/generated/images/*.svg
+**/DerivedData

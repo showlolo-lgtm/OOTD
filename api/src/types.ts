@@ -22,6 +22,24 @@ export type ClothingCategory =
   | "shoes"
   | "accessory";
 
+export interface WardrobeItemMetadata {
+  audience: "women";
+  subcategory: string;
+  material: string;
+  pattern: string;
+  fit: string;
+  silhouette: string;
+  stylePersona?: string;
+  keywords: string[];
+  styleDirection: string;
+  imagePrompt: string;
+  negativePrompt: string;
+  imagePath: string;
+  heelHeightCm?: number;
+  shaftHeight?: string;
+  waterproof?: boolean;
+}
+
 export interface WardrobeItem {
   id: string;
   name: string;
@@ -32,6 +50,7 @@ export interface WardrobeItem {
   warmth: number;
   tags: string[];
   imageUrl: string;
+  metadata?: WardrobeItemMetadata;
 }
 
 export interface CalendarScenario {

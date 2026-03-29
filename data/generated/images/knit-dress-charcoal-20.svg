@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="1024" height="1280" viewBox="0 0 1024 1280" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1024" height="1280" fill="#FFFFFF"/>
+  <rect x="96" y="96" width="832" height="832" rx="72" fill="#FCFAF6" stroke="#EEE8DF" stroke-width="4"/>
+  <ellipse cx="512" cy="884" rx="244" ry="42" fill="#EDE7DF"/>
+  <g transform="translate(232 180)">
+    <path d="M170 18H250L284 92L250 166L372 410H48L170 166L136 92L170 18Z" fill="#4B4E55" stroke="#74815F" stroke-width="18" stroke-linejoin="round"/>
+  </g>
+  <rect x="140" y="972" width="206" height="52" rx="26" fill="#4B4E55"/>
+  <text x="172" y="1006" fill="#FAFAF7" font-size="24" font-family="PingFang SC, Helvetica, Arial, sans-serif">连衣裙</text>
+  <text x="140" y="1090" fill="#1F2023" font-size="46" font-weight="700" font-family="PingFang SC, Helvetica, Arial, sans-serif">炭灰针织连衣裙</text>
+  <text x="140" y="1144" fill="#5A5D63" font-size="28" font-family="PingFang SC, Helvetica, Arial, sans-serif">针织裙 / 细羊毛针织 / 学院风</text>
+  <text x="140" y="1198" fill="#7C7E84" font-size="24" font-family="PingFang SC, Helvetica, Arial, sans-serif">电商白底写实风</text>
+</svg>

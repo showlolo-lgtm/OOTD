@@ -374,6 +374,13 @@ private struct WardrobeGallery: View {
                                 .font(.system(.caption, design: .rounded).weight(.semibold))
                                 .foregroundStyle(LookTheme.moss)
 
+                            if let metadata = item.metadata {
+                                Text("\(metadata.subcategory) • \(metadata.material)")
+                                    .font(.system(.caption2, design: .rounded))
+                                    .foregroundStyle(LookTheme.ink.opacity(0.68))
+                                    .lineLimit(1)
+                            }
+
                             Text(item.colors.map(localizedColorName).joined(separator: " • "))
                                 .font(.system(.caption, design: .rounded))
                                 .foregroundStyle(LookTheme.ink.opacity(0.7))
@@ -517,6 +524,8 @@ private func localizedColorName(_ raw: String) -> String {
         return "墨黑"
     case "cream":
         return "奶油白"
+    case "pearl":
+        return "珍珠白"
     case "ivory":
         return "象牙白"
     case "charcoal":
@@ -525,6 +534,8 @@ private func localizedColorName(_ raw: String) -> String {
         return "海军蓝"
     case "gold":
         return "金色"
+    case "silver":
+        return "银色"
     case "stone":
         return "石灰色"
     case "oat":
@@ -586,12 +597,36 @@ private struct WardrobeThumbnail: View {
                         endPoint: .bottomTrailing
                     )
                 )
-            fallbackView
+            if let previewURL {
+                AsyncImage(url: previewURL) { phase in
+                    switch phase {
+                    case let .success(image):
+                        image
+                            .resizable()
+                            .scaledToFit()
+                            .padding(16)
+                    default:
+                        fallbackView
+                    }
+                }
+            } else {
+                fallbackView
+            }
         }
         .overlay(alignment: .topLeading) {
             TagChip(text: item.category.title, filled: true)
                 .padding(10)
         }
+    }
+
+    private var previewURL: URL? {
+        let lowercasedURL = item.imageUrl.lowercased()
+        let supportsRasterPreview = lowercasedURL.hasSuffix(".png") || lowercasedURL.hasSuffix(".jpg")
+            || lowercasedURL.hasSuffix(".jpeg") || lowercasedURL.hasSuffix(".webp")
+        guard item.metadata != nil, item.imageUrl.contains("/generated-assets/"), supportsRasterPreview else {
+            return nil
+        }
+        return URL(string: item.imageUrl)
     }
 
     private var fallbackView: some View {
