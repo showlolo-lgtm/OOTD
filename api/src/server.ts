@@ -199,8 +199,12 @@ export async function buildApp(options: BuildAppOptions = {}): Promise<FastifyIn
 
 async function start(): Promise<void> {
   const app = await buildApp();
+  const host = "0.0.0.0";
   const port = Number(process.env.PORT ?? "8787");
-  await app.listen({ host: "0.0.0.0", port });
+  const address = await app.listen({ host, port });
+  console.log(
+    `OOTD API listening on ${address} (wardrobe=${process.env.WARDROBE_DATA_FILE ?? "wardrobe.json"})`
+  );
 }
 
 const entryFile = process.argv[1] ? basename(process.argv[1]) : "";
