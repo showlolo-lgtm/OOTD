@@ -43,7 +43,7 @@ export class MockCalendarProvider implements CalendarProvider {
         title: "下班后约会和看展",
         startTime: toIsoAtHour(date, 19, 0),
         endTime: toIsoAtHour(date, 22, 30),
-        location: "法租界",
+        location: "新天地",
         occasionTags: ["date", "gallery", "dinner", "after-hours"]
       }
     ];

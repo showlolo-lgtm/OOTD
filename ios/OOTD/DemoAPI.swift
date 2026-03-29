@@ -19,6 +19,8 @@ protocol APIClient: Sendable {
     func fetchWardrobe() async throws -> [WardrobeItem]
     func fetchScenarios() async throws -> [CalendarScenario]
     func fetchRecommendations(request: RecommendationRequestBody) async throws -> RecommendationResponse
+    func fetchRerolledLook(request: RerollLookRequestBody) async throws -> RerollLookResponse
+    func fetchLookPortraits(request: LookPortraitRequestBody) async throws -> LookPortraitResponse
 }
 
 final class LiveAPIClient: APIClient, @unchecked Sendable {
@@ -52,6 +54,14 @@ final class LiveAPIClient: APIClient, @unchecked Sendable {
 
     func fetchRecommendations(request: RecommendationRequestBody) async throws -> RecommendationResponse {
         try await post(path: "/v1/recommendations", body: request)
+    }
+
+    func fetchRerolledLook(request: RerollLookRequestBody) async throws -> RerollLookResponse {
+        try await post(path: "/v1/recommendations/reroll-look", body: request)
+    }
+
+    func fetchLookPortraits(request: LookPortraitRequestBody) async throws -> LookPortraitResponse {
+        try await post(path: "/v1/look-portraits", body: request)
     }
 
     private func get<Response: Decodable>(path: String) async throws -> Response {
@@ -97,6 +107,36 @@ struct FixtureAPIClient: APIClient, Sendable {
     func fetchRecommendations(request: RecommendationRequestBody) async throws -> RecommendationResponse {
         let city = CityPreset.demoCities.first { $0.location.city == request.location.city } ?? .fallback
         return PreviewFixtures.response(city: city, sign: request.zodiacSign, scenario: request.scenario)
+    }
+
+    func fetchRerolledLook(request: RerollLookRequestBody) async throws -> RerollLookResponse {
+        let city = CityPreset.demoCities.first { $0.location.city == request.location.city } ?? .fallback
+        let existing = request.existingOutfits
+        let alternative = PreviewFixtures
+            .response(city: city, sign: request.zodiacSign, scenario: request.scenario)
+            .outfits
+            .first { candidate in
+                let candidateKey = candidate.itemIds.sorted().joined(separator: "|")
+                return !existing.contains { $0.itemIds.sorted().joined(separator: "|") == candidateKey }
+            } ?? existing.first ?? PreviewFixtures.response(city: city, sign: request.zodiacSign, scenario: request.scenario).outfits[0]
+
+        return RerollLookResponse(
+            context: PreviewFixtures.response(city: city, sign: request.zodiacSign, scenario: request.scenario).context,
+            outfit: OutfitRecommendation(
+                id: request.lookId,
+                itemIds: alternative.itemIds,
+                summary: alternative.summary,
+                whyWeatherFit: alternative.whyWeatherFit,
+                whyScenarioFit: alternative.whyScenarioFit,
+                whyFortuneFit: alternative.whyFortuneFit,
+                inspirationIds: alternative.inspirationIds
+            ),
+            warnings: []
+        )
+    }
+
+    func fetchLookPortraits(request: LookPortraitRequestBody) async throws -> LookPortraitResponse {
+        LookPortraitResponse(portraits: [], warnings: [], source: "fixture")
     }
 }
 

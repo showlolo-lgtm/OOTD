@@ -4,6 +4,9 @@ import type { InspirationProvider } from "../providers/inspirationProvider.js";
 import type { WeatherProvider } from "../providers/weatherProvider.js";
 import type {
   FortuneSnapshot,
+  ContextSnapshot,
+  RerollLookRequest,
+  RerollLookResponse,
   RecommendationRequest,
   RecommendationResponse,
   WardrobeItem,
@@ -49,22 +52,7 @@ export class RecommendationService {
 
   async recommend(input: RecommendationRequest): Promise<RecommendationResponse> {
     const warnings: string[] = [];
-
-    const weather = await this.resolveWeather(input, warnings);
-    const fortune = await this.resolveFortune(input, warnings);
-    const inspiration = await this.deps.inspirationProvider.getInspiration({
-      scenario: input.scenario,
-      weather,
-      fortune,
-      limit: 5
-    });
-    const context = {
-      date: input.date,
-      scenario: input.scenario,
-      weather,
-      fortune,
-      inspiration
-    };
+    const context = await this.buildContext(input, warnings);
 
     let outfits = [] as RecommendationResponse["outfits"];
 
@@ -112,6 +100,72 @@ export class RecommendationService {
     };
   }
 
+  async rerollLook(input: RerollLookRequest): Promise<RerollLookResponse> {
+    const warnings: string[] = [];
+    const context = await this.buildContext(input, warnings);
+    const existingKeys = new Set(input.existingOutfits.map((outfit) => this.outfitKey(outfit.itemIds)));
+    let outfit = null as RecommendationResponse["outfits"][number] | null;
+
+    if (this.deps.outfitLLMClient) {
+      for (let attempt = 1; attempt <= 2 && !outfit; attempt += 1) {
+        try {
+          const drafts = await this.deps.outfitLLMClient.generate(
+            {
+              ...context,
+              wardrobe: this.deps.wardrobe
+            },
+            {
+              count: 4,
+              excludeItemSets: input.existingOutfits.map((existing) => existing.itemIds)
+            }
+          );
+          const validated = validateOutfitDrafts(drafts, {
+            ...context,
+            wardrobe: this.deps.wardrobe
+          });
+          warnings.push(...validated.warnings.map((warning) => `第 ${attempt} 次重搭：${warning}`));
+          outfit =
+            validated.outfits.find(
+              (candidate) => !existingKeys.has(this.outfitKey(candidate.itemIds))
+            ) ?? null;
+        } catch (error) {
+          void error;
+          warnings.push(`第 ${attempt} 次重搭：AI 生成新搭配失败。`);
+        }
+      }
+    } else {
+      warnings.push("未配置 OPENAI_API_KEY，已跳过 AI 重搭。");
+    }
+
+    if (!outfit) {
+      outfit =
+        buildFallbackOutfits(
+          {
+            ...context,
+            wardrobe: this.deps.wardrobe
+          },
+          1,
+          input.existingOutfits
+        )[0] ?? null;
+      if (outfit) {
+        warnings.push("已用兜底规则补出一套新的搭配。");
+      }
+    }
+
+    if (!outfit) {
+      throw new Error("暂时没有找到新的搭配，可以稍后再试。");
+    }
+
+    return {
+      context,
+      outfit: {
+        ...outfit,
+        id: input.lookId
+      },
+      warnings
+    };
+  }
+
   private async resolveWeather(
     input: RecommendationRequest,
     warnings: string[]
@@ -136,5 +190,31 @@ export class RecommendationService {
       warnings.push("运势服务失败，已改用中性运势兜底。");
       return fallbackFortune(input.zodiacSign);
     }
+  }
+
+  private async buildContext(
+    input: RecommendationRequest,
+    warnings: string[]
+  ): Promise<ContextSnapshot> {
+    const weather = await this.resolveWeather(input, warnings);
+    const fortune = await this.resolveFortune(input, warnings);
+    const inspiration = await this.deps.inspirationProvider.getInspiration({
+      scenario: input.scenario,
+      weather,
+      fortune,
+      limit: 5
+    });
+
+    return {
+      date: input.date,
+      scenario: input.scenario,
+      weather,
+      fortune,
+      inspiration
+    };
+  }
+
+  private outfitKey(itemIds: string[]): string {
+    return [...itemIds].sort().join("|");
   }
 }

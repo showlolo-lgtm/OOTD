@@ -19,8 +19,13 @@ export interface OutfitGenerationInput extends ContextSnapshot {
   wardrobe: WardrobeItem[];
 }
 
+export interface OutfitGenerationOptions {
+  count?: number;
+  excludeItemSets?: string[][];
+}
+
 export interface OutfitLLMClient {
-  generate(input: OutfitGenerationInput): Promise<OutfitDraft[]>;
+  generate(input: OutfitGenerationInput, options?: OutfitGenerationOptions): Promise<OutfitDraft[]>;
 }
 
 interface OpenAIResponse {
@@ -276,10 +281,16 @@ export class OpenAIOutfitLLMClient implements OutfitLLMClient {
     private readonly model = process.env.OPENAI_MODEL ?? "gpt-4.1-mini"
   ) {}
 
-  async generate(input: OutfitGenerationInput): Promise<OutfitDraft[]> {
+  async generate(
+    input: OutfitGenerationInput,
+    options: OutfitGenerationOptions = {}
+  ): Promise<OutfitDraft[]> {
     if (!this.apiKey) {
       return [];
     }
+
+    const desiredCount = Math.min(Math.max(Math.trunc(options.count ?? 3) || 3, 1), 6);
+    const excludeItemSets = (options.excludeItemSets ?? []).filter((itemIds) => itemIds.length > 0);
 
     const wardrobeBrief = input.wardrobe.map((item) => ({
       id: item.id,
@@ -302,13 +313,14 @@ export class OpenAIOutfitLLMClient implements OutfitLLMClient {
       wardrobe: wardrobeBrief,
       instructions: [
         "只返回合法 JSON，不要输出 Markdown。",
-        "必须生成恰好 3 套穿搭。",
+        `必须生成恰好 ${desiredCount} 套穿搭。`,
         "每套穿搭只能使用现有 wardrobe item id。",
-        "3 套穿搭必须彼此不同。",
+        `${desiredCount} 套穿搭必须彼此不同。`,
         "每套都必须满足 top+bottom+shoes 或 dress+shoes。",
         "所有面向用户的文案都必须使用简体中文。",
         "天气、场景、运势三个理由都要明确写出来。"
-      ]
+      ],
+      excludeItemSets
     };
 
     const response = await fetchJson<OpenAIResponse>("https://api.openai.com/v1/chat/completions", {

@@ -219,6 +219,85 @@ struct RecommendationResponse: Codable, Hashable {
     let warnings: [String]
 }
 
+struct RerollLookRequestBody: Encodable {
+    let date: String
+    let zodiacSign: ZodiacSign
+    let location: LocationInput
+    let scenario: CalendarScenario
+    let lookId: String
+    let existingOutfits: [OutfitRecommendation]
+}
+
+struct RerollLookResponse: Codable, Hashable {
+    let context: ContextSnapshot
+    let outfit: OutfitRecommendation
+    let warnings: [String]
+}
+
+struct LookPortraitLookRequest: Codable, Hashable {
+    let lookId: String
+    let itemIds: [String]
+    let title: String?
+}
+
+struct LookPortraitRequestBody: Encodable {
+    let looks: [LookPortraitLookRequest]
+    let city: String
+    let scenarioTitle: String
+    let weatherSummary: String
+    let fortuneSummary: String
+    let count: Int
+}
+
+struct LookPortraitImage: Codable, Hashable, Identifiable {
+    let id: String
+    let imageUrl: String
+    let prompt: String
+}
+
+struct LookPortraitResult: Codable, Hashable {
+    let lookId: String
+    let images: [LookPortraitImage]
+}
+
+struct LookPortraitResponse: Codable, Hashable {
+    let portraits: [LookPortraitResult]
+    let warnings: [String]
+    let source: String
+}
+
+extension CalendarScenario {
+    var normalizedForDemo: CalendarScenario {
+        var copy = self
+        if copy.id == "date-gallery" {
+            copy.location = "新天地"
+        }
+        return copy
+    }
+}
+
+extension ContextSnapshot {
+    var normalizedForDemo: ContextSnapshot {
+        ContextSnapshot(
+            date: date,
+            scenario: scenario.normalizedForDemo,
+            weather: weather,
+            fortune: fortune,
+            inspiration: inspiration
+        )
+    }
+}
+
+extension RecommendationResponse {
+    var normalizedForDemo: RecommendationResponse {
+        RecommendationResponse(
+            context: context.normalizedForDemo,
+            outfits: outfits,
+            warnings: warnings
+        )
+    }
+}
+
 enum PreviewFixtures {
     static let wardrobe: [WardrobeItem] = [
         WardrobeItem(
@@ -364,7 +443,7 @@ enum PreviewFixtures {
                 title: "下班后约会和看展",
                 startHour: 19,
                 endHour: 22,
-                location: "法租界",
+                location: "新天地",
                 tags: ["date", "gallery", "dinner", "after-hours"]
             )
         ]

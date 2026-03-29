@@ -136,6 +136,49 @@ export interface RecommendationResponse {
   warnings: string[];
 }
 
+export interface RerollLookRequest extends RecommendationRequest {
+  lookId: string;
+  existingOutfits: OutfitRecommendation[];
+}
+
+export interface RerollLookResponse {
+  context: ContextSnapshot;
+  outfit: OutfitRecommendation;
+  warnings: string[];
+}
+
+export interface LookPortraitLookInput {
+  lookId: string;
+  itemIds: string[];
+  title?: string;
+}
+
+export interface LookPortraitRequest {
+  looks: LookPortraitLookInput[];
+  city: string;
+  scenarioTitle: string;
+  weatherSummary: string;
+  fortuneSummary: string;
+  count?: number;
+}
+
+export interface LookPortraitImage {
+  id: string;
+  imageUrl: string;
+  prompt: string;
+}
+
+export interface LookPortraitResult {
+  lookId: string;
+  images: LookPortraitImage[];
+}
+
+export interface LookPortraitResponse {
+  portraits: LookPortraitResult[];
+  warnings: string[];
+  source: "preset";
+}
+
 export interface OutfitDraft {
   itemIds: string[];
   summary: string;

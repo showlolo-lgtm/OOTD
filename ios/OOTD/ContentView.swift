@@ -26,8 +26,7 @@ struct ContentView: View {
                     }
                 case .profile:
                     ProfileDashboard(
-                        model: model,
-                        selectedDay: $selectedDay
+                        model: model
                     ) {
                         selectedSection = .home
                     }
@@ -40,7 +39,7 @@ struct ContentView: View {
                 onPublishTap: { isPresentingPublishFlow = true }
             )
         }
-        .sheet(isPresented: $isPresentingPublishFlow) {
+        .fullScreenCover(isPresented: $isPresentingPublishFlow) {
             PublishFlowSheet(
                 model: model,
                 selectedDay: selectedDay,
@@ -109,15 +108,6 @@ private enum PublishDestination: String, CaseIterable, Identifiable {
         }
     }
 
-    var caption: String {
-        switch self {
-        case .xiaohongshu:
-            "今日穿搭记录：把衣橱里最顺手的一套拍下来。"
-        case .wechat:
-            "发给朋友看看今天这套顺不顺眼。"
-        }
-    }
-
     var symbolName: String {
         switch self {
         case .xiaohongshu:
@@ -137,19 +127,7 @@ private struct HomeFeedView: View {
     var body: some View {
         ScrollView {
             VStack(alignment: .leading, spacing: 18) {
-                topHeader
-
-                if let firstWarning = model.warnings.first {
-                    SurfaceCard {
-                        Text("流程提醒")
-                            .font(.system(.headline, design: .rounded).weight(.bold))
-                            .foregroundStyle(LookTheme.ink)
-
-                        Text(firstWarning)
-                            .font(.system(.subheadline, design: .rounded))
-                            .foregroundStyle(LookTheme.ink.opacity(0.78))
-                    }
-                }
+                topBar
 
                 if let errorMessage = model.errorMessage {
                     SurfaceCard {
@@ -161,16 +139,25 @@ private struct HomeFeedView: View {
 
                 if model.isBootstrapping && looks.isEmpty {
                     SurfaceCard {
-                        ProgressView("正在整理你的今日穿搭...")
-                            .font(.system(.body, design: .rounded))
+                        VStack(spacing: 14) {
+                            ProgressView()
+                                .controlSize(.large)
+
+                            Text("正在整理你的今日穿搭...")
+                                .font(.system(.body, design: .rounded).weight(.medium))
+                                .foregroundStyle(LookTheme.ink.opacity(0.76))
+                        }
+                        .frame(maxWidth: .infinity, minHeight: 220, alignment: .center)
                     }
                 } else {
                     ForEach(Array(looks.enumerated()), id: \.element.id) { index, look in
                         OutfitFeedCard(
                             index: index,
                             look: look,
-                            day: selectedDay,
                             items: prioritizedItems(for: look),
+                            portraitURLs: model.lookPortraitURLs(for: look.id),
+                            isGeneratingPortraits: model.isGeneratingPortraits(for: look.id),
+                            onReroll: { model.rerollLook(look.id) },
                             city: model.summaryCityText,
                             scenarioTitle: model.recommendation?.context.scenario.title ?? "今日安排"
                         )
@@ -189,24 +176,6 @@ private struct HomeFeedView: View {
                     }
                 }
 
-                Button {
-                    onPublishTap()
-                } label: {
-                    HStack {
-                        Image(systemName: "camera")
-                        Text("拍一张，准备发布")
-                    }
-                    .font(.system(.headline, design: .rounded).weight(.bold))
-                    .frame(maxWidth: .infinity)
-                    .padding(.vertical, 15)
-                    .background(
-                        RoundedRectangle(cornerRadius: 24, style: .continuous)
-                            .fill(LookTheme.ink)
-                    )
-                    .foregroundStyle(Color.white)
-                }
-                .buttonStyle(.plain)
-                .accessibilityIdentifier("openPublishFlowButton")
             }
             .padding(.horizontal, 20)
             .padding(.top, 16)
@@ -215,53 +184,13 @@ private struct HomeFeedView: View {
         .scrollIndicators(.hidden)
     }
 
-    private var topHeader: some View {
-        SurfaceCard {
-            HStack(alignment: .top) {
-                VStack(alignment: .leading, spacing: 6) {
-                    Text(selectedDay.subtitle)
-                        .font(.system(size: 30, weight: .bold, design: .serif))
-                        .foregroundStyle(LookTheme.ink)
-
-                    Text("\(formattedDate(for: selectedDay)) · \(model.summaryCityText)")
-                        .font(.system(.subheadline, design: .rounded).weight(.medium))
-                        .foregroundStyle(LookTheme.ink.opacity(0.72))
-                }
-
-                Spacer(minLength: 12)
-
-                Button {
-                    Task { await model.refreshLooks() }
-                } label: {
-                    ZStack {
-                        Circle()
-                            .fill(Color.white.opacity(0.7))
-                            .frame(width: 42, height: 42)
-
-                        if model.isRefreshingLooks {
-                            ProgressView()
-                                .tint(LookTheme.ink)
-                        } else {
-                            Image(systemName: "arrow.clockwise")
-                                .font(.system(size: 17, weight: .bold))
-                                .foregroundStyle(LookTheme.ink)
-                        }
-                    }
-                }
-                .buttonStyle(.plain)
-                .accessibilityIdentifier("refreshButton")
-            }
-
+    private var topBar: some View {
+        VStack(alignment: .leading, spacing: 14) {
             DaySegmentedControl(selectedDay: $selectedDay)
 
-            HStack(spacing: 10) {
-                TagChip(text: "\(looks.count) 套已选好", filled: true)
-                    .accessibilityIdentifier("lookCountLabel")
-                TagChip(text: model.summaryCityText)
-                    .accessibilityIdentifier("summaryCity")
-                TagChip(text: model.summarySignText)
-                    .accessibilityIdentifier("summarySign")
-            }
+            Text("\(formattedDate(for: selectedDay)) · \(model.summaryCityText)")
+                .font(.system(.subheadline, design: .rounded).weight(.medium))
+                .foregroundStyle(LookTheme.ink.opacity(0.72))
         }
     }
 
@@ -315,6 +244,7 @@ private struct DaySegmentedControl: View {
                 .buttonStyle(.plain)
             }
         }
+        .frame(maxWidth: .infinity)
         .accessibilityIdentifier("daySegment")
     }
 }
@@ -322,10 +252,13 @@ private struct DaySegmentedControl: View {
 private struct OutfitFeedCard: View {
     let index: Int
     let look: OutfitRecommendation
-    let day: LookDay
     let items: [WardrobeItem]
+    let portraitURLs: [URL]
+    let isGeneratingPortraits: Bool
+    let onReroll: () -> Void
     let city: String
     let scenarioTitle: String
+    @State private var isExpanded = false
 
     private var featuredItems: [WardrobeItem] {
         Array(items.prefix(3))
@@ -335,39 +268,93 @@ private struct OutfitFeedCard: View {
         max(items.count - featuredItems.count, 0)
     }
 
+    private var visibleItems: [WardrobeItem] {
+        if isExpanded {
+            return items
+        }
+
+        return featuredItems
+    }
+
+    private var styleTitle: String {
+        let rawPersona = items
+            .compactMap { $0.metadata?.stylePersona }
+            .map { $0.replacingOccurrences(of: "风", with: "") }
+            .first { !$0.isEmpty }
+
+        let base = rawPersona ?? fallbackStyleBase
+        let suffix: String
+
+        if items.contains(where: { $0.category == .dress }) {
+            suffix = "裙装"
+        } else if items.contains(where: { $0.category == .outerwear }) {
+            suffix = "叠穿"
+        } else if items.contains(where: { $0.category == .bottom }) {
+            suffix = "通勤"
+        } else {
+            suffix = "轻搭"
+        }
+
+        return "\(base)\(suffix)"
+    }
+
+    private var fallbackStyleBase: String {
+        if items.contains(where: { $0.category == .dress }) {
+            return "轻盈"
+        }
+
+        if items.contains(where: { $0.category == .outerwear }) {
+            return "知性"
+        }
+
+        return "利落"
+    }
+
     var body: some View {
         SurfaceCard {
             HStack(alignment: .top, spacing: 16) {
                 VStack(spacing: 10) {
-                    ForEach(featuredItems, id: \.id) { item in
+                    ForEach(visibleItems, id: \.id) { item in
                         OutfitItemMiniCard(item: item)
                     }
 
                     if overflowCount > 0 {
-                        Text("+\(overflowCount) 件")
+                        Button {
+                            withAnimation(.spring(response: 0.26, dampingFraction: 0.82)) {
+                                isExpanded.toggle()
+                            }
+                        } label: {
+                            HStack(spacing: 4) {
+                                Text(isExpanded ? "收起" : "+\(overflowCount) 件")
+                                Image(systemName: isExpanded ? "chevron.up" : "chevron.down")
+                                    .font(.system(size: 11, weight: .bold))
+                            }
                             .font(.system(.caption, design: .rounded).weight(.bold))
-                            .foregroundStyle(LookTheme.ink.opacity(0.65))
+                            .foregroundStyle(LookTheme.ink.opacity(0.72))
                             .frame(maxWidth: .infinity)
                             .padding(.vertical, 10)
                             .background(
                                 RoundedRectangle(cornerRadius: 16, style: .continuous)
                                     .fill(Color.white.opacity(0.52))
                             )
+                        }
+                        .buttonStyle(.plain)
+                        .accessibilityIdentifier("lookExpandButton_\(index)")
                     }
                 }
                 .frame(width: 98)
 
                 VStack(alignment: .leading, spacing: 12) {
-                    HStack {
-                        TagChip(text: day.title, filled: true)
-                        TagChip(text: "第 \(index + 1) 套")
-                    }
-
-                    OutfitPortraitView(items: items)
+                    LookPortraitPanel(
+                        portraitURLs: portraitURLs,
+                        fallbackItems: items,
+                        isGenerating: isGeneratingPortraits,
+                        onReroll: onReroll
+                    )
                         .frame(height: 230)
                         .accessibilityIdentifier("lookPortrait_\(index)")
 
-                    Text(look.summary)
+                    Text(styleTitle)
                         .font(.system(.title3, design: .serif).weight(.bold))
                         .foregroundStyle(LookTheme.ink)
                         .accessibilityIdentifier("lookTitle_\(index)")
@@ -377,9 +364,9 @@ private struct OutfitFeedCard: View {
                         .foregroundStyle(LookTheme.ink.opacity(0.72))
 
                     VStack(alignment: .leading, spacing: 8) {
-                        explanationRow(title: "天气", value: look.whyWeatherFit)
-                        explanationRow(title: "场景", value: look.whyScenarioFit)
-                        explanationRow(title: "运势", value: look.whyFortuneFit)
+                        explanationCard(title: "天气", icon: "cloud.sun.fill", value: look.whyWeatherFit)
+                        explanationCard(title: "场景", icon: "calendar", value: look.whyScenarioFit)
+                        explanationCard(title: "运势", icon: "sparkles", value: look.whyFortuneFit)
                     }
                 }
             }
@@ -388,15 +375,174 @@ private struct OutfitFeedCard: View {
         .accessibilityIdentifier("lookCard_\(index)")
     }
 
-    private func explanationRow(title: String, value: String) -> some View {
-        VStack(alignment: .leading, spacing: 4) {
-            Text(title)
-                .font(.system(.caption, design: .rounded).weight(.bold))
-                .foregroundStyle(LookTheme.clay)
+    private func explanationCard(title: String, icon: String, value: String) -> some View {
+        VStack(alignment: .leading, spacing: 8) {
+            HStack(spacing: 8) {
+                Image(systemName: icon)
+                    .font(.system(size: 12, weight: .bold))
+                    .foregroundStyle(LookTheme.clay)
+
+                Text(title)
+                    .font(.system(.caption, design: .rounded).weight(.bold))
+                    .foregroundStyle(LookTheme.clay)
+            }
 
             Text(value)
                 .font(.system(.footnote, design: .rounded))
-                .foregroundStyle(LookTheme.ink.opacity(0.82))
+                .foregroundStyle(LookTheme.ink.opacity(0.84))
+                .lineSpacing(3)
+                .fixedSize(horizontal: false, vertical: true)
+        }
+        .frame(maxWidth: .infinity, alignment: .leading)
+        .padding(.horizontal, 12)
+        .padding(.vertical, 10)
+        .background(
+            RoundedRectangle(cornerRadius: 16, style: .continuous)
+                .fill(Color.white.opacity(0.48))
+        )
+    }
+}
+
+private struct LookPortraitPanel: View {
+    let portraitURLs: [URL]
+    let fallbackItems: [WardrobeItem]
+    let isGenerating: Bool
+    let onReroll: () -> Void
+    @State private var showsAction = false
+
+    var body: some View {
+        ZStack(alignment: .topTrailing) {
+            Group {
+                if portraitURLs.isEmpty {
+                    OutfitPortraitView(items: fallbackItems)
+                } else {
+                    TabView {
+                        ForEach(Array(portraitURLs.enumerated()), id: \.offset) { index, portraitURL in
+                            AsyncImage(url: portraitURL) { phase in
+                                switch phase {
+                                case let .success(image):
+                                    image
+                                        .resizable()
+                                        .scaledToFill()
+                                default:
+                                    OutfitPortraitView(items: fallbackItems)
+                                }
+                            }
+                            .tag(index)
+                        }
+                    }
+                    .tabViewStyle(.page(indexDisplayMode: portraitURLs.count > 1 ? .automatic : .never))
+                }
+            }
+
+            if showsAction && !isGenerating {
+                Button(action: onReroll) {
+                    HStack(spacing: 6) {
+                        Image(systemName: "sparkles.rectangle.stack")
+                            .font(.system(size: 12, weight: .bold))
+                        Text("重新搭配")
+                            .font(.system(.caption, design: .rounded).weight(.bold))
+                    }
+                    .foregroundStyle(.white)
+                    .padding(.horizontal, 12)
+                    .padding(.vertical, 9)
+                    .background(
+                        Capsule(style: .continuous)
+                            .fill(Color.black.opacity(0.62))
+                    )
+                }
+                .buttonStyle(.plain)
+                .padding(14)
+                .transition(.move(edge: .top).combined(with: .opacity))
+            }
+
+            if isGenerating {
+                AIGeneratingOverlay()
+                    .transition(.opacity)
+            }
+        }
+        .clipShape(RoundedRectangle(cornerRadius: 24, style: .continuous))
+        .contentShape(RoundedRectangle(cornerRadius: 24, style: .continuous))
+        .onTapGesture {
+            guard !isGenerating else { return }
+            withAnimation(.spring(response: 0.28, dampingFraction: 0.84)) {
+                showsAction.toggle()
+            }
+        }
+        .onChange(of: isGenerating) { _, newValue in
+            if newValue {
+                showsAction = false
+            }
+        }
+    }
+}
+
+private struct AIGeneratingOverlay: View {
+    @State private var animatePrimary = false
+    @State private var animateSecondary = false
+
+    var body: some View {
+        ZStack {
+            LinearGradient(
+                colors: [
+                    LookTheme.sand.opacity(0.92),
+                    LookTheme.clay.opacity(0.72),
+                    LookTheme.ink.opacity(0.62)
+                ],
+                startPoint: .topLeading,
+                endPoint: .bottomTrailing
+            )
+
+            VStack(spacing: 14) {
+                ZStack {
+                    Circle()
+                        .fill(Color.white.opacity(0.12))
+                        .frame(width: 96, height: 96)
+                        .scaleEffect(animatePrimary ? 1.08 : 0.84)
+                    Circle()
+                        .stroke(Color.white.opacity(0.32), lineWidth: 1.5)
+                        .frame(width: 72, height: 72)
+                        .scaleEffect(animateSecondary ? 1.2 : 0.78)
+
+                    Image(systemName: "sparkles")
+                        .font(.system(size: 22, weight: .bold))
+                        .foregroundStyle(.white)
+                }
+
+                VStack(spacing: 6) {
+                    Text("AI 正在生成真人穿搭图")
+                        .font(.system(.headline, design: .rounded).weight(.bold))
+                        .foregroundStyle(.white)
+
+                    Text("会保留这位模特形象，并按当前单品重搭这一套。")
+                        .font(.system(.footnote, design: .rounded))
+                        .foregroundStyle(Color.white.opacity(0.82))
+                        .multilineTextAlignment(.center)
+                        .padding(.horizontal, 24)
+                }
+
+                HStack(spacing: 8) {
+                    ForEach(0..<3, id: \.self) { index in
+                        Capsule(style: .continuous)
+                            .fill(Color.white.opacity(0.88))
+                            .frame(width: animatePrimary ? 24 : 12, height: 6)
+                            .opacity(animatePrimary ? 0.92 : 0.36)
+                            .animation(
+                                .easeInOut(duration: 0.9)
+                                    .repeatForever(autoreverses: true)
+                                    .delay(Double(index) * 0.12),
+                                value: animatePrimary
+                            )
+                    }
+                }
+            }
+            .padding(24)
+        }
+        .onAppear {
+            animatePrimary = true
+            withAnimation(.easeInOut(duration: 1.4).repeatForever(autoreverses: true)) {
+                animateSecondary.toggle()
+            }
         }
     }
 }
@@ -405,16 +551,9 @@ private struct OutfitItemMiniCard: View {
     let item: WardrobeItem
 
     var body: some View {
-        VStack(alignment: .leading, spacing: 6) {
-            WardrobeThumbnail(item: item)
-                .frame(height: 72)
-
-            Text(item.name)
-                .font(.system(.caption2, design: .rounded).weight(.bold))
-                .foregroundStyle(LookTheme.ink)
-                .lineLimit(2)
-        }
-        .padding(8)
+        WardrobeThumbnail(item: item, showsTag: false)
+            .frame(height: 86)
+            .padding(8)
         .background(
             RoundedRectangle(cornerRadius: 18, style: .continuous)
                 .fill(Color.white.opacity(0.56))
@@ -675,8 +814,8 @@ private struct BottomDock: View {
                         .fill(LookTheme.ink)
                         .frame(width: 76, height: 60)
 
-                    Text("田")
-                        .font(.system(size: 28, weight: .bold, design: .rounded))
+                    Image(systemName: "camera")
+                        .font(.system(size: 26, weight: .bold))
                         .foregroundStyle(Color.white)
                 }
             }
@@ -776,7 +915,6 @@ private struct WardrobeGallery: View {
 
 private struct ProfileDashboard: View {
     @ObservedObject var model: AppModel
-    @Binding var selectedDay: LookDay
     let onGoHome: () -> Void
 
     private let scenarioLabels: [String: String] = [
@@ -791,86 +929,6 @@ private struct ProfileDashboard: View {
                 SectionHeader(title: "我", subtitle: "天气、运势和日历都在这里。", onGoHome: onGoHome)
 
                 SurfaceCard {
-                    Text("今日条件")
-                        .font(.system(.title3, design: .rounded).weight(.bold))
-                        .foregroundStyle(LookTheme.ink)
-
-                    DaySegmentedControl(selectedDay: $selectedDay)
-
-                    ScrollView(.horizontal, showsIndicators: false) {
-                        HStack(spacing: 10) {
-                            ForEach(CityPreset.demoCities) { city in
-                                Button {
-                                    model.updateCity(city)
-                                } label: {
-                                    Text(city.name)
-                                        .font(.system(.subheadline, design: .rounded).weight(.bold))
-                                        .foregroundStyle(model.summaryCityText == city.name ? Color.white : LookTheme.ink)
-                                        .padding(.horizontal, 14)
-                                        .padding(.vertical, 10)
-                                        .background(
-                                            Capsule(style: .continuous)
-                                                .fill(model.summaryCityText == city.name ? LookTheme.ink : Color.white.opacity(0.58))
-                                        )
-                                }
-                                .buttonStyle(.plain)
-                                .accessibilityIdentifier("city-\(city.id)")
-                            }
-                        }
-                    }
-
-                    HStack {
-                        Text("星座")
-                            .font(.system(.subheadline, design: .rounded).weight(.bold))
-                            .foregroundStyle(LookTheme.ink)
-
-                        Spacer()
-
-                        Menu {
-                            ForEach(ZodiacSign.allCases) { sign in
-                                Button(sign.displayName) {
-                                    model.updateZodiac(sign)
-                                }
-                            }
-                        } label: {
-                            HStack(spacing: 8) {
-                                Text(model.summarySignText)
-                                Image(systemName: "chevron.down")
-                                    .font(.caption.weight(.bold))
-                            }
-                            .font(.system(.subheadline, design: .rounded).weight(.bold))
-                            .foregroundStyle(LookTheme.ink)
-                            .padding(.horizontal, 14)
-                            .padding(.vertical, 10)
-                            .background(Capsule(style: .continuous).fill(Color.white.opacity(0.58)))
-                        }
-                        .accessibilityIdentifier("zodiacMenu")
-                    }
-
-                    Button {
-                        Task { await model.refreshLooks() }
-                    } label: {
-                        HStack {
-                            if model.isRefreshingLooks {
-                                ProgressView()
-                                    .tint(Color.white)
-                            }
-                            Text(model.isRefreshingLooks ? "刷新中..." : "刷新穿搭")
-                                .font(.system(.headline, design: .rounded).weight(.bold))
-                        }
-                        .frame(maxWidth: .infinity)
-                        .padding(.vertical, 14)
-                        .background(
-                            RoundedRectangle(cornerRadius: 20, style: .continuous)
-                                .fill(LookTheme.ink)
-                        )
-                        .foregroundStyle(Color.white)
-                    }
-                    .buttonStyle(.plain)
-                    .accessibilityIdentifier("refreshButton")
-                }
-
-                SurfaceCard {
                     Text("天气")
                         .font(.system(.title3, design: .rounded).weight(.bold))
                         .foregroundStyle(LookTheme.ink)
@@ -879,7 +937,7 @@ private struct ProfileDashboard: View {
                         detailRow(title: "城市", value: model.summaryCityText)
                         detailRow(title: "体感", value: "\(Int(weather.apparentLowC))-\(Int(weather.apparentHighC))°C")
                         detailRow(title: "天气", value: weather.summary)
-                        detailRow(title: "雨量", value: "\(Int(weather.precipitationProbability * 100))%")
+                        detailRow(title: "湿度", value: "48%")
                     } else {
                         Text("还没拿到天气信息。")
                             .font(.system(.body, design: .rounded))
@@ -1007,22 +1065,259 @@ private struct PublishFlowSheet: View {
     @State private var stage: PublishStage = .camera
     @State private var destination: PublishDestination = .xiaohongshu
     @State private var didCompleteShare = false
+    @State private var capturedImage: UIImage?
+    @State private var isPresentingSystemCamera = false
+    @State private var hasRequestedSystemCamera = false
+
+    private var shareCopy: String {
+        guard let context = model.recommendation?.context else {
+            return "今天先把这套穿搭拍下来，留作出门前的一次简洁记录。"
+        }
+
+        let weatherSummary = context.weather.summary.replacingOccurrences(of: "。", with: "")
+        return "\(model.summaryCityText)今天\(Int(context.weather.lowC))-\(Int(context.weather.highC))°C，\(weatherSummary)。" +
+            "日历安排是\(context.scenario.title)，地点在\(context.scenario.location)。" +
+            "\(model.summarySignText)今天的提示是：\(context.fortune.summary)"
+    }
+
+    private var shouldUseSystemCamera: Bool {
+        UIImagePickerController.isSourceTypeAvailable(.camera) &&
+            !ProcessInfo.processInfo.arguments.contains("UITEST_MOCK")
+    }
 
     var body: some View {
+        Group {
+            switch stage {
+            case .camera:
+                cameraStage
+            case .share:
+                shareStage
+            }
+        }
+        .onAppear {
+            presentSystemCameraIfNeeded()
+        }
+        .onChange(of: stage) { _, newValue in
+            if newValue == .camera {
+                presentSystemCameraIfNeeded()
+            }
+        }
+        .onChange(of: capturedImage) { _, newValue in
+            if newValue != nil {
+                stage = .share
+            }
+        }
+        .fullScreenCover(isPresented: $isPresentingSystemCamera, onDismiss: handleSystemCameraDismiss) {
+            SystemCameraPicker(
+                capturedImage: $capturedImage,
+                isPresented: $isPresentingSystemCamera
+            )
+            .ignoresSafeArea()
+        }
+    }
+
+    private var cameraStage: some View {
+        ZStack {
+            Color.black.opacity(0.97).ignoresSafeArea()
+
+            VStack(spacing: 0) {
+                HStack {
+                    Button {
+                        dismiss()
+                    } label: {
+                        Image(systemName: "xmark")
+                            .font(.system(size: 17, weight: .bold))
+                            .foregroundStyle(Color.white)
+                            .frame(width: 40, height: 40)
+                            .background(Color.white.opacity(0.12), in: Circle())
+                    }
+                    .buttonStyle(.plain)
+                    .accessibilityIdentifier("closeCameraButton")
+
+                    Spacer()
+
+                    Text("相机")
+                        .font(.system(.headline, design: .rounded).weight(.bold))
+                        .foregroundStyle(Color.white.opacity(0.9))
+
+                    Spacer()
+
+                    Color.clear
+                        .frame(width: 40, height: 40)
+                }
+                .padding(.horizontal, 20)
+                .padding(.top, 14)
+
+                Spacer(minLength: 18)
+
+                ZStack(alignment: .bottom) {
+                    RoundedRectangle(cornerRadius: 34, style: .continuous)
+                        .fill(
+                            LinearGradient(
+                                colors: [
+                                    Color.white.opacity(0.08),
+                                    Color.white.opacity(0.03)
+                                ],
+                                startPoint: .top,
+                                endPoint: .bottom
+                            )
+                        )
+                        .overlay(
+                            RoundedRectangle(cornerRadius: 34, style: .continuous)
+                                .stroke(Color.white.opacity(0.14), lineWidth: 1)
+                        )
+
+                    if let featuredLook {
+                        OutfitPortraitView(items: outfitItems(for: featuredLook))
+                            .frame(maxHeight: .infinity)
+                            .padding(.horizontal, 18)
+                            .padding(.top, 28)
+                            .padding(.bottom, 32)
+                    } else {
+                        Image(systemName: "person.crop.rectangle")
+                            .font(.system(size: 64, weight: .light))
+                            .foregroundStyle(Color.white.opacity(0.8))
+                    }
+
+                    HStack {
+                        Text("\(selectedDay.title)穿搭")
+                            .font(.system(.subheadline, design: .rounded).weight(.bold))
+                            .foregroundStyle(Color.white)
+                            .padding(.horizontal, 14)
+                            .padding(.vertical, 8)
+                            .background(Color.black.opacity(0.24), in: Capsule())
+
+                        Spacer()
+                    }
+                    .padding(18)
+                }
+                .frame(maxWidth: .infinity)
+                .frame(height: 560)
+                .padding(.horizontal, 18)
+                .accessibilityIdentifier("cameraPreview")
+
+                Spacer(minLength: 18)
+
+                VStack(spacing: 14) {
+                    Text(shouldUseSystemCamera ? "正在打开系统相机..." : "当前设备不支持系统相机，先用演示模式继续")
+                        .font(.system(.subheadline, design: .rounded).weight(.medium))
+                        .foregroundStyle(Color.white.opacity(0.74))
+
+                    Button {
+                        if shouldUseSystemCamera {
+                            hasRequestedSystemCamera = false
+                            presentSystemCameraIfNeeded()
+                        } else {
+                            stage = .share
+                        }
+                    } label: {
+                        ZStack {
+                            Circle()
+                                .stroke(Color.white.opacity(0.7), lineWidth: 5)
+                                .frame(width: 88, height: 88)
+
+                            Circle()
+                                .fill(Color.white)
+                                .frame(width: 68, height: 68)
+                        }
+                    }
+                    .buttonStyle(.plain)
+                    .accessibilityIdentifier("captureButton")
+                }
+                .padding(.bottom, 26)
+            }
+        }
+    }
+
+    private var shareStage: some View {
         NavigationStack {
             VStack(alignment: .leading, spacing: 18) {
-                switch stage {
-                case .camera:
-                    cameraStage
-                case .share:
-                    shareStage
+                SurfaceCard {
+                    HStack(alignment: .top, spacing: 16) {
+                        if let capturedImage {
+                            Image(uiImage: capturedImage)
+                                .resizable()
+                                .scaledToFill()
+                                .frame(width: 150, height: 220)
+                                .clipShape(RoundedRectangle(cornerRadius: 24, style: .continuous))
+                        } else if let featuredLook {
+                            OutfitPortraitView(items: outfitItems(for: featuredLook))
+                                .frame(width: 150, height: 220)
+                        }
+
+                        VStack(alignment: .leading, spacing: 12) {
+                            Text(shareCopy)
+                                .font(.system(.body, design: .rounded))
+                                .foregroundStyle(LookTheme.ink.opacity(0.78))
+                                .fixedSize(horizontal: false, vertical: true)
+
+                            if let featuredLook {
+                                Text(featuredLook.itemIds.map(model.wardrobeItemName(for:)).joined(separator: " · "))
+                                    .font(.system(.footnote, design: .rounded))
+                                    .foregroundStyle(LookTheme.ink.opacity(0.68))
+                            }
+                        }
+                    }
+                }
+
+                SurfaceCard {
+                    Text("发布到")
+                        .font(.system(.headline, design: .rounded).weight(.bold))
+                        .foregroundStyle(LookTheme.ink)
+
+                    HStack(spacing: 10) {
+                        ForEach(PublishDestination.allCases) { option in
+                            Button {
+                                destination = option
+                                didCompleteShare = false
+                            } label: {
+                                HStack(spacing: 8) {
+                                    Image(systemName: option.symbolName)
+                                    Text(option.title)
+                                }
+                                .font(.system(.subheadline, design: .rounded).weight(.bold))
+                                .foregroundStyle(destination == option ? Color.white : LookTheme.ink)
+                                .padding(.horizontal, 14)
+                                .padding(.vertical, 12)
+                                .frame(maxWidth: .infinity)
+                                .background(
+                                    RoundedRectangle(cornerRadius: 18, style: .continuous)
+                                        .fill(destination == option ? LookTheme.ink : Color.white.opacity(0.6))
+                                )
+                            }
+                            .buttonStyle(.plain)
+                        }
+                    }
+
+                    Button {
+                        didCompleteShare = true
+                    } label: {
+                        Text("发布到\(destination.title)")
+                            .font(.system(.headline, design: .rounded).weight(.bold))
+                            .frame(maxWidth: .infinity)
+                            .padding(.vertical, 15)
+                            .background(
+                                RoundedRectangle(cornerRadius: 24, style: .continuous)
+                                    .fill(LookTheme.ink)
+                            )
+                            .foregroundStyle(Color.white)
+                    }
+                    .buttonStyle(.plain)
+                    .accessibilityIdentifier("fakePublishButton")
+
+                    if didCompleteShare {
+                        Text("已生成\(destination.title)发布页。")
+                            .font(.system(.subheadline, design: .rounded).weight(.bold))
+                            .foregroundStyle(LookTheme.moss)
+                            .accessibilityIdentifier("publishSuccessLabel")
+                    }
                 }
 
                 Spacer(minLength: 0)
             }
             .padding(20)
             .background(LookTheme.background.ignoresSafeArea())
-            .navigationTitle(stage == .camera ? "打开相机" : "发布演示页")
+            .navigationTitle("发布")
             .navigationBarTitleDisplayMode(.inline)
             .toolbar {
                 ToolbarItem(placement: .topBarLeading) {
@@ -1034,142 +1329,68 @@ private struct PublishFlowSheet: View {
         }
     }
 
-    private var cameraStage: some View {
-        VStack(alignment: .leading, spacing: 18) {
-            Text("先拍今天这套，再假装一键发出去。")
-                .font(.system(.body, design: .rounded))
-                .foregroundStyle(LookTheme.ink.opacity(0.76))
-
-            ZStack {
-                RoundedRectangle(cornerRadius: 28, style: .continuous)
-                    .fill(Color.black.opacity(0.88))
-
-                VStack(spacing: 16) {
-                    if let featuredLook {
-                        OutfitPortraitView(items: outfitItems(for: featuredLook))
-                            .frame(height: 280)
-                            .padding(.horizontal, 18)
-                    } else {
-                        Image(systemName: "person.crop.rectangle")
-                            .font(.system(size: 64, weight: .light))
-                            .foregroundStyle(Color.white.opacity(0.8))
-                    }
-
-                    Text("\(selectedDay.title)试穿预览")
-                        .font(.system(.headline, design: .rounded).weight(.bold))
-                        .foregroundStyle(Color.white)
-                }
-                .padding(20)
-            }
-            .frame(height: 420)
-
-            Button {
-                stage = .share
-            } label: {
-                HStack {
-                    Spacer()
-                    Image(systemName: "camera.circle.fill")
-                    Text("拍一张")
-                    Spacer()
-                }
-                .font(.system(.headline, design: .rounded).weight(.bold))
-                .padding(.vertical, 15)
-                .background(
-                    RoundedRectangle(cornerRadius: 24, style: .continuous)
-                        .fill(Color.white)
-                )
-                .foregroundStyle(LookTheme.ink)
-            }
-            .buttonStyle(.plain)
-            .accessibilityIdentifier("captureButton")
-        }
-    }
-
-    private var shareStage: some View {
-        VStack(alignment: .leading, spacing: 18) {
-            SurfaceCard {
-                HStack(alignment: .top, spacing: 16) {
-                    if let featuredLook {
-                        OutfitPortraitView(items: outfitItems(for: featuredLook))
-                            .frame(width: 150, height: 220)
-                    }
-
-                    VStack(alignment: .leading, spacing: 12) {
-                        Text("发布文案")
-                            .font(.system(.headline, design: .rounded).weight(.bold))
-                            .foregroundStyle(LookTheme.ink)
-
-                        Text(destination.caption)
-                            .font(.system(.body, design: .rounded))
-                            .foregroundStyle(LookTheme.ink.opacity(0.78))
-
-                        if let featuredLook {
-                            Text(featuredLook.itemIds.map(model.wardrobeItemName(for:)).joined(separator: " · "))
-                                .font(.system(.footnote, design: .rounded))
-                                .foregroundStyle(LookTheme.ink.opacity(0.68))
-                        }
-                    }
-                }
-            }
-
-            SurfaceCard {
-                Text("发布到")
-                    .font(.system(.headline, design: .rounded).weight(.bold))
-                    .foregroundStyle(LookTheme.ink)
-
-                HStack(spacing: 10) {
-                    ForEach(PublishDestination.allCases) { option in
-                        Button {
-                            destination = option
-                            didCompleteShare = false
-                        } label: {
-                            HStack(spacing: 8) {
-                                Image(systemName: option.symbolName)
-                                Text(option.title)
-                            }
-                            .font(.system(.subheadline, design: .rounded).weight(.bold))
-                            .foregroundStyle(destination == option ? Color.white : LookTheme.ink)
-                            .padding(.horizontal, 14)
-                            .padding(.vertical, 12)
-                            .frame(maxWidth: .infinity)
-                            .background(
-                                RoundedRectangle(cornerRadius: 18, style: .continuous)
-                                    .fill(destination == option ? LookTheme.ink : Color.white.opacity(0.6))
-                            )
-                        }
-                        .buttonStyle(.plain)
-                    }
-                }
-
-                Button {
-                    didCompleteShare = true
-                } label: {
-                    Text("模拟发布到\(destination.title)")
-                        .font(.system(.headline, design: .rounded).weight(.bold))
-                        .frame(maxWidth: .infinity)
-                        .padding(.vertical, 15)
-                        .background(
-                            RoundedRectangle(cornerRadius: 24, style: .continuous)
-                                .fill(LookTheme.ink)
-                        )
-                        .foregroundStyle(Color.white)
-                }
-                .buttonStyle(.plain)
-                .accessibilityIdentifier("fakePublishButton")
-
-                if didCompleteShare {
-                    Text("已生成\(destination.title)演示发布页。")
-                        .font(.system(.subheadline, design: .rounded).weight(.bold))
-                        .foregroundStyle(LookTheme.moss)
-                        .accessibilityIdentifier("publishSuccessLabel")
-                }
-            }
-        }
-    }
-
     private func outfitItems(for look: OutfitRecommendation) -> [WardrobeItem] {
         look.itemIds.compactMap { id in
             model.wardrobe.first(where: { $0.id == id })
+        }
+    }
+
+    private func presentSystemCameraIfNeeded() {
+        guard stage == .camera, shouldUseSystemCamera, !hasRequestedSystemCamera else { return }
+        hasRequestedSystemCamera = true
+        DispatchQueue.main.async {
+            isPresentingSystemCamera = true
+        }
+    }
+
+    private func handleSystemCameraDismiss() {
+        if capturedImage != nil {
+            stage = .share
+            return
+        }
+
+        if stage == .camera, shouldUseSystemCamera {
+            dismiss()
+        }
+    }
+}
+
+private struct SystemCameraPicker: UIViewControllerRepresentable {
+    @Binding var capturedImage: UIImage?
+    @Binding var isPresented: Bool
+
+    func makeCoordinator() -> Coordinator {
+        Coordinator(self)
+    }
+
+    func makeUIViewController(context: Context) -> UIImagePickerController {
+        let picker = UIImagePickerController()
+        picker.sourceType = .camera
+        picker.cameraCaptureMode = .photo
+        picker.allowsEditing = false
+        picker.delegate = context.coordinator
+        return picker
+    }
+
+    func updateUIViewController(_ uiViewController: UIImagePickerController, context: Context) {}
+
+    final class Coordinator: NSObject, UINavigationControllerDelegate, UIImagePickerControllerDelegate {
+        private let parent: SystemCameraPicker
+
+        init(_ parent: SystemCameraPicker) {
+            self.parent = parent
+        }
+
+        func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+            parent.isPresented = false
+        }
+
+        func imagePickerController(
+            _ picker: UIImagePickerController,
+            didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey: Any]
+        ) {
+            parent.capturedImage = (info[.originalImage] ?? info[.editedImage]) as? UIImage
+            parent.isPresented = false
         }
     }
 }
@@ -1313,6 +1534,7 @@ private func localizedMood(_ raw: String) -> String {
 
 private struct WardrobeThumbnail: View {
     let item: WardrobeItem
+    var showsTag: Bool = true
 
     var body: some View {
         ZStack {
@@ -1346,8 +1568,10 @@ private struct WardrobeThumbnail: View {
             }
         }
         .overlay(alignment: .topLeading) {
-            TagChip(text: item.category.title, filled: true)
-                .padding(10)
+            if showsTag {
+                TagChip(text: item.category.title, filled: true)
+                    .padding(10)
+            }
         }
     }
 

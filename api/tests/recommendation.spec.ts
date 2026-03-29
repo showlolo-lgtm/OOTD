@@ -316,4 +316,116 @@ describe("api contract", () => {
 
     await app.close();
   });
+
+  it("returns absolute portrait urls from the portrait endpoint", async () => {
+    const app = await buildApp({
+      wardrobe,
+      lookPortraitGenerator: {
+        generate: async () => ({
+          portraits: [
+            {
+              lookId: "mock-look-1",
+              images: [
+                {
+                  id: "mock-look-1-1",
+                  imageUrl: "/generated-look-portraits/mock-look-1.png",
+                  prompt: "demo prompt"
+                }
+              ]
+            }
+          ],
+          warnings: [],
+          source: "preset"
+        })
+      }
+    });
+
+    const response = await app.inject({
+      method: "POST",
+      url: "/v1/look-portraits",
+      headers: {
+        host: "127.0.0.1:8787"
+      },
+      payload: {
+        looks: [
+          {
+            lookId: "mock-look-1",
+            itemIds: ["shirt-oxford-ivory", "trouser-charcoal-wide", "loafer-black-soft"],
+            title: "利落通勤"
+          }
+        ],
+        city: "上海",
+        scenarioTitle: "客户工作坊",
+        weatherSummary: "阵雨贯穿全天，空气偏凉。",
+        fortuneSummary: "用一个稳定的颜色重点，让整体线条更利落。",
+        count: 1
+      }
+    });
+
+    expect(response.statusCode).toBe(200);
+    const body = response.json() as {
+      portraits: Array<{ images: Array<{ imageUrl: string }> }>;
+    };
+    expect(body.portraits[0]?.images[0]?.imageUrl).toBe(
+      "http://127.0.0.1:8787/generated-look-portraits/mock-look-1.png"
+    );
+
+    await app.close();
+  });
+
+  it("rerolls a single look with a contract-safe outfit", async () => {
+    const app = await buildApp({
+      wardrobe,
+      weatherProvider: {
+        getTomorrowWeather: async () => weather
+      },
+      fortuneProvider: {
+        getTomorrowFortune: async () => fortune
+      },
+      inspirationProvider: {
+        getInspiration: async () => inspirations
+      },
+      outfitLLMClient: {
+        generate: async () => []
+      }
+    });
+
+    const response = await app.inject({
+      method: "POST",
+      url: "/v1/recommendations/reroll-look",
+      payload: {
+        date: "2026-03-27",
+        zodiacSign: "aries",
+        location: {
+          city: "Shanghai",
+          lat: 31.2304,
+          lon: 121.4737
+        },
+        scenario,
+        lookId: "look-reroll-1",
+        existingOutfits: [
+          {
+            id: "look-reroll-1",
+            itemIds: ["shirt-oxford-ivory", "trouser-charcoal-wide", "loafer-black-soft"],
+            summary: "已有搭配",
+            whyWeatherFit: "适合下雨。",
+            whyScenarioFit: "适合客户会面。",
+            whyFortuneFit: "呼应幸运色。",
+            inspirationIds: ["xhs-rain-commute"]
+          }
+        ]
+      }
+    });
+
+    expect(response.statusCode).toBe(200);
+    const body = response.json() as {
+      outfit: { id: string; itemIds: string[] };
+    };
+    const wardrobeIds = new Set(wardrobe.map((item) => item.id));
+
+    expect(body.outfit.id).toBe("look-reroll-1");
+    body.outfit.itemIds.forEach((itemId) => expect(wardrobeIds.has(itemId)).toBe(true));
+
+    await app.close();
+  });
 });

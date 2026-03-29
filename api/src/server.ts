@@ -10,9 +10,16 @@ import { AztroFortuneProvider } from "./providers/aztroFortuneProvider.js";
 import { RecommendationService } from "./services/recommendationService.js";
 import { OpenAIOutfitLLMClient, type OutfitLLMClient } from "./services/outfitGenerator.js";
 import {
+  OpenAILookPortraitGenerator,
+  type LookPortraitGenerator
+} from "./services/lookPortraitGenerator.js";
+import {
   ZODIAC_SIGNS,
   type CalendarScenario,
+  type LookPortraitRequest,
+  type LookPortraitResponse,
   type RecommendationRequest,
+  type RerollLookRequest,
   type WardrobeItem
 } from "./types.js";
 import type { FortuneProvider } from "./providers/fortuneProvider.js";
@@ -27,6 +34,7 @@ interface BuildAppOptions {
   fortuneProvider?: FortuneProvider;
   inspirationProvider?: InspirationProvider;
   outfitLLMClient?: OutfitLLMClient;
+  lookPortraitGenerator?: LookPortraitGenerator;
 }
 
 const currentDirectory = dirname(fileURLToPath(import.meta.url));
@@ -89,6 +97,83 @@ function parseRecommendationRequest(body: unknown): RecommendationRequest {
   };
 }
 
+function parseLookPortraitRequest(body: unknown): LookPortraitRequest {
+  if (!body || typeof body !== "object") {
+    throw new Error("Request body must be a JSON object.");
+  }
+
+  const candidate = body as Partial<LookPortraitRequest>;
+  if (
+    !Array.isArray(candidate.looks) ||
+    candidate.looks.length === 0 ||
+    candidate.looks.some(
+      (look) =>
+        !look ||
+        typeof look !== "object" ||
+        typeof look.lookId !== "string" ||
+        !Array.isArray(look.itemIds) ||
+        look.itemIds.some((itemId) => typeof itemId !== "string")
+    )
+  ) {
+    throw new Error("`looks` must include at least one look with itemIds.");
+  }
+
+  if (
+    typeof candidate.city !== "string" ||
+    typeof candidate.scenarioTitle !== "string" ||
+    typeof candidate.weatherSummary !== "string" ||
+    typeof candidate.fortuneSummary !== "string"
+  ) {
+    throw new Error("`city`, `scenarioTitle`, `weatherSummary`, and `fortuneSummary` are required.");
+  }
+
+  if (
+    candidate.count !== undefined &&
+    (!Number.isInteger(candidate.count) || candidate.count < 1 || candidate.count > 4)
+  ) {
+    throw new Error("`count` must be an integer between 1 and 4.");
+  }
+
+  return {
+    looks: candidate.looks,
+    city: candidate.city,
+    scenarioTitle: candidate.scenarioTitle,
+    weatherSummary: candidate.weatherSummary,
+    fortuneSummary: candidate.fortuneSummary,
+    count: candidate.count
+  };
+}
+
+function parseRerollLookRequest(body: unknown): RerollLookRequest {
+  const parsed = parseRecommendationRequest(body);
+  const candidate = body as Partial<RerollLookRequest>;
+
+  if (typeof candidate.lookId !== "string" || !candidate.lookId.trim()) {
+    throw new Error("`lookId` is required.");
+  }
+
+  if (
+    !Array.isArray(candidate.existingOutfits) ||
+    candidate.existingOutfits.length === 0 ||
+    candidate.existingOutfits.some(
+      (outfit) =>
+        !outfit ||
+        typeof outfit !== "object" ||
+        typeof outfit.id !== "string" ||
+        !Array.isArray(outfit.itemIds) ||
+        outfit.itemIds.some((itemId) => typeof itemId !== "string")
+    )
+  ) {
+    throw new Error("`existingOutfits` must include the current recommendation set.");
+  }
+
+  return {
+    ...parsed,
+    lookId: candidate.lookId,
+    existingOutfits: candidate.existingOutfits
+  };
+}
+
 function toAbsoluteWardrobeItems(
   wardrobe: WardrobeItem[],
   protocol: string,
@@ -105,6 +190,25 @@ function toAbsoluteWardrobeItems(
       imageUrl: `${protocol}://${host}${normalized}`
     };
   });
+}
+
+function toAbsoluteLookPortraits(
+  response: LookPortraitResponse,
+  protocol: string,
+  host: string
+): LookPortraitResponse {
+  return {
+    ...response,
+    portraits: response.portraits.map((portrait) => ({
+      ...portrait,
+      images: portrait.images.map((image) => ({
+        ...image,
+        imageUrl: /^https?:\/\//.test(image.imageUrl)
+          ? image.imageUrl
+          : `${protocol}://${host}${image.imageUrl.startsWith("/") ? image.imageUrl : `/${image.imageUrl}`}`
+      }))
+    }))
+  };
 }
 
 function contentTypeFor(fileName: string): string {
@@ -124,7 +228,7 @@ function contentTypeFor(fileName: string): string {
 }
 
 export async function buildApp(options: BuildAppOptions = {}): Promise<FastifyInstance> {
-  const app = Fastify({ logger: false });
+  const app = Fastify({ logger: false, bodyLimit: 20 * 1024 * 1024 });
   const wardrobe = options.wardrobe ?? (await loadWardrobe());
   const inspirations = await loadInspirations();
   const calendarProvider = options.calendarProvider ?? new MockCalendarProvider();
@@ -134,6 +238,12 @@ export async function buildApp(options: BuildAppOptions = {}): Promise<FastifyIn
     options.inspirationProvider ?? new CuratedInspirationProvider(inspirations);
   const outfitLLMClient =
     options.outfitLLMClient ?? new OpenAIOutfitLLMClient(process.env.OPENAI_API_KEY);
+  const lookPortraitGenerator =
+    options.lookPortraitGenerator ??
+    new OpenAILookPortraitGenerator({
+      apiKey: process.env.OPENAI_API_KEY,
+      wardrobe
+    });
   const recommendationService = new RecommendationService({
     wardrobe,
     weatherProvider,
@@ -171,6 +281,36 @@ export async function buildApp(options: BuildAppOptions = {}): Promise<FastifyIn
     }
   });
 
+  app.get("/generated-look-portraits/:fileName", async (request, reply) => {
+    const params = request.params as { fileName?: string };
+    const fileName = params.fileName;
+
+    if (!fileName || basename(fileName) !== fileName) {
+      return reply.code(400).send({ error: "Invalid portrait asset name." });
+    }
+
+    try {
+      const portraitDirectories = generatedImagesDirectories.map((directory) =>
+        resolve(dirname(directory), "look-portraits")
+      );
+
+      for (const directory of portraitDirectories) {
+        try {
+          const fileBuffer = await readFile(resolve(directory, fileName));
+          return reply.type(contentTypeFor(fileName)).send(fileBuffer);
+        } catch (error) {
+          if ((error as NodeJS.ErrnoException).code !== "ENOENT") {
+            throw error;
+          }
+        }
+      }
+
+      return reply.code(404).send({ error: "Portrait asset not found." });
+    } catch {
+      return reply.code(500).send({ error: "Portrait asset lookup failed." });
+    }
+  });
+
   app.get("/v1/wardrobe", async (request) => ({
     items: toAbsoluteWardrobeItems(
       wardrobe,
@@ -190,6 +330,33 @@ export async function buildApp(options: BuildAppOptions = {}): Promise<FastifyIn
     } catch (error) {
       return reply.code(400).send({
         error: error instanceof Error ? error.message : "Invalid recommendation request."
+      });
+    }
+  });
+
+  app.post("/v1/recommendations/reroll-look", async (request, reply) => {
+    try {
+      const parsed = parseRerollLookRequest(request.body);
+      return await recommendationService.rerollLook(parsed);
+    } catch (error) {
+      return reply.code(400).send({
+        error: error instanceof Error ? error.message : "Invalid reroll request."
+      });
+    }
+  });
+
+  app.post("/v1/look-portraits", async (request, reply) => {
+    try {
+      const parsed = parseLookPortraitRequest(request.body);
+      const response = await lookPortraitGenerator.generate(parsed);
+      return toAbsoluteLookPortraits(
+        response,
+        request.protocol,
+        request.headers.host ?? "127.0.0.1:8787"
+      );
+    } catch (error) {
+      return reply.code(400).send({
+        error: error instanceof Error ? error.message : "Invalid look portrait request."
       });
     }
   });
