@@ -5,6 +5,7 @@ import type { WeatherProvider } from "../providers/weatherProvider.js";
 import type {
   FortuneSnapshot,
   ContextSnapshot,
+  OutfitRecommendation,
   RerollLookRequest,
   RerollLookResponse,
   RecommendationRequest,
@@ -47,6 +48,73 @@ function fallbackFortune(sign: RecommendationRequest["zodiacSign"]): FortuneSnap
   };
 }
 
+function routeTypeFor(outfit: OutfitRecommendation, wardrobeMap: Map<string, WardrobeItem>): string {
+  const items = outfit.itemIds
+    .map((itemId) => wardrobeMap.get(itemId))
+    .filter((item): item is WardrobeItem => Boolean(item));
+
+  if (items.some((item) => item.category === "dress")) {
+    return "dress";
+  }
+
+  if (items.some((item) => item.category === "outerwear")) {
+    return "layered";
+  }
+
+  return "separates";
+}
+
+function personaFor(outfit: OutfitRecommendation, wardrobeMap: Map<string, WardrobeItem>): string {
+  const items = outfit.itemIds
+    .map((itemId) => wardrobeMap.get(itemId))
+    .filter((item): item is WardrobeItem => Boolean(item));
+
+  return items.find((item) => item.metadata?.stylePersona)?.metadata?.stylePersona ?? "neutral";
+}
+
+function overlapFor(left: OutfitRecommendation, right: OutfitRecommendation): number {
+  const rightIds = new Set(right.itemIds);
+  return left.itemIds.filter((itemId) => rightIds.has(itemId)).length;
+}
+
+function pickDiverseOutfits(
+  outfits: OutfitRecommendation[],
+  wardrobe: WardrobeItem[],
+  count: number
+): OutfitRecommendation[] {
+  const wardrobeMap = new Map(wardrobe.map((item) => [item.id, item]));
+  const remaining = [...outfits];
+  const selected: OutfitRecommendation[] = [];
+
+  while (selected.length < count && remaining.length > 0) {
+    let bestIndex = 0;
+    let bestScore = Number.NEGATIVE_INFINITY;
+
+    for (const [index, outfit] of remaining.entries()) {
+      const routeBonus = selected.every((picked) => routeTypeFor(picked, wardrobeMap) !== routeTypeFor(outfit, wardrobeMap))
+        ? 8
+        : 0;
+      const personaBonus = selected.every((picked) => personaFor(picked, wardrobeMap) !== personaFor(outfit, wardrobeMap))
+        ? 5
+        : 0;
+      const overlapPenalty = selected.reduce(
+        (highest, picked) => Math.max(highest, overlapFor(outfit, picked)),
+        0
+      );
+      const score = routeBonus + personaBonus - overlapPenalty * 6;
+
+      if (score > bestScore) {
+        bestScore = score;
+        bestIndex = index;
+      }
+    }
+
+    selected.push(remaining.splice(bestIndex, 1)[0]!);
+  }
+
+  return selected;
+}
+
 export class RecommendationService {
   constructor(private readonly deps: RecommendationServiceDeps) {}
 
@@ -59,16 +127,21 @@ export class RecommendationService {
     if (this.deps.outfitLLMClient) {
       for (let attempt = 1; attempt <= 2 && outfits.length < 3; attempt += 1) {
         try {
-          const drafts = await this.deps.outfitLLMClient.generate({
-            ...context,
-            wardrobe: this.deps.wardrobe
-          });
+          const drafts = await this.deps.outfitLLMClient.generate(
+            {
+              ...context,
+              wardrobe: this.deps.wardrobe
+            },
+            {
+              count: 5
+            }
+          );
           const validated = validateOutfitDrafts(drafts, {
             ...context,
             wardrobe: this.deps.wardrobe
           });
           warnings.push(...validated.warnings.map((warning) => `第 ${attempt} 次尝试：${warning}`));
-          outfits = validated.outfits.slice(0, 3);
+          outfits = pickDiverseOutfits(validated.outfits, this.deps.wardrobe, 3);
         } catch (error) {
           void error;
           warnings.push(`第 ${attempt} 次尝试：AI 生成穿搭失败。`);

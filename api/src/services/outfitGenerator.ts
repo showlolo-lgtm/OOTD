@@ -192,6 +192,66 @@ function scoreOutfit(items: WardrobeItem[], scored: Map<string, number>): number
   return items.reduce((total, item) => total + (scored.get(item.id) ?? 0), 0);
 }
 
+function outfitRouteType(items: WardrobeItem[]): "dress" | "layered" | "separates" {
+  if (items.some((item) => item.category === "dress")) {
+    return "dress";
+  }
+
+  if (items.some((item) => item.category === "outerwear")) {
+    return "layered";
+  }
+
+  return "separates";
+}
+
+function outfitStylePersona(items: WardrobeItem[]): string {
+  return (
+    items
+      .map((item) => normalizeToken(item.metadata?.stylePersona ?? ""))
+      .find((value) => value.length > 0) ?? "neutral"
+  );
+}
+
+function overlapCount(left: WardrobeItem[], right: WardrobeItem[]): number {
+  const rightIds = new Set(right.map((item) => item.id));
+  return left.filter((item) => rightIds.has(item.id)).length;
+}
+
+function pickDiverseResults(
+  results: Array<{ items: WardrobeItem[]; score: number }>,
+  count: number
+): Array<{ items: WardrobeItem[]; score: number }> {
+  const remaining = [...results];
+  const selected: Array<{ items: WardrobeItem[]; score: number }> = [];
+
+  while (selected.length < count && remaining.length > 0) {
+    let bestIndex = 0;
+    let bestScore = Number.NEGATIVE_INFINITY;
+
+    for (const [index, candidate] of remaining.entries()) {
+      const route = outfitRouteType(candidate.items);
+      const persona = outfitStylePersona(candidate.items);
+      const routeBonus = selected.every((picked) => outfitRouteType(picked.items) !== route) ? 8 : 0;
+      const personaBonus =
+        selected.every((picked) => outfitStylePersona(picked.items) !== persona) ? 5 : 0;
+      const overlapPenalty = selected.reduce(
+        (highest, picked) => Math.max(highest, overlapCount(candidate.items, picked.items)),
+        0
+      );
+      const finalScore = candidate.score + routeBonus + personaBonus - overlapPenalty * 6;
+
+      if (finalScore > bestScore) {
+        bestScore = finalScore;
+        bestIndex = index;
+      }
+    }
+
+    selected.push(remaining.splice(bestIndex, 1)[0]!);
+  }
+
+  return selected;
+}
+
 export function buildFallbackOutfits(
   input: OutfitGenerationInput,
   count: number,
@@ -251,8 +311,10 @@ export function buildFallbackOutfits(
   const weatherLine = summariseWeatherWindow(input.weather);
   const inspirationIds = input.inspiration.slice(0, 2).map((item) => item.id);
 
-  return results
-    .sort((left, right) => right.score - left.score)
+  return pickDiverseResults(
+    results.sort((left, right) => right.score - left.score),
+    Math.max(count * 3, count)
+  )
     .filter(({ items }) => hasCoreSilhouette(items))
     .map(({ items }, index) => {
       const itemIds = items.map((item) => item.id);
@@ -299,7 +361,9 @@ export class OpenAIOutfitLLMClient implements OutfitLLMClient {
       colors: item.colors,
       formality: item.formality,
       warmth: item.warmth,
-      tags: item.tags
+      tags: item.tags,
+      subcategory: item.metadata?.subcategory,
+      stylePersona: item.metadata?.stylePersona
     }));
 
     const prompt = {
@@ -317,6 +381,9 @@ export class OpenAIOutfitLLMClient implements OutfitLLMClient {
         "每套穿搭只能使用现有 wardrobe item id。",
         `${desiredCount} 套穿搭必须彼此不同。`,
         "每套都必须满足 top+bottom+shoes 或 dress+shoes。",
+        "三套在轮廓、风格人格、主单品和鞋型上都要明显拉开，不要只是同一套换包。",
+        "如果衣柜允许，优先覆盖：一套裤装、一套裙装或连衣裙路线、一套带外套层次的路线。",
+        "除非衣柜非常有限，否则不要让三套反复使用同一件核心上装或同一条下装。",
         "所有面向用户的文案都必须使用简体中文。",
         "天气、场景、运势三个理由都要明确写出来。"
       ],

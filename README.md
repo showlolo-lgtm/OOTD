@@ -20,9 +20,47 @@ Optional env:
 
 - `OPENAI_API_KEY`: 启用真实 AI 穿搭生成；未配置时自动走 deterministic fallback。
 - `OPENAI_MODEL`: 可选，默认 `gpt-4.1-mini`。
+- `OPENAI_IMAGE_MODEL`: 可选，真人效果图默认 `gpt-image-1.5`。
 - `PORT`: API 端口，默认 `8787`。
 - `WARDROBE_DATA_FILE`: 可选，默认 `wardrobe.json`。如需切到批量生成衣柜，设为 `generated/wardrobe.generated.json`。
 - `INSPIRATIONS_DATA_FILE`: 可选，默认 `inspirations.json`。
+- `OOTD_MODEL_REFERENCE_IMAGE_PATH`: 可选，真人参考图绝对路径。不填时会自动读取 `data/reference/model-reference.jpg`。
+
+## 真人效果图
+
+首页的人物穿搭图现在走固定参考图链路：
+
+1. 后端先拿到 3 套穿搭
+2. 再按卡片逐张调用 OpenAI 生成真人效果图
+3. 每套默认只生成 `1` 张，避免首屏超时
+
+默认参考图位置：
+
+- `data/reference/model-reference.jpg`
+
+也支持：
+
+- `data/reference/model-reference.jpeg`
+- `data/reference/model-reference.png`
+- `data/reference/reference.jpg`
+- `data/reference/reference.jpeg`
+- `data/reference/reference.png`
+
+本地启动一个完整链路的例子：
+
+```bash
+cd /Users/yulei/Code/ootd/api
+OPENAI_API_KEY=sk-... pnpm start
+```
+
+如果你不想把参考图放进仓库，可以显式指定：
+
+```bash
+cd /Users/yulei/Code/ootd/api
+OPENAI_API_KEY=sk-... \
+OOTD_MODEL_REFERENCE_IMAGE_PATH=/绝对路径/你的真人图.jpg \
+pnpm start
+```
 
 ## Generate Wardrobe Seeds
 
@@ -110,7 +148,13 @@ OPENAI_API_KEY=sk-... pnpm generate:wardrobe --mode openai --seed 20260328 --cat
 5. 在 Railway 的 Variables 里设置：
 ```text
 WARDROBE_DATA_FILE=generated/wardrobe.generated.json
-PORT=8787
+OPENAI_API_KEY=sk-...
+```
+
+如果你不把参考图提交进仓库，才需要额外设置：
+
+```text
+OOTD_MODEL_REFERENCE_IMAGE_PATH=/app/data/reference/model-reference.jpg
 ```
 
 6. 部署完成后，打开 Railway 分配给你的公网 URL
@@ -120,9 +164,9 @@ PORT=8787
 
 重要说明：
 
-- 对这次 demo，Railway 上不需要 `OPENAI_API_KEY`，因为图片已经在本地生成完并随仓库一起部署。
-- 不建议把 token 写死进代码或提交到 Git。即使是短期 demo，也更稳的是本地生成完图片再上传。
-- 如果后面你又重新生成了一批图片，需要重新提交 `data/generated` 后再触发 Railway redeploy。
+- `OPENAI_API_KEY` 应该只放在 Railway Variables，不要写进代码或提交到 Git。
+- 如果你把 `data/reference/model-reference.jpg` 提交进仓库，Railway redeploy 后会自动拿到这张参考图。
+- 如果后面你又重新生成了一批衣柜图片，或替换了参考图，需要重新提交对应文件并触发 Railway redeploy。
 
 ## Open the iOS app
 
@@ -131,3 +175,8 @@ PORT=8787
 3. 如需指向非默认 API 地址，给 app 设置环境变量 `OOTD_API_BASE_URL`
 
 默认客户端会请求 `http://127.0.0.1:8787`。UI tests 会通过 launch argument 自动切到本地 fixture，不依赖后端。
+
+补充：
+
+- app build 时会自动把 `data/generated/images/*` 打包进资源。
+- 如果存在 `data/reference/model-reference.jpg`，也会一起打进 app bundle。

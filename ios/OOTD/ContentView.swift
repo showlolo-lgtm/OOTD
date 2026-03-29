@@ -351,7 +351,7 @@ private struct OutfitFeedCard: View {
                         isGenerating: isGeneratingPortraits,
                         onReroll: onReroll
                     )
-                        .frame(height: 230)
+                        .frame(maxWidth: .infinity, alignment: .leading)
                         .accessibilityIdentifier("lookPortrait_\(index)")
 
                     Text(styleTitle)
@@ -412,22 +412,7 @@ private struct LookPortraitPanel: View {
 
     var body: some View {
         ZStack(alignment: .topTrailing) {
-            Group {
-                if let portraitURL = portraitURLs.first {
-                    AsyncImage(url: portraitURL) { phase in
-                        switch phase {
-                        case let .success(image):
-                            image
-                                .resizable()
-                                .scaledToFill()
-                        default:
-                            OutfitPortraitView(items: fallbackItems)
-                        }
-                    }
-                } else {
-                    OutfitPortraitView(items: fallbackItems)
-                }
-            }
+            portraitContent
 
             if showsAction && !isGenerating {
                 Button(action: onReroll) {
@@ -450,10 +435,6 @@ private struct LookPortraitPanel: View {
                 .transition(.move(edge: .top).combined(with: .opacity))
             }
 
-            if isGenerating {
-                AIGeneratingOverlay()
-                    .transition(.opacity)
-            }
         }
         .clipShape(RoundedRectangle(cornerRadius: 24, style: .continuous))
         .contentShape(RoundedRectangle(cornerRadius: 24, style: .continuous))
@@ -467,6 +448,37 @@ private struct LookPortraitPanel: View {
             if newValue {
                 showsAction = false
             }
+        }
+    }
+
+    @ViewBuilder
+    private var portraitContent: some View {
+        if isGenerating {
+            AIGeneratingOverlay()
+                .aspectRatio(1, contentMode: .fit)
+                .transition(.opacity)
+        } else if let portraitURL = portraitURLs.first {
+            AsyncImage(url: portraitURL) { phase in
+                switch phase {
+                case let .success(image):
+                    image
+                        .resizable()
+                        .scaledToFit()
+                        .frame(maxWidth: .infinity)
+                case .empty:
+                    AIGeneratingOverlay()
+                        .aspectRatio(1, contentMode: .fit)
+                case .failure:
+                    OutfitPortraitView(items: fallbackItems)
+                        .aspectRatio(1, contentMode: .fit)
+                @unknown default:
+                    OutfitPortraitView(items: fallbackItems)
+                        .aspectRatio(1, contentMode: .fit)
+                }
+            }
+        } else {
+            OutfitPortraitView(items: fallbackItems)
+                .aspectRatio(1, contentMode: .fit)
         }
     }
 }
@@ -854,18 +866,50 @@ private struct BottomDock: View {
 private struct WardrobeGallery: View {
     @ObservedObject var model: AppModel
     let onGoHome: () -> Void
+    @State private var selectedFilter: WardrobeFilter = .all
 
     private let columns = [
         GridItem(.adaptive(minimum: 160), spacing: 14)
     ]
 
+    private var filteredWardrobe: [WardrobeItem] {
+        model.wardrobe.filter { item in
+            selectedFilter.matches(item)
+        }
+    }
+
     var body: some View {
         ScrollView {
             VStack(alignment: .leading, spacing: 18) {
-                SectionHeader(title: "衣橱", subtitle: "把你已有的单品先收好。", onGoHome: onGoHome)
+                SectionHeader(title: "衣橱", subtitle: "我的所有单品", onGoHome: onGoHome)
+
+                ScrollView(.horizontal, showsIndicators: false) {
+                    HStack(spacing: 10) {
+                        ForEach(WardrobeFilter.allCases) { filter in
+                            Button {
+                                withAnimation(.spring(response: 0.24, dampingFraction: 0.82)) {
+                                    selectedFilter = filter
+                                }
+                            } label: {
+                                Text(filter.title)
+                                    .font(.system(.subheadline, design: .rounded).weight(.bold))
+                                    .foregroundStyle(selectedFilter == filter ? Color.white : LookTheme.ink.opacity(0.78))
+                                    .padding(.horizontal, 14)
+                                    .padding(.vertical, 10)
+                                    .background(
+                                        Capsule(style: .continuous)
+                                            .fill(selectedFilter == filter ? LookTheme.ink : Color.white.opacity(0.7))
+                                    )
+                            }
+                            .buttonStyle(.plain)
+                            .accessibilityIdentifier("wardrobeFilter_\(filter.rawValue)")
+                        }
+                    }
+                    .padding(.vertical, 2)
+                }
 
                 LazyVGrid(columns: columns, spacing: 14) {
-                    ForEach(model.wardrobe) { item in
+                    ForEach(filteredWardrobe) { item in
                         SurfaceCard {
                             WardrobeThumbnail(item: item)
                                 .frame(height: 156)
@@ -898,6 +942,60 @@ private struct WardrobeGallery: View {
             .padding(.bottom, 20)
         }
         .scrollIndicators(.hidden)
+    }
+}
+
+private enum WardrobeFilter: String, CaseIterable, Identifiable {
+    case all
+    case shirt
+    case knitwear
+    case skirt
+    case pants
+    case outerwear
+    case shoes
+    case bags
+    case accessories
+
+    var id: String { rawValue }
+
+    var title: String {
+        switch self {
+        case .all: "全部"
+        case .shirt: "衬衫"
+        case .knitwear: "毛衣"
+        case .skirt: "裙子"
+        case .pants: "裤子"
+        case .outerwear: "外套"
+        case .shoes: "鞋子"
+        case .bags: "包袋"
+        case .accessories: "配饰"
+        }
+    }
+
+    func matches(_ item: WardrobeItem) -> Bool {
+        guard self != .all else { return true }
+        let subcategory = item.metadata?.subcategory ?? ""
+
+        switch self {
+        case .all:
+            return true
+        case .shirt:
+            return subcategory.contains("衬衫")
+        case .knitwear:
+            return subcategory.contains("针织")
+        case .skirt:
+            return subcategory.contains("裙") || item.category == .dress
+        case .pants:
+            return subcategory.contains("裤")
+        case .outerwear:
+            return item.category == .outerwear || subcategory.contains("外套") || subcategory.contains("风衣") || subcategory.contains("大衣")
+        case .shoes:
+            return item.category == .shoes
+        case .bags:
+            return subcategory.contains("包")
+        case .accessories:
+            return item.category == .accessory && !subcategory.contains("包")
+        }
     }
 }
 
